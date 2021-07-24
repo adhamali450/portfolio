@@ -1,0 +1,56 @@
+.contact
+    .core
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+
+        grid-gap: 3rem
+
+        //padding-bottom is different for the send message button
+        padding: 1.5rem 1.5rem 2.5rem 1.5rem
+
+        -webkit-backdrop-filter: blur(30px)
+        backdrop-filter: blur(30px)
+        background-color: rgba(25, 25, 25, 0.6)
+        border-radius: 10px
+        .contact-info
+            display: flex
+            flex-direction: column
+            grid-gap: 1rem
+            .contact-card
+                .card-value
+                    margin-top: 0.5rem
+                    opacity: 0.7
+                    font-weight: 400
+            .social
+                .network
+                    border-radius: 100%
+                    margin-right: 0.25rem
+                    img
+                        +size(45px, 45px)
+                        border-radius: inherit
+        .form
+            display: flex
+            flex-direction: column
+            grid-gap: 0.5rem
+            align-items: flex-end
+        #btn-send
+            +absolute-center()
+            top: 100%
+
+@media screen and (max-width: $laptop)
+    .contact
+        .core
+            flex-wrap: wrap
+
+            .contact-info
+                .social .network
+                    img
+                        +size(40px, 40px)
+
+@media screen and (max-width: $tablet1)
+    .contact .core .contact-info
+        .social .network
+            img
+                +size(35px, 35px)

@@ -1,0 +1,107 @@
+.work
+    .cards
+        width: 95%
+        margin: 0 0 0 auto
+        padding: calc( 48px + 5px ) 0
+        display: flex
+        align-items: center
+        overflow-x: auto
+        .card
+            display: flex
+            flex-direction: column
+            grid-gap: 0.75rem
+            padding: 1.5rem
+
+            min-width: 300px
+            min-height: 500px
+
+            width: 550px
+            height: 500px
+
+            border-radius: 25px
+            background-color: #191919
+
+            transition: transform .2s
+
+            scroll-snap-align: start
+            clear: both
+            position: relative
+            &:hover
+                transform: translateY(-1.5rem)
+                .work-done img
+                    filter: brightness(1) invert(0)
+
+            &:not(:first-child)
+                margin-left: -200px
+                box-shadow: -1px 0px 48px rgba(0, 0, 0, 1)
+            header
+                display: flex
+                align-items: center
+                grid-gap: 1rem
+                .mobile-emoji
+                    font-size: 35px
+                    display: none
+                a
+                    .card-name
+                        font-weight: 800
+                        position: relative
+                        color: var(--primary-purple)
+                        &:hover
+                            filter: brightness(0.8)
+                        .desktop-emoji
+                            font-size: 85%
+                .year
+                    background-color: var(--primary-green)
+                    color: rgba(0, 0, 0, 0.7)
+                    padding: 0.1rem 0.2rem
+                    border-radius: 5px
+
+            .work-done
+                flex-grow: 1
+                display: flex
+                align-items: flex-start
+                img
+                    margin-right: 10px
+                    +size(40px, 40px)
+                    filter: brightness(0) invert(1)
+                    &:hover
+                        filter: brightness(1) invert(0)
+
+        .card:focus-within~.card, .card:hover~.card
+            transform: translateX(180px)
+        .tbc
+            margin: 0 2.5rem
+            h3
+                font-weight: 800
+            img
+                +size(120px, auto)
+
+@media screen and ( max-width: $tablet1)
+    .work
+        .cards
+            .card
+                min-height: 375px
+                height: 375px
+                .work-done img
+                    +size(35px, 35px)
+
+@media screen and ( max-width: $tablet2)
+    .work .cards .card
+        header
+            display: grid
+
+            grid-template-rows: repeat(2, 1fr)
+
+            grid-row-gap: 0rem
+            grid-column-gap: 0.75rem
+            .card-name
+                grid-row: 2/3
+                .desktop-emoji
+                    display: none
+            .mobile-emoji
+                grid-row: 1/2
+                display: inline-block
+                margin-right: 0.5rem
+            .year
+                grid-row: 1/2
+                justify-self: right

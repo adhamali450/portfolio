@@ -1,0 +1,71 @@
+.root
+    //======================//
+    //PRIMARY COLOR PALETTE //
+    //======================//
+    --primary-pink: #F35E84
+    --primary-purple: #6E82F9
+    --primary-green: #9FFBCE
+
+    //===================//
+    //PRIMARY GRADIENTS //
+    //==================//
+    --pink-purple-grd: linear-gradient(90deg, var(--primary-pink) 0%, #AF70C0 50%, var(--primary-purple) 100%)
+    --purple-green-grd: linear-gradient(90deg, var(--primary-purple) 0%, #22B9FF 50.31%, #A6FFD8 100%, var(--primary-green) 100%)
+
+    //==================//
+    //BUTTONS GRADIENTS //
+    //=================//
+    --btn-pink-purple-grd: linear-gradient(90deg, var(--primary-pink) 0%, var(--primary-pink) 50%, var(--primary-purple) 100%)
+    --btn-pink-purple-grd-border: linear-gradient(90deg, #FE3064 0, #FE3064 50%, #415CFF 100%)
+
+    //====================//
+    //SECONDARY GRADIENTS //
+    //====================//
+    // Either not often used or made for special cases 
+    --red-grd: linear-gradient(45deg, #FF6181 -4.56%, #C41F40 90.23%)
+    --hobbies-border-grd: linear-gradient(90deg, #d1ffe8 0%, rgba(0,0,0, 0) 25%, rgba(0,0,0, 0) 75%, #862DF7 100%)
+    --contact-border-grd: linear-gradient(105.8deg, #d1ffe8 0%, rgba(0,0,0, 0) 25%, rgba(0,0,0, 0) 75%, #862DF7 100%)
+    --thumb-grd: linear-gradient(180deg, var(--primary-pink) 0%, var(--primary-purple) 100%)
+
+.dark
+    @extend .root
+
+    //Main background and foreground for this theme
+    --bg: #000
+    --fg: #fff
+
+    background-color: var(--bg)
+    color: var(--fg)
+    h1, h2
+        +fillGrd()
+    a
+        color: var(--fg)
+    .btn
+        color: var(--fg)
+        +btn-border-grd()
+        box-shadow: 0 1px 15px rgba(240,95,135, 0.5)
+        transition: background-position 0.3s, box-shadow 0.3s
+        &:hover
+            box-shadow: 0 1px 35px rgba(240,95,135, 0.5)
+
+    .btn-primary
+        background-image: var(--btn-pink-purple-grd)
+        background-size: 200% auto
+        background-position: right center
+        img
+            transition: transform 0.3s
+        &:hover
+            background-position: left center
+            img
+                transform: translateX(5px)
+
+    .btn-secondary
+        background-color: var(--bg)
+
+    input[type = text], textarea
+        // // background-color: rgba(255, 255, 255, 0.1)
+        // // color: rgba(255, 255, 255, 0.3)
+        // background-color: #303030
+
+        background-color: transparent
+        color: #c4c4c4

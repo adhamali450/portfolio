@@ -1,0 +1,138 @@
+// Poppins
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500;600;800&display=swap')
+
+*
+    //font smoothing
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    text-rendering: optimizeLegibility
+
+    font-family: 'Poppins', sans-serif
+
+//form factors (not exact)
+$laptop: 1116px
+$tablet1: 750px
+$tablet2: 650px
+$phone1: 475px
+$phone2: 360px
+$foldable: 280px
+
+=major-third
+    h1
+        font-size: 3.052rem
+    h2
+        font-size: 2.441rem
+    h3
+        font-size: 1.953rem
+    h4
+        font-size: 1.563rem
+    h5,
+
+        font-size: 1.25rem
+    h6
+        font-size: 0.8rem
+    .btn,
+    input[type = submit],
+    input[type = text],
+    textarea
+        font-size: 0.8rem
+    small
+        font-size: 0.7rem
+
+=minor-third()
+    h1
+        font-size: 2.488rem
+    h2
+        font-size: 2.074rem
+    h3
+        font-size: 1.728rem
+    h4
+        font-size: 1.44rem
+    h5,
+
+        font-size: 1.2rem
+    h6
+        font-size: 0.75rem
+    .btn,
+    input[type = submit],
+    input[type = text],
+    textarea
+        font-size: 0.8rem
+    small
+        font-size: 0.833rem
+
+html
+    font-size: 175% //28px
+body
+    +major-third()
+
+//Font weights and line heights
+p
+    font-weight: 400
+
+h1, h2
+    line-height: 110%
+    font-weight: 800
+
+h3
+    line-height: 110%
+    font-weight: 400
+
+h4
+    line-height: 100%
+    font-weight: 600
+
+h5
+    font-weight: 400
+    line-height: 120%
+
+h6
+    font-weight: 500
+
+=left-align-text-inputs
+    input[type = submit],
+    input[type = text],
+    textarea
+        text-align: left
+
+=left-align-project-cards
+    .work .cards .card
+        *
+            text-align: left
+
+=center-align
+    *
+        text-align: center
+
+    +left-align-text-inputs()
+    +left-align-project-cards()
+
+@media screen and ( min-width: $laptop )
+    html
+        font-size: 175%
+
+@media screen and ( max-width: $laptop )
+    html
+        font-size: 150%
+
+@media screen and ( max-width: $tablet1 )
+    html
+        font-size: 125%
+
+@media screen and ( max-width: $tablet2 )
+    +center-align()
+    html
+        font-size: 110%
+
+@media screen and ( max-width: $phone1 )
+    body
+        +minor-third()
+    html
+        font-size: 110%
+
+@media screen and ( max-width: $phone2 )
+    html
+        font-size: 100%
+
+//  Any custom typography will be written in it's place
+//  and not here

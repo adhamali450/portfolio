@@ -1,0 +1,47 @@
+=absolute-center()
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+=grid-center()
+    display: grid
+    place-items: center
+
+=fillGrd($grd: var(--pink-purple-grd))
+    background: $grd
+    color: transparent
+    -webkit-background-clip: text
+    background-clip: text
+    display: table-cell
+
+=btn-border-grd($grd: var(--btn-pink-purple-grd-border))
+    &::after
+        content: ''
+        position: absolute
+
+        top: calc(-1 * 2px)
+        left: calc(-1 * 2px)
+        height: calc(100% + 2px * 2)
+        width: calc(100% + 2px * 2)
+
+        border-radius: inherit
+        z-index: -1
+
+        background-image: $grd
+        background-size: 200% auto
+        background-position: right center
+
+        transition: inherit
+
+    &:hover::after
+        background-position: left center
+
+=space-me-ps($gap: 1rem)
+    &:not(:first-child)
+        margin-top: $gap
+
+//Generic Mixins    
+=size($width, $height)
+    width: $width
+    height: $height
