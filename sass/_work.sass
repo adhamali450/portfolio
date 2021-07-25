@@ -2,54 +2,65 @@
     .cards
         width: 95%
         margin: 0 0 0 auto
-        padding: calc( 48px + 5px ) 0
-        display: flex
-        align-items: center
+        +flex(start, center)
+        padding: 0 0 1rem 0
         overflow-x: auto
+        +apply-cards-effect()
         .card
-            display: flex
-            flex-direction: column
-            grid-gap: 0.75rem
-            padding: 1.5rem
+            +size(470px, 500px)
 
-            min-width: 300px
-            min-height: 500px
-
-            width: 550px
-            height: 500px
+            flex-shrink: 0
 
             border-radius: 25px
             background-color: #191919
 
-            transition: transform .2s
-
             scroll-snap-align: start
             clear: both
-            position: relative
-            &:hover
-                transform: translateY(-1.5rem)
-                .work-done img
-                    filter: brightness(1) invert(0)
 
-            &:not(:first-child)
-                margin-left: -200px
-                box-shadow: -1px 0px 48px rgba(0, 0, 0, 1)
-            header
-                display: flex
-                align-items: center
+            overflow: hidden
+            position: relative
+            .card-core, .card-preview
+                +size(100%, 100%)
+            .card-preview
+                +flex(center, center)
+                flex-direction: column
                 grid-gap: 1rem
-                .mobile-emoji
-                    font-size: 35px
-                    display: none
-                a
+                .card-name
+                    text-align: center !important
+                    //prevent extending the card-name
+                    //to the whole container
+                    //(make it wrap at a certain point)
+                    width: 85%
+                img
+                    +size(130px, 130px)
+                    filter: drop-shadow(0 0 100px #000)
+            .card-core
+                display: flex
+                flex-direction: column
+                grid-gap: 0.75rem
+                padding: 1.5rem
+            .card-name
+                font-weight: 800
+                color: var(--primary-purple)
+            header
+                display: grid
+                grid-template-columns: auto 1fr auto
+                grid-gap: 0.5rem
+                align-items: center
+                .header-emoji
+                    width: 50px
+                .card-name-clickable
+                    display: flex
+                    grid-gap: 0.1rem
                     .card-name
-                        font-weight: 800
-                        position: relative
-                        color: var(--primary-purple)
-                        &:hover
-                            filter: brightness(0.8)
-                        .desktop-emoji
-                            font-size: 85%
+                        width: min-content
+                    .icon-arrow
+                        transition: transform 0.3s
+
+                    &:hover
+                        filter: brightness(0.8)
+                        img
+                            transform: translateX(7px)
                 .year
                     background-color: var(--primary-green)
                     color: rgba(0, 0, 0, 0.7)
@@ -67,8 +78,6 @@
                     &:hover
                         filter: brightness(1) invert(0)
 
-        .card:focus-within~.card, .card:hover~.card
-            transform: translateX(180px)
         .tbc
             margin: 0 2.5rem
             h3
@@ -76,32 +85,47 @@
             img
                 +size(120px, auto)
 
-@media screen and ( max-width: $tablet1)
+@media screen and ( max-width: $laptop) //1116px
+    .work .cards .card
+        --overlaying-margin: 220px
+        +size(350px, 450px)
+        .card-preview
+            img
+                +size(90px, 90px)
+@media screen and ( max-width: $tablet1) //750px
     .work
         .cards
             .card
-                min-height: 375px
-                height: 375px
+                --overlaying-margin: 210px
+                +size(300px, 375px)
+                .card-preview
+                    img
+                        +size(80px, 80px)
+                header .header-emoji
+                    width: 40px
                 .work-done img
                     +size(35px, 35px)
 
-@media screen and ( max-width: $tablet2)
-    .work .cards .card
-        header
-            display: grid
-
-            grid-template-rows: repeat(2, 1fr)
-
-            grid-row-gap: 0rem
-            grid-column-gap: 0.75rem
-            .card-name
-                grid-row: 2/3
-                .desktop-emoji
-                    display: none
-            .mobile-emoji
-                grid-row: 1/2
-                display: inline-block
-                margin-right: 0.5rem
-            .year
-                grid-row: 1/2
-                justify-self: right
+@media screen and ( max-width: $laptop) //650px
+    .work .cards
+        .card
+            --overlaying-margin: 170px
+            +size(280   px, 350px)
+            header
+                grid-template-rows: auto 1fr
+                grid-template-columns: auto auto 1fr
+                grid-column-gap: 0rem
+                .header-emoji
+                    grid-row: 1/2
+                    grid-column: 1/2
+                    display: inline-block
+                    width: 35px
+                .card-name-clickable
+                    grid-row: 2/3 !important
+                    grid-row: 1/4
+                    .desktop-emoji
+                        display: none
+                .year
+                    grid-row: 1/2
+                    grid-column: 3/4
+                    justify-self: right

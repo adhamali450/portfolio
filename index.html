@@ -231,62 +231,81 @@
 
             <section class="cards">
                 <article class="card">
-                    <header>
-                        <a href="#">
-                            <h3 class="card-name">
-                                <emoji class="desktop-emoji">⚔️</emoji>
-                                 Monster Slayer
-                            </h3>
+                    <div class="card-preview">
+                        <img class="preview-emoji" src="assets/emojis/axe.png" alt="Dice"/>
+                        <h3 class="card-name">Monster Slayer</h3>
+                    </div>
+
+                    <div class="card-core">
+                        <header>
+                        <img class="header-emoji" src="assets/emojis/axe.png" alt="Dice"/>
+                        <a class = "card-name-clickable" href="#">
+                            <h3 class="card-name">Monster Slayer</h3>
+                            <img class="icon-arrow" src="assets/card-arrow.svg" alt="View project">
                         </a>
-                        <emoji class="mobile-emoji">⚔️</emoji>
                         <small class="year">2021</small>
-                    </header>
-                    <div class="work-done">
-                        <img src="assets/brush2.svg" alt="Website design">
-                        <img src="assets/tags2.svg" alt="Website Development">
+                        </header>
+                        <div class="work-done">
+                                <img src="assets/brush2.svg" alt="Website design">
+                                <img src="assets/tags2.svg" alt="Website Development">
+                        </div>
+                        <h6 class="card-details">
+                            1 vs. 1 game made with vue.js created it while giving
+                            an online session about vue.js.
+                        </h6>
                     </div>
-                    <h6 class="card-details">
-                        1 vs. 1 game made with vue.js created it while giving
-                        an online session about vue.js.  
-                    </h6>
                 </article>
+
                 <article class="card">
-                    <header>
-                        <a href="#">
-                            <h3 class="card-name">
-                                <emoji class="desktop-emoji">🐱‍💻</emoji>
-                                OSC geeks
-                            </h3>
-                        </a>
-                        <emoji class="mobile-emoji">🐱‍💻</emoji>
-                        <small class="year">2020</small>
-                    </header>
-                    <div class="work-done">
-                        <img src="assets/tags2.svg" alt="Website Development">
+                    <div class="card-preview">
+                        <img class="preview-emoji" src="assets/emojis/books.png" alt="Dice"/>
+                        <h3 class="card-name">OSC geeks</h3>
                     </div>
-                    <h6 class="card-details">
-                        Registeration / showcase website made for a community student activity
-                    </h6>
+
+                    <div class="card-core">
+                        <header>
+                        <img class="header-emoji" src="assets/emojis/books.png" alt="Dice"/>
+                        <a class = "card-name-clickable" href="#">
+                            <h3 class="card-name">OSC geeks</h3>
+                            <img class="icon-arrow" src="assets/card-arrow.svg" alt="View project">
+                        </a>
+                        <small class="year">2020</small>
+                        </header>
+                        <div class="work-done">
+                                <img src="assets/tags2.svg" alt="Website Development">
+                        </div>
+                        <h6 class="card-details">
+                            Registeration / showcase website made for a community student activity
+                        </h6>
+                    </div>
                 </article>
+
+
+
                 <article class="card">
-                    <header>
-                        <a href="#">
-                            <h3 class="card-name">
-                                <emoji class="desktop-emoji">🎲</emoji>
-                                 Pig dice
-                            </h3>
-                        </a>
-                        <emoji class="mobile-emoji">🎲</emoji>
-                        <small class="year">2020</small>
-                    </header>
-                    <div class="work-done">
-                            <img src="assets/logo2.svg" alt="Logo design">
-                            <img src="assets/brush2.svg" alt="Website design">
-                            <img src="assets/tags2.svg" alt="Website Development">
+                    <div class="card-preview">
+                        <img class="preview-emoji" src="assets/emojis/dice.png" alt="Dice"/>
+                        <h3 class="card-name">Pig dice</h3>
                     </div>
-                    <h6 class="card-details">
-                        The good old pig dice game. Except it's a next level highly customizable version.
-                    </h6>
+
+                    <div class="card-core">
+                        <header>
+                        <img class="header-emoji" src="assets/emojis/dice.png" alt="Dice"/>
+                        <a class = "card-name-clickable" href="#">
+                            <h3 class="card-name">Pig dice</h3>
+                            <img class="icon-arrow" src="assets/card-arrow.svg" alt="View project">
+                        </a>
+                        <small class="year">2020</small>
+                        </header>
+                        <div class="work-done">
+                                <img src="assets/logo2.svg" alt="Logo design">
+                                <img src="assets/brush2.svg" alt="Website design">
+                                <img src="assets/tags2.svg" alt="Website Development">
+                        </div>
+                        <h6 class="card-details">
+                            The good old pig dice game. Except it's a next level highly customizable version.
+                        </h6>
+                    </div>
                 </article>
                 <div class="tbc">
                     <img src="assets/3-dots.svg" alt="comming soon">
@@ -470,7 +489,7 @@
                 singleTypingSpeed = moveSpeed,
                 singleDeletingSpeed = moveSpeed;
 
-            const q = ["Robust", "Cutting Edge", "Upscale" , "Bullet Proof"], //qualities
+            const q = ["Cutting Edge", "Upscale" , "Bullet Proof", "Robust"], //qualities
                 qImages = ["", "", "", ""]; //qualities Images
 
             const ntp = {speed: normalTypingSpeed, delay: normalTypingDelay}, //normalTypingProperties
