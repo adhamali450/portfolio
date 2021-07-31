@@ -31,7 +31,7 @@
     &:hover::after
         background-position: left center
 
-=space-me-ps($gap: 1rem)
+=space-me-articles($gap: 1rem)
     &:not(:first-child)
         margin-top: $gap
 
@@ -43,23 +43,10 @@
         margin-left: calc(var(--overlaying-margin) * -1)
         box-shadow: -1px 0px 48px rgba(0, 0, 0, 1)
     .card:focus-within~.card, .card:hover~.card
-        // transform: translateX(180px)
         transform: translateX(calc(var(--overlaying-margin) + 50px))
     .card:hover
-        // transform: translateY(-1.5rem)
-        .card-preview
-            transform: translate(0, -100%)
-        .card-core
-            transform: translate(0, -100%)
         .work-done img
             filter: brightness(1) invert(0)
-    .card:not(:last-child)
-        .card-preview, .card-core
-            transition: transform 0.2s ease-out 0.15s
-    .card
-        &:last-of-type
-            .card-preview, .card-core
-                transition: transform 0.2s ease-out
 
 //Generic Mixins    
 =min-size($min-width, $min-height)

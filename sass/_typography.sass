@@ -36,7 +36,7 @@ $foldable: 280px
     textarea
         font-size: 0.8rem
     small
-        font-size: 0.7rem
+        font-size: 0.8rem
 
 =minor-third()
     h1
@@ -58,10 +58,8 @@ $foldable: 280px
     textarea
         font-size: 0.8rem
     small
-        font-size: 0.833rem
+        font-size: 0.9rem
 
-html
-    font-size: 175% //28px
 body
     +major-third()
 
@@ -106,32 +104,30 @@ h6
     +left-align-text-inputs()
     +left-align-project-cards()
 
-@media screen and ( min-width: $laptop )
+@media screen and ( min-width: $laptop ) //1116px
     html
-        font-size: 175%
+        font-size: 175% //28px
 
-@media screen and ( max-width: $laptop )
+@media screen and ( max-width: $laptop ) //1116px
     html
-        font-size: 150%
+        font-size: 150% //24px
 
-@media screen and ( max-width: $tablet1 )
+@media screen and ( max-width: $tablet1 ) //750px
     html
-        font-size: 125%
+        font-size: 125% //20px
 
-@media screen and ( max-width: $tablet2 )
+@media screen and ( max-width: $tablet2 ) //650px
     +center-align()
     html
-        font-size: 110%
+        font-size: 110% //17.6px
 
 @media screen and ( max-width: $phone1) //475px
     body
         +minor-third()
-    html
-        font-size: 110%
 
 @media screen and ( max-width: $phone2) //360px
     html
-        font-size: 100%
+        font-size: 100% //16px
 
 //  Any custom typography will be written in it's place
 //  and not here

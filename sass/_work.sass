@@ -7,9 +7,13 @@
         overflow-x: auto
         +apply-cards-effect()
         .card
+            flex-shrink: 0
             +size(470px, 500px)
 
-            flex-shrink: 0
+            +flex()
+            flex-direction: column
+            grid-gap: 0.75rem
+            padding: 1rem
 
             border-radius: 25px
             background-color: #191919
@@ -19,29 +23,6 @@
 
             overflow: hidden
             position: relative
-            .card-core, .card-preview
-                +size(100%, 100%)
-            .card-preview
-                +flex(center, center)
-                flex-direction: column
-                grid-gap: 1rem
-                .card-name
-                    text-align: center !important
-                    //prevent extending the card-name
-                    //to the whole container
-                    //(make it wrap at a certain point)
-                    width: 85%
-                img
-                    +size(130px, 130px)
-                    filter: drop-shadow(0 0 100px #000)
-            .card-core
-                display: flex
-                flex-direction: column
-                grid-gap: 0.75rem
-                padding: 1.5rem
-            .card-name
-                font-weight: 800
-                color: var(--primary-purple)
             header
                 display: grid
                 grid-template-columns: auto 1fr auto
@@ -52,8 +33,12 @@
                 .card-name-clickable
                     display: flex
                     grid-gap: 0.1rem
+                    justify-content: flex-start
                     .card-name
-                        width: min-content
+                        font-weight: 800
+                        color: var(--primary-purple)
+                        width: fit-content
+                        border-style:
                     .icon-arrow
                         transition: transform 0.3s
 

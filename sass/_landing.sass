@@ -18,7 +18,6 @@
                         margin: 0 !important
                         line-height: inherit
                         font-weight: 100 !important
-
             p
                 font-weight: 600
                 span
@@ -32,10 +31,9 @@
         @extend .wide-banner
         margin-top: 2.5rem
         padding: 0.6rem 1rem
-        display: flex
-        grid-gap: 1.5rem
-        align-items: center
-        justify-content: space-evenly
+        .container
+            +flex(space-evenly, center)
+            grid-gap: 1.5rem
         .hobby
             padding: 0.5rem 1rem
             display: flex
