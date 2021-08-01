@@ -24,20 +24,24 @@
             overflow: hidden
             position: relative
             header
-                display: grid
-                grid-template-columns: auto 1fr auto
+                +flex(space-between, center)
+                align-self: stretch
                 grid-gap: 0.5rem
-                align-items: center
-                .header-emoji
-                    width: 50px
+                // display: grid
+                // grid-template-columns: auto 1fr auto
+                // align-items: center
+                // .header-emoji
+                //     width: 50px
                 .card-name-clickable
                     display: flex
                     grid-gap: 0.1rem
                     justify-content: flex-start
                     .card-name
                         font-weight: 800
-                        color: var(--primary-purple)
-                        width: fit-content
+                        // color: var(--primary-purple)
+                        +fillGrd(var(--purple-green-grd))
+                        // width: fit-content
+                        // width: min-content
                         border-style:
                     .icon-arrow
                         transition: transform 0.3s
@@ -47,6 +51,7 @@
                         img
                             transform: translateX(7px)
                 .year
+                    @extend .tiny-small
                     background-color: var(--primary-green)
                     color: rgba(0, 0, 0, 0.7)
                     padding: 0.1rem 0.2rem
@@ -62,6 +67,17 @@
                     filter: brightness(0) invert(1)
                     &:hover
                         filter: brightness(1) invert(0)
+
+            .card-details
+                filter: drop-shadow(0 0 4px rgba(0, 0, 0, 1))
+
+            .card-emoji
+                position: absolute
+                transform: translate(-50%, -50%)
+                top: 77%
+                left: 77%
+                opacity: 0.2
+                +size(355px, 355px)
 
         .tbc
             margin: 0 2.5rem

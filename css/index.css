@@ -61,6 +61,10 @@ body small {
   font-size: 0.8rem;
 }
 
+body .tiny-small, body .work .cards .card header .year, .work .cards .card header body .year {
+  font-size: 0.6rem;
+}
+
 p {
   font-weight: 400;
 }
@@ -151,7 +155,7 @@ h6 {
     font-size: 0.8rem;
   }
   body small {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -940,18 +944,18 @@ body {
 }
 
 .work .cards .card header {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: auto 1fr auto;
-      grid-template-columns: auto 1fr auto;
-  grid-gap: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.work .cards .card header .header-emoji {
-  width: 50px;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  grid-gap: 0.5rem;
 }
 
 .work .cards .card header .card-name-clickable {
@@ -966,10 +970,11 @@ body {
 
 .work .cards .card header .card-name-clickable .card-name {
   font-weight: 800;
-  color: var(--primary-purple);
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  background: var(--purple-green-grd);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: table-cell;
 }
 
 .work .cards .card header .card-name-clickable .icon-arrow {
@@ -1019,6 +1024,22 @@ body {
 .work .cards .card .work-done img:hover {
   -webkit-filter: brightness(1) invert(0);
           filter: brightness(1) invert(0);
+}
+
+.work .cards .card .card-details {
+  -webkit-filter: drop-shadow(0 0 4px black);
+          filter: drop-shadow(0 0 4px black);
+}
+
+.work .cards .card .card-emoji {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 77%;
+  left: 77%;
+  opacity: 0.2;
+  width: 355px;
+  height: 355px;
 }
 
 .work .cards .tbc {
