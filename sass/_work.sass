@@ -84,6 +84,14 @@
                 left: 77%
                 opacity: 0.2
                 +size(355px, 355px)
+                filter: grayscale(255)
+
+            &:first-of-type //Monster Slayer
+                header .card-name
+                    width: min-content
+            &:hover
+                .card-emoji
+                    filter: grayscale(0)
 
         .tbc
             margin: 0 2.5rem

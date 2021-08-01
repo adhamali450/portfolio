@@ -1040,6 +1040,19 @@ body {
   opacity: 0.2;
   width: 355px;
   height: 355px;
+  -webkit-filter: grayscale(255);
+          filter: grayscale(255);
+}
+
+.work .container .cards .card:first-of-type header .card-name {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+.work .container .cards .card:hover .card-emoji {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
 }
 
 .work .container .cards .tbc {
