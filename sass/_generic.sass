@@ -48,6 +48,40 @@ body, .cards
     &::after
         bottom: 0
 
+.badge
+    @extend .tiny-small
+    background-color: var(--primary-green)
+    color: rgba(0, 0, 0, 0.7)
+    padding: 0.1rem 0.2rem
+    border-radius: 5px
+
+=set-pbar-styles($base-color: #fff, $progress-color: #f00)
+    $border-radius: 999px
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+    border: none
+
+    border-radius: $border-radius
+    background-color: $base-color
+    color: $progress-color
+
+    /* WEBKIT BROWSERS - CHROME, OPERA AND SAFARI */
+    &::-webkit-progress-bar
+        background-color: $base-color
+        border-radius: $border-radius
+    &::-webkit-progress-value,
+        background-color: $progress-color
+        border-radius: $border-radius
+
+    /* MOZILLA FIREFOX */
+    &::-moz-progress-bar
+        background-color: $progress-color
+        border-radius: $border-radius
+
+progress
+    +set-pbar-styles(rgba(255, 255, 255, 0.1), var(--primary-purple))
+
 a
     text-decoration: none
     display: inline-block

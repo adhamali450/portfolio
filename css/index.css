@@ -61,7 +61,7 @@ body small {
   font-size: 0.8rem;
 }
 
-body .tiny-small, body .work .container .cards .card header .year, .work .container .cards .card header body .year {
+body .tiny-small, body .badge, body .work .container .cards .card header .year, .work .container .cards .card header body .year {
   font-size: 0.6rem;
 }
 
@@ -332,6 +332,40 @@ body::-webkit-scrollbar-thumb, .cards::-webkit-scrollbar-thumb {
   bottom: 0;
 }
 
+.badge, .work .container .cards .card header .year {
+  background-color: var(--primary-green);
+  color: rgba(0, 0, 0, 0.7);
+  padding: 0.1rem 0.2rem;
+  border-radius: 5px;
+}
+
+progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--primary-purple);
+  /* WEBKIT BROWSERS - CHROME, OPERA AND SAFARI */
+  /* MOZILLA FIREFOX */
+}
+
+progress::-webkit-progress-bar {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--primary-purple);
+  border-radius: 999px;
+}
+
+progress::-moz-progress-bar {
+  background-color: var(--primary-purple);
+  border-radius: 999px;
+}
+
 a {
   text-decoration: none;
   display: inline-block;
@@ -495,6 +529,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   grid-gap: 1.5rem;
 }
 
@@ -654,6 +692,10 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   grid-gap: 2rem;
   align-items: start;
 }
@@ -676,6 +718,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   margin: 5px 0 0 0;
   grid-gap: 5px;
 }
@@ -745,7 +791,59 @@ body {
   grid-gap: 1rem;
 }
 
+.skills .skills-measure {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  grid-gap: 1.25rem;
+}
+
+.skills .skills-measure .skill-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  grid-gap: 0.5rem;
+}
+
+.skills .skills-measure .skill-group .icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 0.5rem;
+}
+
+.skills .skills-measure .skill-group .icons img {
+  width: auto;
+  height: 30px;
+}
+
+.skills .skills-measure .skill-group progress {
+  width: 100%;
+  height: 4px;
+}
+
 .skills .duties {
+  margin-top: 4rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 1fr;
@@ -795,6 +893,8 @@ body {
   background-color: rgba(250, 250, 250, 0.1);
   -webkit-backdrop-filter: blur(30px);
   backdrop-filter: blur(30px);
+  -webkit-transform: translateY(-1rem);
+          transform: translateY(-1rem);
 }
 
 .skills .duties .active-duty img {
@@ -820,7 +920,26 @@ body {
   color: rgba(255, 255, 255, 0.7);
 }
 
+@media screen and (min-width: 1116px) {
+  .skills .skills-measure {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 1116px) {
+  .skills .skills-measure {
+    width: 80%;
+  }
+}
+
 @media screen and (max-width: 950px) {
+  .skills .skills-measure {
+    width: 100%;
+  }
+  .skills .skills-measure .skill-group .icons img {
+    width: auto;
+    height: 25px;
+  }
   .skills .duties {
     grid-gap: 0.25rem;
   }
@@ -857,6 +976,10 @@ body {
   .skills {
     text-align: center !important;
   }
+  .skills .skills-measure .skill-group .icons img {
+    width: auto;
+    height: 20px;
+  }
   .skills .duties {
     -ms-grid-rows: (1fr)[2];
         grid-template-rows: repeat(2, 1fr);
@@ -887,6 +1010,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   padding: 0 0 1rem 0;
   overflow-x: auto;
   --overlaying-margin: 200px;
@@ -929,10 +1056,11 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: start;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  flex-direction: column;
   grid-gap: 0.75rem;
   padding: 1rem;
   border-radius: 25px;
@@ -953,6 +1081,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -ms-flex-item-align: stretch;
       align-self: stretch;
   grid-gap: 0.5rem;
@@ -992,13 +1124,6 @@ body {
 .work .container .cards .card header .card-name-clickable:hover img {
   -webkit-transform: translateX(7px);
           transform: translateX(7px);
-}
-
-.work .container .cards .card header .year {
-  background-color: var(--primary-green);
-  color: rgba(0, 0, 0, 0.7);
-  padding: 0.1rem 0.2rem;
-  border-radius: 5px;
 }
 
 .work .container .cards .card .work-done {

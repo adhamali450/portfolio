@@ -1,5 +1,19 @@
 .skills
+    .skills-measure
+        +flex(stretch, stretch, column)
+        grid-gap: 1.25rem
+        .skill-group
+            +flex(start, start, column)
+            grid-gap: 0.5rem
+            .icons
+                display: flex
+                grid-gap: 0.5rem
+                img
+                    +size(auto,30px)
+            progress
+                +size(100%, 4px)
     .duties
+        margin-top: 4rem
         display: grid
         grid-template-rows: 1fr
         grid-template-columns: repeat(4, auto)
@@ -36,13 +50,12 @@
             background-color: rgba(250, 250, 250, 0.1)
             -webkit-backdrop-filter: blur(30px)
             backdrop-filter: blur(30px)
-            // transform: translateY(-1rem)
+            transform: translateY(-1rem)
             img
                 background-color: transparent !important
                 filter: brightness(1) invert(0)
             .duty-name-inside
                 opacity: 1
-
     .duty-explained
         margin-top: 1rem
         #duty-name
@@ -51,36 +64,21 @@
             margin-top: 1rem
             color: rgba(255, 255, 255, 0.7)
 
-    // .skills-measure
-    //     display: none
-    //     margin-top: 4rem
-    //     h3
-    //         margin-bottom: 2rem
-    //     .skill-objects
-    //         display: flex
-    //         flex-direction: column
-    //         grid-gap: 1.5rem
-    //         .skill-object
-    //             .icon
-    //                 display: flex
-    //                 grid-gap: 0.75rem
-    //                 img
-    //                     height: 35px
-    //             .progress-bar
-    //                 position: relative
-    //                 margin-top: 0.75rem
-    //                 +size(60%, 6px)
-    //                 border-radius: 20px
-    //                 background-color: #505050
-    //                 .progress
-    //                     position: absolute
-    //                     display: inline-block
-    //                     +size(80%, inherit)
-    //                     border-radius: inherit
-    //                     background: var(--primary-purple)
+@media screen and ( min-width: $laptop ) //1116px
+    .skills .skills-measure
+        width: 60%
+
+@media screen and ( max-width: $laptop ) //1116px
+    .skills  .skills-measure
+        width: 80%
 
 @media screen and ( max-width: 950px )
     .skills
+        .skills-measure
+            width: 100%
+            .skill-group .icons img
+                +size(auto,25px)
+
         .duties
             grid-gap: 0.25rem
             .duty
@@ -97,7 +95,7 @@
             #duty-description
                 margin-top: 0.3rem
 
-@media screen and ( max-width: $tablet1 )
+@media screen and ( max-width: $tablet1 )  //750px
     .skills
         .duties .duty img
             +size(90px, 90px)
@@ -105,6 +103,9 @@
 @media screen and ( max-width: $phone1) //475px
     .skills
         text-align: center !important
+        .skills-measure
+            .skill-group .icons img
+                +size(auto,20px)
         .duties
             grid-template-rows: repeat(2, 1fr)
             grid-template-columns: repeat(2, auto)
@@ -113,7 +114,5 @@
             .active-duty
                 img
                     transform: scale(1.15)
-            .duty
-                // border: 1px dashed red
         .duty-explained
             margin-top: 1.5rem
