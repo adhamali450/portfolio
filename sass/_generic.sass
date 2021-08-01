@@ -48,14 +48,14 @@ body, .cards
     &::after
         bottom: 0
 
-.badge
+=set-badge-styles($base-color: var(--primary-green))
     @extend .tiny-small
-    background-color: var(--primary-green)
+    background-color: $base-color
     color: rgba(0, 0, 0, 0.7)
     padding: 0.1rem 0.2rem
     border-radius: 5px
 
-=set-pbar-styles($base-color: #fff, $progress-color: #f00)
+=set-pbar-styles($base-color: rgba(255, 255, 255,0.1), $progress-color: green)
     $border-radius: 999px
     -webkit-appearance: none
     -moz-appearance: none
