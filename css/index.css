@@ -61,7 +61,7 @@ body small {
   font-size: 0.8rem;
 }
 
-body .tiny-small, body .work .cards .card header .year, .work .cards .card header body .year {
+body .tiny-small, body .work .container .cards .card header .year, .work .container .cards .card header body .year {
   font-size: 0.6rem;
 }
 
@@ -876,8 +876,7 @@ body {
   }
 }
 
-.work .cards {
-  width: 95%;
+.work .container .cards {
   margin: 0 0 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -888,34 +887,35 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 0 0 1rem 0;
   overflow-x: auto;
   --overlaying-margin: 200px;
 }
 
-.work .cards .card {
+.work .container .cards .card {
   -webkit-transition: -webkit-transform .2s;
   transition: -webkit-transform .2s;
   transition: transform .2s;
   transition: transform .2s, -webkit-transform .2s;
 }
 
-.work .cards .card:not(:first-child) {
+.work .container .cards .card:not(:first-child) {
   margin-left: calc(var(--overlaying-margin) * -1);
   -webkit-box-shadow: -1px 0px 48px black;
           box-shadow: -1px 0px 48px black;
 }
 
-.work .cards .card:focus-within ~ .card, .work .cards .card:hover ~ .card {
+.work .container .cards .card:focus-within ~ .card, .work .container .cards .card:hover ~ .card {
   -webkit-transform: translateX(calc(var(--overlaying-margin) + 50px));
           transform: translateX(calc(var(--overlaying-margin) + 50px));
 }
 
-.work .cards .card:hover .work-done img {
+.work .container .cards .card:hover .work-done img {
   -webkit-filter: brightness(1) invert(0);
           filter: brightness(1) invert(0);
 }
 
-.work .cards .card {
+.work .container .cards .card {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   width: 470px;
@@ -943,7 +943,7 @@ body {
   position: relative;
 }
 
-.work .cards .card header {
+.work .container .cards .card header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -958,7 +958,7 @@ body {
   grid-gap: 0.5rem;
 }
 
-.work .cards .card header .card-name-clickable {
+.work .container .cards .card header .card-name-clickable {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -968,7 +968,7 @@ body {
           justify-content: flex-start;
 }
 
-.work .cards .card header .card-name-clickable .card-name {
+.work .container .cards .card header .card-name-clickable .card-name {
   font-weight: 800;
   background: var(--purple-green-grd);
   color: transparent;
@@ -977,31 +977,31 @@ body {
   display: table-cell;
 }
 
-.work .cards .card header .card-name-clickable .icon-arrow {
+.work .container .cards .card header .card-name-clickable .icon-arrow {
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
 
-.work .cards .card header .card-name-clickable:hover {
+.work .container .cards .card header .card-name-clickable:hover {
   -webkit-filter: brightness(0.8);
           filter: brightness(0.8);
 }
 
-.work .cards .card header .card-name-clickable:hover img {
+.work .container .cards .card header .card-name-clickable:hover img {
   -webkit-transform: translateX(7px);
           transform: translateX(7px);
 }
 
-.work .cards .card header .year {
+.work .container .cards .card header .year {
   background-color: var(--primary-green);
   color: rgba(0, 0, 0, 0.7);
   padding: 0.1rem 0.2rem;
   border-radius: 5px;
 }
 
-.work .cards .card .work-done {
+.work .container .cards .card .work-done {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -1013,7 +1013,7 @@ body {
           align-items: flex-start;
 }
 
-.work .cards .card .work-done img {
+.work .container .cards .card .work-done img {
   margin-right: 10px;
   width: 40px;
   height: 40px;
@@ -1021,17 +1021,17 @@ body {
           filter: brightness(0) invert(1);
 }
 
-.work .cards .card .work-done img:hover {
+.work .container .cards .card .work-done img:hover {
   -webkit-filter: brightness(1) invert(0);
           filter: brightness(1) invert(0);
 }
 
-.work .cards .card .card-details {
+.work .container .cards .card .card-details {
   -webkit-filter: drop-shadow(0 0 4px black);
           filter: drop-shadow(0 0 4px black);
 }
 
-.work .cards .card .card-emoji {
+.work .container .cards .card .card-emoji {
   position: absolute;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -1042,93 +1042,67 @@ body {
   height: 355px;
 }
 
-.work .cards .tbc {
+.work .container .cards .tbc {
   margin: 0 2.5rem;
 }
 
-.work .cards .tbc h3 {
+.work .container .cards .tbc h3 {
   font-weight: 800;
 }
 
-.work .cards .tbc img {
+.work .container .cards .tbc img {
   width: 120px;
   height: auto;
 }
 
 @media screen and (max-width: 1116px) {
-  .work .cards .card {
+  .work .container .cards {
     --overlaying-margin: 220px;
+  }
+  .work .container .cards .card {
     width: 350px;
     height: 450px;
   }
-  .work .cards .card .card-preview img {
-    width: 90px;
-    height: 90px;
+  .work .container .cards .card .card-emoji {
+    top: 77%;
+    left: 77%;
+    width: 250px;
+    height: 250px;
   }
 }
 
 @media screen and (max-width: 750px) {
-  .work .cards .card {
+  .work .container .cards {
     --overlaying-margin: 210px;
+  }
+  .work .container .cards .card {
     width: 300px;
     height: 375px;
   }
-  .work .cards .card .card-preview img {
-    width: 80px;
-    height: 80px;
-  }
-  .work .cards .card header .header-emoji {
-    width: 40px;
-  }
-  .work .cards .card .work-done img {
+  .work .container .cards .card .work-done img {
     width: 35px;
     height: 35px;
   }
 }
 
-@media screen and (max-width: 1116px) {
-  .work .cards .card {
+@media screen and (max-width: 650px) {
+  .work .container .cards {
     --overlaying-margin: 170px;
-    width: 280 px;
+  }
+  .work .container .cards .card {
+    width: 280px;
     height: 350px;
   }
-  .work .cards .card header {
-    -ms-grid-rows: auto 1fr;
-        grid-template-rows: auto 1fr;
-    -ms-grid-columns: auto auto 1fr;
-        grid-template-columns: auto auto 1fr;
-    grid-column-gap: 0rem;
+  .work .container .cards .card .work-done img {
+    margin-right: 5px;
+    width: 25px;
+    height: 25px;
   }
-  .work .cards .card header .header-emoji {
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 1;
-    grid-row: 1/2;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-column: 1/2;
-    display: inline-block;
-    width: 35px;
-  }
-  .work .cards .card header .card-name-clickable {
-    -ms-grid-row: 2 !important;
-    -ms-grid-row-span: 1 !important;
-    grid-row: 2/3 !important;
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 3;
-    grid-row: 1/4;
-  }
-  .work .cards .card header .card-name-clickable .desktop-emoji {
-    display: none;
-  }
-  .work .cards .card header .year {
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 1;
-    grid-row: 1/2;
-    -ms-grid-column: 3;
-    -ms-grid-column-span: 1;
-    grid-column: 3/4;
-    -ms-grid-column-align: right;
-        justify-self: right;
+}
+
+@media screen and (max-width: 475px) {
+  .work .container .cards {
+    --overlaying-margin: 200px !important;
   }
 }
 

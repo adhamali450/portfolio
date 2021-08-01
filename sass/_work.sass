@@ -1,10 +1,25 @@
-.work
+.work .container
+    // position: relative
+    // &::before,
+    // &::after
+    //     content: ''
+    //     position: absolute
+    //     z-index: 2
+    //     top: 0
+    //     width: 1rem
+    //     height: 100%
+    // &::before
+    //     left: 0
+    //     background: linear-gradient(to right, rgba(255,0,0, 1) 0%, rgba(0,0,0, 0) 100%)
+    // &::after
+    //     right: 0
+    //     background: linear-gradient(to left, rgba(255,0,0, 1) 0%, rgba(0,0,0, 0) 100%)
     .cards
-        width: 95%
         margin: 0 0 0 auto
         +flex(start, center)
-        // padding: 0 0 1rem 0
+        padding: 0 0 1rem 0
         overflow-x: auto
+
         +apply-cards-effect()
         .card
             flex-shrink: 0
@@ -27,22 +42,13 @@
                 +flex(space-between, center)
                 align-self: stretch
                 grid-gap: 0.5rem
-                // display: grid
-                // grid-template-columns: auto 1fr auto
-                // align-items: center
-                // .header-emoji
-                //     width: 50px
                 .card-name-clickable
                     display: flex
                     grid-gap: 0.1rem
                     justify-content: flex-start
                     .card-name
                         font-weight: 800
-                        // color: var(--primary-purple)
                         +fillGrd(var(--purple-green-grd))
-                        // width: fit-content
-                        // width: min-content
-                        border-style:
                     .icon-arrow
                         transition: transform 0.3s
 
@@ -86,47 +92,34 @@
             img
                 +size(120px, auto)
 
-@media screen and ( max-width: $laptop) //1116px
-    .work .cards .card
+@media screen and (max-width: $laptop) //1116px
+    .work .container .cards
         --overlaying-margin: 220px
-        +size(350px, 450px)
-        .card-preview
-            img
-                +size(90px, 90px)
-@media screen and ( max-width: $tablet1) //750px
-    .work
-        .cards
-            .card
-                --overlaying-margin: 210px
-                +size(300px, 375px)
-                .card-preview
-                    img
-                        +size(80px, 80px)
-                header .header-emoji
-                    width: 40px
-                .work-done img
-                    +size(35px, 35px)
-
-@media screen and ( max-width: $laptop) //650px
-    .work .cards
         .card
-            --overlaying-margin: 170px
-            +size(280   px, 350px)
-            header
-                grid-template-rows: auto 1fr
-                grid-template-columns: auto auto 1fr
-                grid-column-gap: 0rem
-                .header-emoji
-                    grid-row: 1/2
-                    grid-column: 1/2
-                    display: inline-block
-                    width: 35px
-                .card-name-clickable
-                    grid-row: 2/3 !important
-                    grid-row: 1/4
-                    .desktop-emoji
-                        display: none
-                .year
-                    grid-row: 1/2
-                    grid-column: 3/4
-                    justify-self: right
+            +size(350px, 450px)
+            .card-emoji
+                top: 77%
+                left: 77%
+                +size(250px, 250px)
+
+@media screen and (max-width: $tablet1) //750px
+    .work .container .cards
+        --overlaying-margin: 210px
+        .card
+            +size(300px, 375px)
+            .work-done img
+                +size(35px, 35px)
+
+@media screen and (max-width: $tablet2) //650px
+    .work .container .cards
+        --overlaying-margin: 170px
+        .card
+            +size(280px, 350px)
+            .work-done
+                img
+                    margin-right: 5px
+                    +size(25px, 25px)
+
+@media screen and (max-width: $phone1) //450px
+    .work .container .cards
+        --overlaying-margin: 200px !important
