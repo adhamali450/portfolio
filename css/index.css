@@ -95,7 +95,7 @@ h6 {
 
 @media screen and (min-width: 1116px) {
   html {
-    font-size: 175%;
+    font-size: 165%;
   }
 }
 
@@ -201,8 +201,8 @@ h6 {
 .dark .btn, .dark .btn-primary,
 .dark .btn-secondary {
   color: var(--fg);
-  -webkit-box-shadow: 0 1px 15px rgba(240, 95, 135, 0.5);
-          box-shadow: 0 1px 15px rgba(240, 95, 135, 0.5);
+  -webkit-box-shadow: 0 1px 10px rgba(240, 95, 135, 0.5);
+          box-shadow: 0 1px 10px rgba(240, 95, 135, 0.5);
   -webkit-transition: background-position 0.3s, -webkit-box-shadow 0.3s;
   transition: background-position 0.3s, -webkit-box-shadow 0.3s;
   transition: background-position 0.3s, box-shadow 0.3s;
@@ -242,8 +242,8 @@ h6 {
 
 .dark .btn:hover, .dark .btn-primary:hover,
 .dark .btn-secondary:hover {
-  -webkit-box-shadow: 0 1px 35px rgba(240, 95, 135, 0.5);
-          box-shadow: 0 1px 35px rgba(240, 95, 135, 0.5);
+  -webkit-box-shadow: 0 1px 25px rgba(240, 95, 135, 0.5);
+          box-shadow: 0 1px 25px rgba(240, 95, 135, 0.5);
 }
 
 .dark .btn-primary {
@@ -252,7 +252,7 @@ h6 {
   background-position: right center;
 }
 
-.dark .btn-primary img {
+.dark .btn-primary .btn-icon {
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
@@ -261,11 +261,6 @@ h6 {
 
 .dark .btn-primary:hover {
   background-position: left center;
-}
-
-.dark .btn-primary:hover img {
-  -webkit-transform: translateX(5px);
-          transform: translateX(5px);
 }
 
 .dark .btn-secondary {
@@ -297,11 +292,8 @@ body::-webkit-scrollbar-thumb, .cards::-webkit-scrollbar-thumb {
 
 .container {
   width: 90%;
-  margin: 0 auto;
-}
-
-.container, .projects-cards {
   max-width: 2250px;
+  margin: 0 auto;
 }
 
 .backdrop-blur, .wide-banner, .landing .hobbies, .resume {
@@ -320,7 +312,7 @@ body::-webkit-scrollbar-thumb, .cards::-webkit-scrollbar-thumb {
   position: absolute;
   left: 0;
   width: 100vw;
-  height: 1px;
+  height: 1.5px;
   background: var(--hobbies-border-grd);
 }
 
@@ -400,17 +392,42 @@ input[type=text], textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  grid-gap: 0.5rem;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  grid-gap: 0.25rem;
 }
 
-.btn img, .btn-primary img, .btn-secondary img, .btn svg, .btn-primary svg, .btn-secondary svg {
-  width: 28px;
-  height: 28px;
+.btn .btn-icon, .btn-primary .btn-icon, .btn-secondary .btn-icon {
+  width: 25px;
+  height: 25px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.btn-primary .btn-icon {
+  background-image: url("../assets/arrow.svg");
+}
+
+.btn-primary:hover .btn-icon {
+  -webkit-transform: translateX(5px);
+          transform: translateX(5px);
+}
+
+.btn-secondary {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
 }
 
 body {
@@ -420,7 +437,6 @@ body {
 
 #rightBlob,
 #leftBlob {
-  display: none;
   position: fixed;
   z-index: -1;
   background-repeat: no-repeat;
@@ -487,10 +503,6 @@ body {
   font-weight: 100 !important;
 }
 
-.landing .hero .hero-text p {
-  font-weight: 600;
-}
-
 .landing .hero .hero-text p span {
   background: var(--red-grd);
   color: transparent;
@@ -505,6 +517,10 @@ body {
   display: -ms-flexbox;
   display: flex;
   grid-gap: 0.75rem;
+}
+
+.landing .hero .ctas #btn-work .btn-icon {
+  display: none;
 }
 
 .landing .hobbies {
@@ -534,7 +550,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -784,6 +800,10 @@ body {
   grid-gap: 1rem;
 }
 
+.resume .container #btn-download .btn-icon {
+  background-image: url("../assets/download.svg");
+}
+
 .skills .skills-measure {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -837,7 +857,7 @@ body {
   -ms-grid-column-span: 1;
   grid-column: 2/3;
   background-color: var(--primary-pink);
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
   padding: 0.1rem 0.2rem;
   border-radius: 5px;
 }
@@ -1027,7 +1047,7 @@ body {
           flex-direction: row;
   padding: 0 0 1rem 0;
   overflow-x: auto;
-  --overlaying-margin: 200px;
+  --overlaying-margin: 250px;
 }
 
 .work .container .cards .card {
@@ -1039,13 +1059,18 @@ body {
 
 .work .container .cards .card:not(:first-child) {
   margin-left: calc(var(--overlaying-margin) * -1);
-  -webkit-box-shadow: -1px 0px 48px black;
-          box-shadow: -1px 0px 48px black;
+  -webkit-box-shadow: -15px 0px 48px black;
+          box-shadow: -15px 0px 48px black;
 }
 
 .work .container .cards .card:focus-within ~ .card, .work .container .cards .card:hover ~ .card {
   -webkit-transform: translateX(calc(var(--overlaying-margin) + 50px));
           transform: translateX(calc(var(--overlaying-margin) + 50px));
+}
+
+.work .container .cards .card:hover .card-emoji {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
 }
 
 .work .container .cards .card:hover .work-done img {
@@ -1139,7 +1164,7 @@ body {
 
 .work .container .cards .card header .year {
   background-color: var(--primary-green);
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
   padding: 0.1rem 0.2rem;
   border-radius: 5px;
 }
@@ -1170,8 +1195,8 @@ body {
 }
 
 .work .container .cards .card .card-details {
-  -webkit-filter: drop-shadow(0 0 4px black);
-          filter: drop-shadow(0 0 4px black);
+  -webkit-filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.7));
+          filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.7));
 }
 
 .work .container .cards .card .card-emoji {
@@ -1191,11 +1216,6 @@ body {
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
-}
-
-.work .container .cards .card:hover .card-emoji {
-  -webkit-filter: grayscale(0);
-          filter: grayscale(0);
 }
 
 .work .container .cards .tbc {
@@ -1239,6 +1259,10 @@ body {
     width: 35px;
     height: 35px;
   }
+  .work .container .cards .tbc img {
+    width: 100px;
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 650px) {
@@ -1253,6 +1277,10 @@ body {
     margin-right: 5px;
     width: 25px;
     height: 25px;
+  }
+  .work .container .cards .tbc img {
+    width: 80px;
+    height: auto;
   }
 }
 
@@ -1432,9 +1460,9 @@ section .title {
     width: 85%;
     margin: 0 auto;
   }
-  .btn img, .btn-primary img, .btn-secondary img, .btn svg, .btn-primary svg, .btn-secondary svg {
-    width: 20px;
-    height: 20px;
+  .btn .btn-icon, .btn-primary .btn-icon, .btn-secondary .btn-icon {
+    width: 15px;
+    height: 15px;
   }
   .title {
     -ms-flex-wrap: wrap;

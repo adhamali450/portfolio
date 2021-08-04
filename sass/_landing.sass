@@ -19,13 +19,14 @@
                         line-height: inherit
                         font-weight: 100 !important
             p
-                font-weight: 600
                 span
                     +fillGrd(var(--red-grd))
                     display: inline-block
         .ctas
             display: flex
             grid-gap: 0.75rem
+            #btn-work .btn-icon
+                display: none
 
     .hobbies
         @extend .wide-banner
@@ -37,7 +38,7 @@
         .hobby
             padding: 0.5rem 1rem
             display: flex
-            grid-gap: 1rem
+            grid-gap: 0.5rem
             align-items: center
             .img-hobby
                 +size(100px, 100px)

@@ -70,7 +70,7 @@
                         filter: brightness(1) invert(0)
 
             .card-details
-                filter: drop-shadow(0 0 4px rgba(0, 0, 0, 1))
+                filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.7))
 
             .card-emoji
                 position: absolute
@@ -84,10 +84,6 @@
             &:first-of-type //Monster Slayer
                 header .card-name
                     width: min-content
-            &:hover
-                .card-emoji
-                    filter: grayscale(0)
-
         .tbc
             margin: 0 2.5rem
             h3
@@ -96,32 +92,41 @@
                 +size(120px, auto)
 
 @media screen and (max-width: $laptop) //1116px
-    .work .container .cards
-        --overlaying-margin: 220px
-        .card
-            +size(350px, 450px)
-            .card-emoji
-                top: 77%
-                left: 77%
-                +size(250px, 250px)
+    .work .container
+        .cards
+            --overlaying-margin: 220px
+            .card
+                +size(350px, 450px)
+                .card-emoji
+                    top: 77%
+                    left: 77%
+                    +size(250px, 250px)
 
 @media screen and (max-width: $tablet1) //750px
-    .work .container .cards
-        --overlaying-margin: 210px
-        .card
-            +size(300px, 375px)
-            .work-done img
-                +size(35px, 35px)
+    .work .container
+        .cards
+            --overlaying-margin: 210px
+            .card
+                +size(300px, 375px)
+                .work-done img
+                    +size(35px, 35px)
+            .tbc
+                img
+                    +size(100px, auto)
 
 @media screen and (max-width: $tablet2) //650px
-    .work .container .cards
-        --overlaying-margin: 170px
-        .card
-            +size(280px, 350px)
-            .work-done
+    .work .container
+        .cards
+            --overlaying-margin: 170px
+            .card
+                +size(280px, 350px)
+                .work-done
+                    img
+                        margin-right: 5px
+                        +size(25px, 25px)
+            .tbc
                 img
-                    margin-right: 5px
-                    +size(25px, 25px)
+                    +size(80px, auto)
 
 @media screen and (max-width: $phone1) //450px
     .work .container .cards

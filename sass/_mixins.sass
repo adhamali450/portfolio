@@ -38,13 +38,15 @@
 =apply-cards-effect()
     .card
         transition: transform .2s
-    --overlaying-margin: 200px
+    --overlaying-margin: 250px
     .card:not(:first-child)
         margin-left: calc(var(--overlaying-margin) * -1)
-        box-shadow: -1px 0px 48px rgba(0, 0, 0, 1)
+        box-shadow: -15px 0px 48px rgba(0, 0, 0, 1)
     .card:focus-within~.card, .card:hover~.card
         transform: translateX(calc(var(--overlaying-margin) + 50px))
     .card:hover
+        .card-emoji
+            filter: grayscale(0)
         .work-done img
             filter: brightness(1) invert(0)
 
