@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="hobby" id="designer">
-                    <img class="img-hobby" src="assets/paint-roll.svg" alt="brush">
+                    <img class="img-hobby" src="assets/brush.svg" alt="brush">
                     <div class="name">
                         <p class="hobby-u" >UI/UX</p>
                         <p class="hobby-l" >Designer</p>
@@ -381,29 +381,53 @@
     <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
     <script type="text/javascript">
             //Default positioning before any scrolling
-            const leftBlob = document.getElementById("leftBlob"),
-                rightBlob = document.getElementById("rightBlob");
-
-            // leftBlob.style.backgroundPosition = "top 25rem left -3rem";
-            // rightBlob.style.backgroundPosition = "top right -17rem";
+            // const leftBlob = document.getElementById("leftBlob"),
+            //     rightBlob = document.getElementById("rightBlob");
 
 
+            // const shiftingFactor = 1, shiftingConstant = 2;
 
-
-            // function vw(v) {
-            //     var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-            //     return (v * w) / 100;
+            // function getClientWidth(){
+            //     return  Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+            // } 
+            
+            // function resizedUp(curr, prev){
+            //     return curr > prev;
             // }
 
-            // console.log(vw(100))
+            // let oldClientWidth = 0;
 
 
+            // document.onload = () => {
+            //     oldClientWidth = getClientWidth();
+            // }
 
 
+            // window.onresize = () => {
+            //     const newClientWidth = getClientWidth();
+                
+            //     const oldLeft = parseFloat(
+            //             window.getComputedStyle(leftBlob).getPropertyValue("left").replace("px", "")),
+
+            //         oldRight = parseFloat(
+            //             window.getComputedStyle(rightBlob).getPropertyValue("right").replace("px", ""));
+
+            //     if(resizedUp(newClientWidth, oldClientWidth)){
+            //         console.log("up");
+
+            //         leftBlob.style.left = parseFloat( oldLeft + (shiftingFactor * shiftingConstant)) + "px";
+            //         rightBlob.style.right = parseFloat( oldRight + (shiftingFactor * shiftingConstant)) + "px";
+            //     }
+            //     else {
+            //         console.log("down");
+
+            //         leftBlob.style.left = parseFloat( oldLeft - shiftingFactor * shiftingConstant) + "px";
+            //         rightBlob.style.right = parseFloat( oldRight - shiftingFactor *  shiftingConstant) + "px";
+            //     }
 
 
-
-
+            //     oldClientWidth = newClientWidth;
+            // };
 
 
 
@@ -514,7 +538,8 @@
                 singleTypingSpeed = moveSpeed,
                 singleDeletingSpeed = moveSpeed;
 
-            const q = ["Cutting Edge", "Upscale" , "Bullet Proof", "Robust"], //qualities
+            // const q = ["Cutting Edge", "Upscale" , "Bullet Proof", "Robust"], //qualities
+            const q = ["Cutting Edge"], //qualities
                 qImages = ["", "", "", ""]; //qualities Images
 
             const ntp = {speed: normalTypingSpeed, delay: normalTypingDelay}, //normalTypingProperties
@@ -529,9 +554,6 @@
 
                 beforeString: async (step, instance) => {
                     // // Will fire before each string in the queue.
-                    // console.log(step);
-                    // console.log(instance);
-                    // console.log("=============================");
                 },
 
                 afterStep: async (step, instance) => {
