@@ -538,8 +538,7 @@
                 singleTypingSpeed = moveSpeed,
                 singleDeletingSpeed = moveSpeed;
 
-            // const q = ["Cutting Edge", "Upscale" , "Bullet Proof", "Robust"], //qualities
-            const q = ["Cutting Edge"], //qualities
+            const q = ["Cutting Edge", "Upscale" , "Bullet Proof", "Robust"], //qualities
                 qImages = ["", "", "", ""]; //qualities Images
 
             const ntp = {speed: normalTypingSpeed, delay: normalTypingDelay}, //normalTypingProperties
@@ -578,7 +577,6 @@
                     typeIt.delete(q[i].length, ndp);
 
             }
-
             typeIt.go()
 
         window.addEventListener("contextmenu", e => e.preventDefault());
