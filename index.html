@@ -54,7 +54,7 @@
 
         </div>
         <div class="hobbies">
-            <div class="container">
+            <div class="container" id="hobbies-container">
                 <div class="hobby" id="developer">
                     <img class="img-hobby" src="assets/tags.svg" alt="HTML Tags">
                     <div class="name">
@@ -380,62 +380,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
     <script type="text/javascript">
-            //Default positioning before any scrolling
-            // const leftBlob = document.getElementById("leftBlob"),
-            //     rightBlob = document.getElementById("rightBlob");
-
-
-            // const shiftingFactor = 1, shiftingConstant = 2;
-
-            // function getClientWidth(){
-            //     return  Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-            // } 
-            
-            // function resizedUp(curr, prev){
-            //     return curr > prev;
-            // }
-
-            // let oldClientWidth = 0;
-
-
-            // document.onload = () => {
-            //     oldClientWidth = getClientWidth();
-            // }
-
-
-            // window.onresize = () => {
-            //     const newClientWidth = getClientWidth();
-                
-            //     const oldLeft = parseFloat(
-            //             window.getComputedStyle(leftBlob).getPropertyValue("left").replace("px", "")),
-
-            //         oldRight = parseFloat(
-            //             window.getComputedStyle(rightBlob).getPropertyValue("right").replace("px", ""));
-
-            //     if(resizedUp(newClientWidth, oldClientWidth)){
-            //         console.log("up");
-
-            //         leftBlob.style.left = parseFloat( oldLeft + (shiftingFactor * shiftingConstant)) + "px";
-            //         rightBlob.style.right = parseFloat( oldRight + (shiftingFactor * shiftingConstant)) + "px";
-            //     }
-            //     else {
-            //         console.log("down");
-
-            //         leftBlob.style.left = parseFloat( oldLeft - shiftingFactor * shiftingConstant) + "px";
-            //         rightBlob.style.right = parseFloat( oldRight - shiftingFactor *  shiftingConstant) + "px";
-            //     }
-
-
-            //     oldClientWidth = newClientWidth;
-            // };
-
-
-
             ////////////////
             //hobby handling
             /////////////////
 
+
             const hobbies = document.querySelectorAll('.hobby');
+            const hobbiesContainer = document.getElementById('hobbies-container');
+            console.log(hobbiesContainer)
+
             const activeHobbyName = "active-hobby";
             hobbies.forEach(hobby => {
                 hobby.addEventListener('click', () => activateHobby(hobby));
@@ -448,6 +401,15 @@
                 else{
                     hobbies.forEach(allHobbies => allHobbies.classList.remove(activeHobbyName));
                     hobby.classList.add(activeHobbyName);
+
+                    //set justify content for parent
+                    const id = hobby.id
+                    if(id ==  "developer") //justify-content: start;
+                        hobbiesContainer.style.justifyContent = "flex-start";
+                    else if(id == "designer") //justify-content: center;
+                        hobbiesContainer.style.justifyContent = "flex-center";
+                    else if(id == "collector") //justify-content: end;
+                        hobbiesContainer.style.justifyContent = "flex-end";
                 }
             }
 

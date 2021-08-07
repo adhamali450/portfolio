@@ -552,6 +552,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  pointer-events: none;
 }
 
 .landing .hobbies .hobby .img-hobby {
@@ -670,6 +671,7 @@ body {
     -webkit-transition: background-color 0.15s;
     transition: background-color 0.15s;
     cursor: pointer;
+    pointer-events: all;
   }
   .landing .hobbies .hobby .name {
     display: none;
