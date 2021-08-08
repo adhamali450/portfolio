@@ -8,7 +8,7 @@
 
     //disable semi-blue highlight on mobile
     -webkit-tap-highlight-color: transparent
-    outline: none
+    // outline: none
 
     //disable user select
     -moz-user-select: -moz-none
@@ -16,6 +16,13 @@
     -webkit-user-select: none
     -ms-user-select: none
     user-select: none
+
+*:focus
+    outline: 3px dashed var(--primary-purple)
+    outline-offset: 5px
+
+*::moz-focus-inner
+    border: 0
 
 html,
 body

@@ -5,11 +5,19 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  outline: none;
   -moz-user-select: -moz-none;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+*:focus {
+  outline: 3px dashed var(--primary-purple);
+  outline-offset: 5px;
+}
+
+*::moz-focus-inner {
+  border: 0;
 }
 
 html,
@@ -22,7 +30,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-family: 'Poppins', sans-serif;
 }
 
 body h1 {
@@ -524,6 +531,7 @@ body {
 .landing .hobbies {
   margin-top: 2.5rem;
   padding: 0.6rem 1rem;
+  overflow: hidden;
 }
 
 .landing .hobbies .container {
@@ -672,6 +680,7 @@ body {
     transition: background-color 0.15s;
     cursor: pointer;
     pointer-events: all;
+    border: 2px solid rgba(255, 255, 255, 0);
   }
   .landing .hobbies .hobby .name {
     display: none;
@@ -681,13 +690,10 @@ body {
     height: 65px;
   }
   .landing .hobbies .hobby:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  .landing .hobbies .hobby:active {
-    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.05);
   }
   .landing .hobbies .active-hobby {
-    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.15) !important;
   }
 }
 
@@ -1059,8 +1065,8 @@ body {
 
 .work .container .cards .card:not(:first-child) {
   margin-left: calc(var(--overlaying-margin) * -1);
-  -webkit-box-shadow: -15px 0px 48px black;
-          box-shadow: -15px 0px 48px black;
+  -webkit-box-shadow: -15px 0px 48px rgba(0, 0, 0, 0.5);
+          box-shadow: -15px 0px 48px rgba(0, 0, 0, 0.5);
 }
 
 .work .container .cards .card:focus-within ~ .card, .work .container .cards .card:hover ~ .card {
@@ -1313,6 +1319,12 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -1326,9 +1338,27 @@ body {
   font-weight: 400;
 }
 
+.contact .core .contact-info .social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  grid-gap: 0.4rem;
+}
+
 .contact .core .contact-info .social .network {
   border-radius: 100%;
-  margin-right: 0.25rem;
+  width: 45px;
+  height: 45px;
   -webkit-transition: -webkit-transform 0.15s ease-out;
   transition: -webkit-transform 0.15s ease-out;
   transition: transform 0.15s ease-out;
@@ -1341,8 +1371,8 @@ body {
 }
 
 .contact .core .contact-info .social .network img {
-  width: 45px;
-  height: 45px;
+  width: inherit;
+  height: inherit;
   border-radius: inherit;
 }
 
@@ -1374,14 +1404,14 @@ body {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .contact .core .contact-info .social .network img {
+  .contact .core .contact-info .social .network {
     width: 40px;
     height: 40px;
   }
 }
 
 @media screen and (max-width: 750px) {
-  .contact .core .contact-info .social .network img {
+  .contact .core .contact-info .social .network {
     width: 35px;
     height: 35px;
   }

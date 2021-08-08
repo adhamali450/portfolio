@@ -15,8 +15,7 @@
         background-color: rgba(25, 25, 25, 0.6)
         border-radius: 10px
         .contact-info
-            display: flex
-            flex-direction: column
+            +flex(start, start, column)
             grid-gap: 1rem
             .contact-card
                 .card-value
@@ -24,14 +23,16 @@
                     opacity: 0.7
                     font-weight: 400
             .social
+                +flex(start, center)
+                grid-gap: 0.4rem
                 .network
                     border-radius: 100%
-                    margin-right: 0.25rem
+                    +size(45px, 45px)
                     transition: transform 0.15s ease-out
                     &:hover
                         transform: scale(0.9)
                     img
-                        +size(45px, 45px)
+                        +size(inherit, inherit)
                         border-radius: inherit
         .form
             display: flex
@@ -48,11 +49,9 @@
             flex-wrap: wrap
             .contact-info
                 .social .network
-                    img
-                        +size(40px, 40px)
+                    +size(40px, 40px)
 
 @media screen and (max-width: $tablet1) //750px
     .contact .core .contact-info
         .social .network
-            img
-                +size(35px, 35px)
+            +size(35px, 35px)

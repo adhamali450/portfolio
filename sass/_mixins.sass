@@ -41,7 +41,7 @@
     --overlaying-margin: 250px
     .card:not(:first-child)
         margin-left: calc(var(--overlaying-margin) * -1)
-        box-shadow: -15px 0px 48px rgba(0, 0, 0, 1)
+        box-shadow: -15px 0px 48px rgba(0, 0, 0, 0.5)
     .card:focus-within~.card, .card:hover~.card
         transform: translateX(calc(var(--overlaying-margin) + 50px))
     .card:hover
