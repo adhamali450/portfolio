@@ -53,39 +53,44 @@
             </div>
 
         </div>
-        <div class="hobbies">
+        <ul class="hobbies">
             <div class="container" id="hobbies-container">
-                <div class="hobby" id="developer">
-                    <img class="img-hobby" src="assets/tags.svg" alt="HTML Tags">
-                    <div class="name">
-                        <p class="hobby-u" >Frontend</p>
-                        <p class="hobby-l" >Developer</p>
-                        <img id="squiggly-line" src="assets/squiggly.svg" alt="Typing Yellow Squiggly Line Symbol">
-                    </div>
-                </div>
+                <li class="hobby" id="developer">
+                    <a href="javascript:;">
+                        <img class="img-hobby" src="assets/tags.svg" alt="HTML Tags">
+                        <div class="name">
+                            <p class="hobby-u" >Frontend</p>
+                            <p class="hobby-l" >Developer</p>
+                            <img id="squiggly-line" src="assets/squiggly.svg" alt="Typing Yellow Squiggly Line Symbol">
+                        </div>
+                    </a>
+                </li>
 
-                <div class="hobby" id="designer">
-                    <img class="img-hobby" src="assets/brush.svg" alt="brush">
-                    <div class="name">
-                        <p class="hobby-u" >UI/UX</p>
-                        <p class="hobby-l" >Designer</p>
-                    </div>
-                    <div class = "mini-sq" id="upper-left"></div>
-                    <div class = "mini-sq" id="upper-right"></div>
-                    <div class = "mini-sq" id="lower-left"></div>
-                    <div class = "mini-sq" id="lower-right"></div>
-                </div>
+                <li class="hobby" id="designer">
+                    <a href="javascript:;">
+                        <img class="img-hobby" src="assets/brush.svg" alt="brush">
+                        <div class="name">
+                            <p class="hobby-u" >UI/UX</p>
+                            <p class="hobby-l" >Designer</p>
+                        </div>
+                        <div class = "mini-sq" id="upper-left"></div>
+                        <div class = "mini-sq" id="upper-right"></div>
+                        <div class = "mini-sq" id="lower-left"></div>
+                        <div class = "mini-sq" id="lower-right"></div>
+                    </a>
+                </li>
 
-
-                <div class="hobby" id="collector">
-                    <img class="img-hobby" src="assets/vinyl.svg" alt="vinyl">
-                    <div class="name">
-                        <p class="hobby-u" >Music</p>
-                        <p class="hobby-l" >Collector</p>
-                    </div>
-                </div>
+                <li class="hobby" id="collector">
+                    <a href="javascript:;">
+                        <img class="img-hobby" src="assets/vinyl.svg" alt="vinyl">
+                        <div class="name">
+                            <p class="hobby-u" >Music</p>
+                            <p class="hobby-l" >Collector</p>
+                        </div>
+                    </a>
+                </li>
             </div>
-        </div>
+        </ul>
     </Section>
 
     <!--Me-->
@@ -380,39 +385,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
     <script type="text/javascript">
-            ////////////////
-            //hobby handling
-            /////////////////
-
-
-            const hobbies = document.querySelectorAll('.hobby');
-            const hobbiesContainer = document.getElementById('hobbies-container');
-            console.log(hobbiesContainer)
-
-            const activeHobbyName = "active-hobby";
-            hobbies.forEach(hobby => {
-                hobby.addEventListener('click', () => activateHobby(hobby));
-            })
-
-            function activateHobby(hobby){
-                if(hobby.classList.contains(activeHobbyName)){
-                    hobby.classList.remove(activeHobbyName);
-                }
-                else{
-                    hobbies.forEach(allHobbies => allHobbies.classList.remove(activeHobbyName));
-                    hobby.classList.add(activeHobbyName);
-
-                    //set justify content for parent
-                    const id = hobby.id
-                    if(id ==  "developer") //justify-content: start;
-                        hobbiesContainer.style.justifyContent = "flex-start";
-                    else if(id == "designer") //justify-content: center;
-                        hobbiesContainer.style.justifyContent = "flex-center";
-                    else if(id == "collector") //justify-content: end;
-                        hobbiesContainer.style.justifyContent = "flex-end";
-                }
-            }
-
             //////////////////
             //duties handling
             //////////////////

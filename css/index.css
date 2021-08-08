@@ -11,11 +11,6 @@
   user-select: none;
 }
 
-*:focus {
-  outline: 3px dashed var(--primary-purple);
-  outline-offset: 5px;
-}
-
 *::moz-focus-inner {
   border: 0;
 }
@@ -24,6 +19,10 @@ html,
 body {
   width: 100vw;
   height: 100vh;
+}
+
+ul {
+  list-style-type: none;
 }
 
 * {
@@ -282,6 +281,11 @@ h6 {
 
 * {
   scroll-behavior: smooth;
+}
+
+*:focus {
+  outline: 3px dashed var(--primary-purple);
+  outline-offset: 5px;
 }
 
 body::-webkit-scrollbar, .cards::-webkit-scrollbar {
@@ -554,6 +558,10 @@ body {
 
 .landing .hobbies .hobby {
   padding: 0.5rem 1rem;
+  pointer-events: none;
+}
+
+.landing .hobbies .hobby a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -561,23 +569,18 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  pointer-events: none;
 }
 
-.landing .hobbies .hobby .img-hobby {
+.landing .hobbies .hobby a .img-hobby {
   width: 100px;
   height: 100px;
 }
 
-.landing .hobbies .hobby .hobby-l {
+.landing .hobbies .hobby a .hobby-l {
   margin-top: -0.3rem;
   opacity: 0.6;
   font-size: 90%;
   font-weight: 600;
-}
-
-.landing .hobbies .active-hobby .name {
-  display: block !important;
 }
 
 .landing .hobbies #designer {
@@ -677,24 +680,29 @@ body {
   }
   .landing .hobbies .hobby {
     border-radius: 10px;
-    -webkit-transition: background-color 0.15s;
-    transition: background-color 0.15s;
-    cursor: pointer;
     pointer-events: all;
+    cursor: pointer;
     border: 2px solid rgba(255, 255, 255, 0);
   }
-  .landing .hobbies .hobby .name {
+  .landing .hobbies .hobby a {
+    outline: none;
+  }
+  .landing .hobbies .hobby a .name {
     display: none;
   }
-  .landing .hobbies .hobby .img-hobby {
+  .landing .hobbies .hobby a .img-hobby {
     width: 65px;
     height: 65px;
   }
-  .landing .hobbies .hobby:hover {
-    border-color: rgba(255, 255, 255, 0.05);
+  .landing .hobbies .hobby a:focus .name {
+    display: block;
   }
-  .landing .hobbies .active-hobby {
-    border-color: rgba(255, 255, 255, 0.15) !important;
+  .landing .hobbies .hobby:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  .landing .hobbies #designer .mini-sq {
+    width: 10px;
+    height: 10px;
   }
 }
 
