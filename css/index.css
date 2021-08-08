@@ -30,6 +30,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  font-family: 'Poppins', sans-serif;
 }
 
 body h1 {
