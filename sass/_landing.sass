@@ -1,14 +1,17 @@
+@keyframes text-clip
+    from
+        clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)
+    to
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+//animation: text-clip 1s 0s cubic-bezier(0.5, 0, 0.1, 1) both
+
 .landing
     .hero
-        display: flex
-        flex-direction: column
-        align-items: flex-start
-        grid-gap: 1.5rem
+        +flex(start, start, column, 1.5rem)
         .hero-text
             .hero-heading
-                display: flex
-                flex-direction: column
-                align-items: flex-start
+                +flex(start, start, column)
+                h1
                 #qualities
                     +fillGrd(var(--purple-green-grd))
                     text-transform: uppercase
@@ -23,8 +26,7 @@
                     +fillGrd(var(--red-grd))
                     display: inline-block
         .ctas
-            display: flex
-            grid-gap: 0.75rem
+            +flex(start, start, row, 0.75rem)
             #btn-work .btn-icon
                 display: none
 
@@ -34,15 +36,12 @@
         padding: 0.6rem 1rem
         overflow: hidden
         .container
-            +flex(space-evenly, center)
-            grid-gap: 1.5rem
+            +flex(space-evenly, center, row, 1.5rem)
         .hobby
             padding: 0.5rem 1rem
             pointer-events: none
             a
-                display: flex
-                grid-gap: 0.5rem
-                align-items: center
+                +flex(start, center, row, 0.5rem)
                 .img-hobby
                     +size(100px, 100px)
                 .hobby-l
@@ -50,6 +49,12 @@
                     opacity: 0.6
                     font-size: 90%
                     font-weight: 600
+        #developer .name
+            position: relative
+            #squiggly-line
+                +absolute-center()
+                width: 100%
+                top: 110%
         #designer
             $obj-select-border: 2px solid #18A0FB
             position: relative
@@ -75,12 +80,6 @@
                 top: 100%
                 left: 100%
                 // display: none
-        #developer .name
-            position: relative
-            #squiggly-line
-                +absolute-center()
-                width: 100%
-                top: 110%
 
 @media screen and ( min-width: $laptop) //1116px
     .img-hobby

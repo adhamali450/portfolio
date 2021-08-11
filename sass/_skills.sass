@@ -111,20 +111,21 @@
 @media screen and ( max-width: $tablet1 )  //750px
     .skills
         .duties .duty img
-            +size(90px, 90px)
+            +size(80px, 80px)
 
 @media screen and ( max-width: $phone1) //475px
     .skills
         text-align: center !important
         .skills-measure
             .skill-group .icons img
-                +size(auto,20px)
+                +size(auto, 20px)
         .duties
             grid-template-rows: repeat(2, 1fr)
             grid-template-columns: repeat(2, auto)
             justify-content: center
             grid-gap: 0
             .active-duty
+                transform: translateY(0)
                 img
                     transform: scale(1.15)
         .duty-explained

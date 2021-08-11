@@ -181,7 +181,7 @@ h6 {
   --btn-pink-purple-grd: linear-gradient(90deg, var(--primary-pink) 0%, var(--primary-pink) 50%, var(--primary-purple) 100%);
   --btn-pink-purple-grd-border: linear-gradient(90deg, #FE3064 0, #FE3064 50%, #415CFF 100%);
   --red-grd: linear-gradient(45deg, #FF6181 -4.56%, #C41F40 90.23%);
-  --hobbies-border-grd: linear-gradient(90deg, #d1ffe8 0%, rgba(0,0,0, 0) 25%, rgba(0,0,0, 0) 75%, #862DF7 100%);
+  --banner-border-grd: linear-gradient(90deg, #d1ffe8 0%, rgba(0,0,0, 0) 25%, rgba(0,0,0, 0) 75%, #862DF7 100%);
   --contact-border-grd: linear-gradient(105.8deg, #d1ffe8 0%, rgba(0,0,0, 0) 25%, rgba(0,0,0, 0) 75%, #862DF7 100%);
   --thumb-grd: linear-gradient(180deg, var(--primary-pink) 0%, var(--primary-purple) 100%);
 }
@@ -194,6 +194,7 @@ h6 {
 }
 
 .dark h1, .dark h2 {
+  color: red;
   background: var(--pink-purple-grd);
   color: transparent;
   -webkit-background-clip: text;
@@ -284,7 +285,7 @@ h6 {
 }
 
 *:focus {
-  outline: 3px dashed var(--primary-purple);
+  outline: 2.5px dashed var(--primary-purple);
   outline-offset: 5px;
 }
 
@@ -325,7 +326,7 @@ body::-webkit-scrollbar-thumb, .cards::-webkit-scrollbar-thumb {
   left: 0;
   width: 100vw;
   height: 1.5px;
-  background: var(--hobbies-border-grd);
+  background: var(--banner-border-grd);
 }
 
 .wide-banner::before, .landing .hobbies::before, .resume::before {
@@ -414,6 +415,7 @@ input[type=text], textarea {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  grid-gap: 0rem;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   grid-gap: 0.25rem;
@@ -467,17 +469,42 @@ body {
   background-image: url(../assets/blob-left.svg);
 }
 
+@-webkit-keyframes text-clip {
+  from {
+    -webkit-clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+            clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+  to {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes text-clip {
+  from {
+    -webkit-clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+            clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+  to {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
 .landing .hero {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
   grid-gap: 1.5rem;
 }
 
@@ -485,13 +512,17 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  grid-gap: 0rem;
 }
 
 .landing .hero .hero-text .hero-heading #qualities {
@@ -526,6 +557,16 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   grid-gap: 0.75rem;
 }
 
@@ -565,10 +606,17 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  grid-gap: 0.5rem;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  grid-gap: 0.5rem;
 }
 
 .landing .hobbies .hobby a .img-hobby {
@@ -581,6 +629,20 @@ body {
   opacity: 0.6;
   font-size: 90%;
   font-weight: 600;
+}
+
+.landing .hobbies #developer .name {
+  position: relative;
+}
+
+.landing .hobbies #developer .name #squiggly-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  top: 110%;
 }
 
 .landing .hobbies #designer {
@@ -620,20 +682,6 @@ body {
 .landing .hobbies #designer #lower-right {
   top: 100%;
   left: 100%;
-}
-
-.landing .hobbies #developer .name {
-  position: relative;
-}
-
-.landing .hobbies #developer .name #squiggly-line {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 100%;
-  top: 110%;
 }
 
 @media screen and (min-width: 1116px) {
@@ -720,6 +768,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  grid-gap: 0rem;
   grid-gap: 2rem;
   align-items: start;
 }
@@ -746,6 +795,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  grid-gap: 0rem;
   margin: 5px 0 0 0;
   grid-gap: 5px;
 }
@@ -833,6 +883,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  grid-gap: 0rem;
   grid-gap: 0;
 }
 
@@ -1013,8 +1064,8 @@ body {
 
 @media screen and (max-width: 750px) {
   .skills .duties .duty img {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
   }
 }
 
@@ -1036,6 +1087,10 @@ body {
             justify-content: center;
     grid-gap: 0;
   }
+  .skills .duties .active-duty {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
   .skills .duties .active-duty img {
     -webkit-transform: scale(1.15);
             transform: scale(1.15);
@@ -1046,6 +1101,8 @@ body {
 }
 
 .work .container .cards {
+  position: relative;
+  border: 1px dashed red;
   margin: 0 0 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1060,6 +1117,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  grid-gap: 0rem;
   padding: 0 0 1rem 0;
   overflow-x: auto;
   --overlaying-margin: 250px;
@@ -1111,7 +1169,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  flex-direction: column;
+  grid-gap: 0rem;
+  -ms-flex-direction: column;
+      flex-direction: column;
   grid-gap: 0.75rem;
   padding: 1rem;
   border-radius: 25px;
@@ -1136,6 +1196,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  grid-gap: 0rem;
   -ms-flex-item-align: stretch;
       align-self: stretch;
   grid-gap: 0.5rem;
@@ -1338,6 +1399,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  grid-gap: 0rem;
   grid-gap: 1rem;
 }
 
@@ -1361,6 +1423,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  grid-gap: 0rem;
   grid-gap: 0.4rem;
 }
 
