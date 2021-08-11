@@ -1,21 +1,38 @@
+//////////////////////General////////////////////////////
+function getWidth() {
+  return Math.max(
+    document.body.scrollWidth,
+    document.documentElement.scrollWidth,
+    document.body.offsetWidth,
+    document.documentElement.offsetWidth,
+    document.documentElement.clientWidth
+  );
+}
+
+
+
 //////////////////
 //hobby handling//
 //////////////////
 const hobbies = document.querySelectorAll('.hobby a');
 const hobbiesContainer = document.getElementById('hobbies-container');
 hobbies.forEach(hobby => {
-    hobby.addEventListener('focus', () => setJustifyContent(hobby));
+    hobby.addEventListener('focus', () => setJustifyContent(hobby, 650));
 })
 
-function setJustifyContent(hobby){
-const id = hobby.parentNode.id
+function setJustifyContent(hobby, preferedClientWidth){ //650px
+    const clientWidth = getWidth();  
+    if(clientWidth > preferedClientWidth)
+        return;
 
-if(id ==  "developer") //justify-content: start;
-    hobbiesContainer.style.justifyContent = "flex-start";
-else if(id == "designer") //justify-content: center;
-    hobbiesContainer.style.justifyContent = "flex-center";
-else if(id == "collector") //justify-content: end;
-    hobbiesContainer.style.justifyContent = "flex-end";
+    const id = hobby.parentNode.id
+
+    if(id ==  "developer") //justify-content: start;
+        hobbiesContainer.style.justifyContent = "flex-start";
+    else if(id == "designer") //justify-content: center;
+        hobbiesContainer.style.justifyContent = "flex-center";
+    else if(id == "collector") //justify-content: end;
+        hobbiesContainer.style.justifyContent = "flex-end";
 }
 
 
