@@ -1,21 +1,21 @@
 @import generic
 
 html
-    height: -webkit-fill-available
+    /* mobile viewport bug fix */
+    min-height: -webkit-fill-available !important
 
 body
     position: relative
     overflow-x: hidden
 
-    /* mobile viewport bug fix */
-    min-height: -webkit-fill-available !important
+    min-height: inherit
 
 #rightBlob,
 #leftBlob
     position: fixed
     z-index: -999
     background-repeat: no-repeat
-    +size(100vw, 100vh)
+    +size(inherit, inherit)
     top: 0
 
 #rightBlob
