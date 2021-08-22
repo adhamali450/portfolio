@@ -1,19 +1,32 @@
 .contact
+    min-height: 100vh
+    border: 1px dashed orange
+    .container
+        display: grid
+        grid-template-rows: auto 1fr
+    .title
+        border: 1px dashed yellow
+        grid-row: 1/2
     .core
+        grid-row: 2/3
+
+        border: 1px dashed aqua
         position: relative
-        display: flex
-        justify-content: center
-        align-items: center
+
+        +flex(center, center)
 
         grid-gap: 3rem
+
+        display: none
 
         //padding-bottom is different for the send message button
         padding: 1.5rem 1.5rem 2.5rem 1.5rem
 
-        -webkit-backdrop-filter: blur(30px)
-        backdrop-filter: blur(30px)
-        background-color: rgba(25, 25, 25, 0.6)
-        border-radius: 10px
+        // background-color: rgba(25, 25, 25, 0.3)
+
+        // +backdrop-blur(60px)
+
+        border-radius: $border-radius
         .contact-info
             +flex(start, start, column)
             grid-gap: 1rem

@@ -1,6 +1,7 @@
 
-=fillGrd($grd: var(--pink-purple-grd))
-    background: $grd
+=fill-grd($grd: var(--pink-purple-grd))
+    background-image: $grd
+    background-position: center center
     color: transparent
     -webkit-background-clip: text
     background-clip: text
@@ -20,7 +21,7 @@
         justify-content: center
         align-items: center
         border-radius: inherit
-        z-index: -1
+        z-index: -900
 
         background-image: $grd
         background-size: 200% auto
@@ -35,20 +36,40 @@
     &:not(:first-child)
         margin-top: $gap
 
-=apply-cards-effect()
-    .card
-        transition: transform .2s
-    --overlaying-margin: 250px
-    .card:not(:first-child)
-        margin-left: calc(var(--overlaying-margin) * -1)
-        box-shadow: -15px 0px 48px rgba(0, 0, 0, 0.5)
-    .card:focus-within~.card, .card:hover~.card
-        transform: translateX(calc(var(--overlaying-margin) + 50px))
-    .card:hover
-        .card-emoji
-            filter: grayscale(0)
-        .work-done img
-            filter: brightness(1) invert(0)
+=set-badge-styles($base-color: var(--primary-green))
+    @extend .tiny-small
+    background-color: $base-color
+    color: rgba(0, 0, 0, 0.8)
+    padding: 0.1rem 0.2rem
+    border-radius: 5px
+
+=set-pbar-styles($base-color: rgba(255, 255, 255,0.1), $progress-color: green)
+    $border-radius: 999px
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+    border: none
+
+    border-radius: $border-radius
+    background-color: $base-color
+    color: $progress-color
+
+    /* WEBKIT BROWSERS - CHROME, OPERA AND SAFARI */
+    &::-webkit-progress-bar
+        background-color: $base-color
+        border-radius: $border-radius
+    &::-webkit-progress-value,
+        background-color: $progress-color
+        border-radius: $border-radius
+
+    /* MOZILLA FIREFOX */
+    &::-moz-progress-bar
+        background-color: $progress-color
+        border-radius: $border-radius
+
+=backdrop-blur($blur: 50px)
+    -webkit-backdrop-filter: blur($blur)
+    backdrop-filter: blur($blur)
 
 //Generic Mixins    
 =min-size($min-width, $min-height)

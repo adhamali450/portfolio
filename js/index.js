@@ -1,4 +1,6 @@
-//////////////////////General////////////////////////////
+//#region general
+
+
 function getWidth() {
   return Math.max(
     document.body.scrollWidth,
@@ -9,11 +11,82 @@ function getWidth() {
   );
 }
 
+//#endregion
+
+//#region loading animations for page
+const stopwatchAnim = bodymovin.loadAnimation({
+        container: stopwatchAnimCont,
+        path: "../assets/animations/stopwatch.json",
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        rendererSettings: {
+          progressiveLoad: true,
+        },
+});
+//#endregion
+
+//#region Loading qualities
+
+//Examples for words
+//  1- Extraoedinary
+//  2- Professional
+//  3- Upscale
+//  4- Cutting Edge
+//  5- High Tech
+//  6- Robust
+//  7- Game Changing
 
 
-//////////////////
-//hobby handling//
-//////////////////
+const  normalTypingSpeed = 150,
+normalTypingDelay = 1500,
+normalDeletingSpeed = 350,
+normalDeletingDelay = normalTypingDelay,
+moveSpeed = 75,
+singleTypingSpeed = moveSpeed,
+singleDeletingSpeed = moveSpeed;
+
+const q = ["Cutting Edge", "Upscale" , "Bullet Proof", "Robust"], //qualities
+        ntp = {speed: normalTypingSpeed, delay: normalTypingDelay}, //normalTypingProperties
+        ndp = {speed: normalDeletingSpeed, delay: normalDeletingDelay}; //normalDeletingProperties
+
+
+const typeIt = new TypeIt("#qualities", {
+    startDelay: 500,
+    beforeStep: async (step, instance) => {
+        // Will fire before each step in the queue.
+    },
+
+    beforeString: async (step, instance) => {
+        // // Will fire before each string in the queue.
+    },
+
+    afterStep: async (step, instance) => {
+        // Will fire after each step in the queue.
+    },
+
+    afterString: async (step, instance) => {
+        // Will fire after each string in the queue,
+        // including those added by the `.type()` instance method.
+    },
+
+    afterComplete: async (step, instance) => {
+        // Will fire after the entire instance has completed typing.
+        // NOTE: If "loop" is enabled, this will never fire.
+    }
+});
+
+for(i = 0; i < q.length; i++){
+    typeIt.type(q[i], ntp)
+
+    if(i + 1 != q.length) //Delete each string afterwards except the last string
+        typeIt.delete(q[i].length, ndp);
+}
+typeIt.go()
+
+//#endregion
+
+//#region hobby handling
 const hobbies = document.querySelectorAll('.hobby a');
 const hobbiesContainer = document.getElementById('hobbies-container');
 hobbies.forEach(hobby => {
@@ -30,16 +103,20 @@ function setJustifyContent(hobby, preferedClientWidth){ //650px
     if(id ==  "developer") //justify-content: start;
         hobbiesContainer.style.justifyContent = "flex-start";
     else if(id == "designer") //justify-content: center;
-        hobbiesContainer.style.justifyContent = "flex-center";
+        hobbiesContainer.style.justifyContent = "center";
     else if(id == "collector") //justify-content: end;
         hobbiesContainer.style.justifyContent = "flex-end";
 }
+//#endregion
+
+//#region Download resume
+btnDownload.addEventListener("click", function(){
+    window.open('../assets/resume.pdf', '_blank');
+})
+//#endregion
 
 
-
-///////////////////
-//duties handling//
-///////////////////
+//#region duties handling
 const dutyNames = ["Exceptionally Performant",
             "Fully Responsive",
             "Highly Intuitive",
@@ -49,7 +126,7 @@ const dutyDescriptions = ["My duty is to ensure fast load times and no any issue
                         + " intractions. I’m going to give you the fastest version of your website.",
 
                     "From 4K screen all the way to foldable devices, my layout will be fluent and eye"
-                        + " appealing no matter the user's device, form factor or brand.",
+                        + " appealing no matter the user's device form factor or brand.",
 
                     "Known about me,  I have a strong preference for strong and powerful yet,"
                         + " easy to use UI.",
@@ -88,11 +165,10 @@ function activateDuty(dutyIcon){
     document.getElementById("duty-description").innerHTML = dutyDescriptions[dutyIndex];
     document.getElementById("duty-name").innerHTML = dutyNames[dutyIndex];
 }
+//#endregion
 
 
-/////////////////////
-//skills percentages
-/////////////////////
+//#region skills percentages
 const skillsPercentage= [90, 90, 85,  70,  80];
 const progressBars = document.querySelectorAll(".progress-bar");
 const badgePercentages = document.querySelectorAll(".percentage");
@@ -100,68 +176,7 @@ for(i = 0; i < progressBars.length; i++){
     progressBars[i].value = skillsPercentage[i];
     badgePercentages[i].innerHTML = skillsPercentage[i] +"%";
 }
+//#endregion
 
-
-//////////////
-//Hero typing
-//////////////
-
-//Examples for words
-//  1- Extraoedinary
-//  2- Professional
-//  3- Upscale
-//  4- Cutting Edge
-//  5- High Tech
-//  6- Robust
-//  7- Game Changing
-
-
-const  normalTypingSpeed = 150,
-normalTypingDelay = 1500,
-normalDeletingSpeed = 350,
-normalDeletingDelay = normalTypingDelay,
-moveSpeed = 75,
-singleTypingSpeed = moveSpeed,
-singleDeletingSpeed = moveSpeed;
-
-const q = ["Cutting Edge", "Upscale" , "Bullet Proof", "Robust"], //qualities
-qImages = ["", "", "", ""]; //qualities Images
-
-const ntp = {speed: normalTypingSpeed, delay: normalTypingDelay}, //normalTypingProperties
-ndp = {speed: normalDeletingSpeed, delay: normalDeletingDelay}; //normalDeletingProperties
-
-
-const typeIt = new TypeIt("#qualities", {
-startDelay: 500,
-beforeStep: async (step, instance) => {
-    // Will fire before each step in the queue.
-},
-
-beforeString: async (step, instance) => {
-    // // Will fire before each string in the queue.
-},
-
-afterStep: async (step, instance) => {
-    // Will fire after each step in the queue.
-},
-
-afterString: async (step, instance) => {
-    // Will fire after each string in the queue,
-    // including those added by the `.type()` instance method.
-},
-
-afterComplete: async (step, instance) => {
-    // Will fire after the entire instance has completed typing.
-    // NOTE: If "loop" is enabled, this will never fire.
-}
-});
-
-for(i = 0; i < q.length; i++){
-typeIt.type(q[i], ntp)
-
-if(i + 1 != q.length) //Delete each string afterwards except the last string
-    typeIt.delete(q[i].length, ndp);
-}
-typeIt.go()
 
 window.addEventListener("contextmenu", e => e.preventDefault());

@@ -1,3 +1,6 @@
+//scroll animations
+//https://coolcssanimation.com/how-to-make-scroll-animations/
+
 @keyframes text-clip
     from
         clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)
@@ -6,14 +9,21 @@
 //animation: text-clip 1s 0s cubic-bezier(0.5, 0, 0.1, 1) both
 
 .landing
+    position: relative
+    min-height: calc(100vh + 1px)
+    display: grid
+    grid-template-rows: 1fr auto
+    > .container
+        grid-row: 1/2
+        +flex(start, center)
     .hero
         +flex(start, start, column, 1.5rem)
+        padding: 2.5rem 0
         .hero-text
             .hero-heading
                 +flex(start, start, column)
-                h1
                 #qualities
-                    +fillGrd(var(--purple-green-grd))
+                    +fill-grd(var(--purple-green-grd))
                     text-transform: uppercase
                     &::before
                         line-height: inherit !important
@@ -23,7 +33,7 @@
                         font-weight: 100 !important
             p
                 span
-                    +fillGrd(var(--red-grd))
+                    +fill-grd(var(--red-grd))
                     display: inline-block
         .ctas
             +flex(start, start, row, 0.75rem)
@@ -31,30 +41,34 @@
                 display: none
 
     .hobbies
+        //---------------PARALLAX---------------
+        position: relative
+
+        grid-row: 2/3
         @extend .wide-banner
-        margin-top: 2.5rem
         padding: 0.6rem 1rem
         overflow: hidden
         .container
-            +flex(space-evenly, center, row, 1.5rem)
+            +flex(space-around, center, row, 1.5rem)
         .hobby
             padding: 0.5rem 1rem
             pointer-events: none
             a
                 +flex(start, center, row, 0.5rem)
                 .img-hobby
-                    +size(100px, 100px)
-                .hobby-l
-                    margin-top: -0.3rem
-                    opacity: 0.6
-                    font-size: 90%
-                    font-weight: 600
+                    +size(85px, 85px)
+                .name
+                    .hobby-u, .hobby-l
+                        font-weight: 600
+                    .hobby-l
+                        margin-top: -0.3rem
+                        opacity: 0.6
         #developer .name
             position: relative
             #squiggly-line
                 +absolute-center()
                 width: 100%
-                top: 110%
+                top: 115%
         #designer
             $obj-select-border: 2px solid #18A0FB
             position: relative
@@ -110,7 +124,7 @@
                 flex-direction: column
         .hobbies
             .hobby
-                border-radius: 10px
+                border-radius: $border-radius
                 pointer-events: all
                 cursor: pointer
                 border: 2px solid rgba(255, 255, 255, 0.0)
@@ -126,5 +140,6 @@
                 &:hover
                     border-color: rgba(255, 255, 255, 0.2)
             #designer
+                border-radius: 0 !important
                 .mini-sq
                     +size(10px, 10px)

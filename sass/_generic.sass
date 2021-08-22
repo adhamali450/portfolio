@@ -3,6 +3,11 @@
 @import typography
 @import theming
 
+//===================//
+// Global Variables //
+//==================//
+$border-radius: 10px
+
 *
     scroll-behavior: smooth
 
@@ -17,7 +22,7 @@ body, .cards
     &::-webkit-scrollbar-thumb
         border: 4px solid rgba(0, 0, 0, 0)
         background-clip: padding-box
-        border-radius: 9999px
+        border-radius: $border-radius
         background-color: #AAAAAA
         background-color: var(--primary-pink)
 
@@ -26,12 +31,8 @@ body, .cards
     max-width: 2250px
     margin: 0 auto
 
-.backdrop-blur
-    -webkit-backdrop-filter: blur(30px)
-    backdrop-filter: blur(30px)
-
 .wide-banner
-    @extend .backdrop-blur
+    +backdrop-blur()
 
     width: 100vw
 
@@ -49,37 +50,6 @@ body, .cards
         top: 0
     &::after
         bottom: 0
-
-=set-badge-styles($base-color: var(--primary-green))
-    @extend .tiny-small
-    background-color: $base-color
-    color: rgba(0, 0, 0, 0.8)
-    padding: 0.1rem 0.2rem
-    border-radius: 5px
-
-=set-pbar-styles($base-color: rgba(255, 255, 255,0.1), $progress-color: green)
-    $border-radius: 999px
-    -webkit-appearance: none
-    -moz-appearance: none
-    appearance: none
-    border: none
-
-    border-radius: $border-radius
-    background-color: $base-color
-    color: $progress-color
-
-    /* WEBKIT BROWSERS - CHROME, OPERA AND SAFARI */
-    &::-webkit-progress-bar
-        background-color: $base-color
-        border-radius: $border-radius
-    &::-webkit-progress-value,
-        background-color: $progress-color
-        border-radius: $border-radius
-
-    /* MOZILLA FIREFOX */
-    &::-moz-progress-bar
-        background-color: $progress-color
-        border-radius: $border-radius
 
 progress
     +set-pbar-styles(rgba(255, 255, 255, 0.1), var(--primary-purple))
@@ -102,14 +72,14 @@ input[type = text], textarea
     width: 100%
     max-width: 500px
     display: block
-    border-radius: 10px
+    border-radius: $border-radius
     padding: 0.5rem 1rem
     border: 3px solid #303030
 
 .btn
-    border-radius: 10px
-    -moz-border-radius: 10px
-    -webkit-border-radius: 10px
+    border-radius: $border-radius
+    -moz-border-radius: $border-radius
+    -webkit-border-radius: $border-radius
 
     cursor: pointer
 
