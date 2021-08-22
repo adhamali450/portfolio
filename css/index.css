@@ -442,9 +442,15 @@ input[type=text], textarea {
           flex-direction: row-reverse;
 }
 
+html {
+  height: -webkit-fill-available;
+}
+
 body {
   position: relative;
   overflow-x: hidden;
+  /* mobile viewport bug fix */
+  min-height: -webkit-fill-available !important;
 }
 
 #rightBlob,
@@ -1270,6 +1276,7 @@ body {
 }
 
 .work .container .cards .card footer {
+  margin-top: 1.3rem;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -1444,7 +1451,7 @@ body {
   }
 }
 
-@media screen and (max-width: 855px) {
+@media screen and (max-width: 850px) {
   .work .container .cards {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1452,37 +1459,43 @@ body {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
     grid-gap: 1rem;
   }
-}
-
-@media screen and (max-width: 750px) {
-  .work .container .cards .card .work-done img {
-    width: 35px;
-    height: 35px;
+  .work .container .cards .card {
+    -ms-flex-preferred-size: 250px;
+        flex-basis: 250px;
   }
-  .work .container .cards .soon .stopwatch-animation {
-    width: 100px;
-    height: auto;
+  .work .container .cards .card header .card-name .emoji {
+    width: 50px;
+    height: 50px;
+  }
+  .work .container .cards .card footer .work-done img {
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+  }
+  .work .container .cards .soon {
+    display: none;
   }
 }
 
 @media screen and (max-width: 650px) {
-  .work .container .cards .card .work-done img {
-    margin-right: 5px;
-    width: 25px;
-    height: 25px;
+  .work .container .cards {
+    grid-gap: 0.5rem;
   }
-  .work .container .cards .soon .stopwatch-animation {
-    width: 80px;
-    height: auto;
+  .work .container .cards .card {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+  }
+  .work .container .cards .card footer {
+    margin-top: 2.5rem;
   }
 }
 

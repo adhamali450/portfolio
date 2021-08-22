@@ -1,8 +1,14 @@
 @import generic
 
+html
+    height: -webkit-fill-available
+
 body
     position: relative
     overflow-x: hidden
+
+    /* mobile viewport bug fix */
+    min-height: -webkit-fill-available !important
 
 #rightBlob,
 #leftBlob
