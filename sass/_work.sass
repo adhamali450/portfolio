@@ -2,10 +2,11 @@
     .cards
         // +flex(flex-start, stretch, column, 0.5rem)
         display: grid
-        grid-template-rows: repeat(7, 120px)
+        grid-template-rows: repeat(6, 100px)
         grid-template-columns: repeat(4, 1fr)
         grid-gap: 1rem
         .card
+
             +backdrop-blur(100px)
 
             +flex(start, start, column)
@@ -85,16 +86,16 @@
                 filter: grayscale(255)
                 display: none
             &:nth-child(1)
-                grid-row: 1/4
+                grid-row: 1/5
                 grid-column: 1/3
             &:nth-child(2)
-                grid-row: 1/3
+                grid-row: 1/4
                 grid-column: 3/5
             &:nth-child(3)
-                grid-row: 3/6
+                grid-row: 4/7
                 grid-column: 3/5
         .soon
-            grid-row: 4/6
+            grid-row: 5/7
             grid-column: 1/3
 
             border-radius: $border-radius
