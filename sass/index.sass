@@ -10,21 +10,12 @@ body
 
     +size(inherit, inherit)
 
-#rightBlob,
-#leftBlob
-    position: fixed
-    z-index: -999
-    background-repeat: no-repeat
-    +size(inherit, inherit)
-    top: 0
-
-#rightBlob
-    right: 0
-    background-image: url(../assets/blob-right.svg)
-
-#leftBlob
-    left: 0
-    background-image: url(../assets/blob-left.svg)
+/////////////////////////////////////////////////////////////////
+// Redundant 2 lines (Just to prevent some SASS indentation issue)
+// Remove the two line to check the issue
+/////////////////////////////////////////////////////////////////
+.fix
+    position: absolute
 
 @import landing
 @import me
@@ -32,6 +23,7 @@ body
 @import skills
 @import work
 @import contact
+@import decorations
 
 .me, .skills
     p
@@ -51,32 +43,14 @@ section .title
     white-space: nowrap
 
 @media screen and ( min-width: $laptop) //1116px
-    //BLOBS
-    #rightBlob
-        background-position: top right
-    #leftBlob
-        background-position: top 15rem left
-
     .img-title
         width: 100px
 
 @media screen and ( max-width: $laptop) //1116px
-    //BLOBS
-    #rightBlob
-        background-position: top -2rem right -2rem
-    #leftBlob
-        background-position: top 15rem left -3rem
-
     .img-title
         width: 90px
 
 @media screen and ( max-width: $tablet1) //750px
-    //BLOBS
-    #rightBlob
-        background-position: top -7rem right -6rem
-    #leftBlob
-        background-position: top 12rem left -6rem
-
     .img-title
         width: 75px
     .me, .skills
@@ -84,12 +58,6 @@ section .title
             max-width: 100%
 
 @media screen and ( max-width: $tablet2) //650px
-    //BLOBS
-    #rightBlob
-        background-position: center right -8rem
-    #leftBlob
-        background-position: top 12rem left -9rem
-
     .img-title
         width: 60px
     .btn
@@ -104,17 +72,3 @@ section .title
         justify-content: center !important
         h2
             width: min-content
-
-@media screen and ( max-width: $phone1) //475px
-    //BLOBS
-    #rightBlob
-        background-position: center right -10rem
-    #leftBlob
-        background-position: top 10rem left -10rem
-
-@media screen and ( max-width: $phone2) //360px
-    //BLOBS
-    #rightBlob
-        background-position: center right -11rem
-    #leftBlob
-        background-position: top 15rem left -10rem

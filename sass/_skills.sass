@@ -66,18 +66,13 @@
             +backdrop-blur(30px)
 
             transform: translateY(-1rem)
-
             img
                 background-color: transparent !important
                 filter: brightness(1) invert(0)
-            .duty-name-inside
+            .duty-name
                 opacity: 1
     .duty-explained
-        margin-top: 1rem
-        #duty-name
-            display: none
         #duty-description
-            margin-top: 1rem
             color: rgba(255, 255, 255, 0.7)
 
 @media screen and ( min-width: $laptop ) //1116px
@@ -101,7 +96,7 @@
                 padding: 1rem 0.75rem
                 img
                     +size(110px, 110px)
-                .duty-name-inside
+                .duty-name
                     display: none
         .duty-explained
             margin-top: 1rem

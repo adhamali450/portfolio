@@ -1,70 +1,50 @@
 .contact
-    min-height: 100vh
-    border: 1px dashed orange
-    .container
-        display: grid
-        grid-template-rows: auto 1fr
-    .title
-        border: 1px dashed yellow
-        grid-row: 1/2
-    .core
-        grid-row: 2/3
+    height: 100vh
+    padding: 0 !important
+    display: grid
+    grid-template-rows: repeat(9, 1fr)
 
-        border: 1px dashed aqua
-        position: relative
+    .upper
+        +flex(start, flex-end)
+        background-color: rgba(255, 255, 255, 0.1)
+        background-image: url('../assets/mail-cart.png')
+        background-repeat: no-repeat
+        background-size: 50% auto
+        background-position: bottom left
+        grid-row: 1/7
 
-        +flex(center, center)
-
-        grid-gap: 3rem
-
-        display: none
-
-        //padding-bottom is different for the send message button
-        padding: 1.5rem 1.5rem 2.5rem 1.5rem
-
-        // background-color: rgba(25, 25, 25, 0.3)
-
-        // +backdrop-blur(60px)
-
-        border-radius: $border-radius
-        .contact-info
-            +flex(start, start, column)
-            grid-gap: 1rem
-            .contact-card
-                .card-value
-                    margin-top: 0.5rem
-                    opacity: 0.7
-                    font-weight: 400
-            .social
-                +flex(start, center)
-                grid-gap: 0.4rem
-                .network
-                    border-radius: 100%
-                    +size(45px, 45px)
-                    transition: transform 0.15s ease-out
-                    &:hover
-                        transform: scale(0.9)
-                    img
-                        +size(inherit, inherit)
-                        border-radius: inherit
-        .form
-            display: flex
-            flex-direction: column
-            grid-gap: 0.5rem
-            align-items: flex-end
-        #btn-send
-            +absolute-center()
-            top: 100%
-
-@media screen and (max-width: $laptop) //1116px
-    .contact
-        .core
-            flex-wrap: wrap
+    .lower
+        grid-row: 8/9
+        .container
+            display: grid
+            grid-template-columns: repeat(3, 1fr)
             .contact-info
-                .social .network
-                    +size(40px, 40px)
+                grid-column: 1/3
+                +flex(start, start, row, 3rem)
+                li
+                    img
+                        margin-bottom: 0.3rem
+                    small
+                        display: block
+            .social
+                grid-column: 3/4
+                +flex(space-between, flex-end, row-reverse, 0)
+                small
+                    &::before
+                        content: ''
+                        display: inline-block
+                        +size(25px, 4px)
+                        background: #fff
+                        margin: 0 0.5rem 5px 0
+                .platforms
+                    +flex(start, center, row, 0.5rem)
+                    li
+                        +size(45px, 45px)
+                        border-radius: 999px
+                        *
+                            +size(inherit, inherit)
+                            border-radius: inherit
 
-@media screen and (max-width: $tablet1) //750px
-    .contact .core .contact-info
-        .social .network
-            +size(35px, 35px)
+//form
+    //width: 400px
+    //row: 1/8

@@ -1,0 +1,59 @@
+// .me, .skills, .work, .contact
+//     display: none
+// body
+//     overflow: hidden !important
+.landing
+    .ellipse
+        position: absolute
+        transform: translate(-50%, -50%)
+        background-repeat: no-repeat
+        background-size: contain
+        filter: blur(15px)
+    #ellipse-purple
+        z-index: -999
+        background-image: url(../assets/ellipse-purple.svg)
+
+        +size(45vw, 45vw)
+
+        transform: translate(0%, 0%)
+        top: -2%
+        right: -2%
+
+        // display: none
+
+    #ellipse-green
+        z-index: -998
+        background-image: url(../assets/ellipse-green.svg)
+
+        +size(77vw, 77vw)
+
+        top: -30%
+        left: 80%
+
+        // display: none
+
+    #ellipse-pink
+        z-index: -997
+        background-image: url(../assets/ellipse-pink.svg)
+
+        +size(45vw, 45vw)
+
+        top: 50%
+        left: 100%
+
+        // display: none
+
+@media screen and (max-width: 1440px) //1440px
+    .landing
+        #ellipse-purple
+            +size(48vw, 48vw)
+            top: -7%
+            right: -5%
+        #ellipse-green
+            +size(92vw, 92vw)
+            left: 85%
+            top: -35%
+        #ellipse-pink
+            +size(47vw, 47vw)
+            top: 35%
+            left: 100%

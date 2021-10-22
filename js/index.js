@@ -38,7 +38,7 @@ const stopwatchAnim = bodymovin.loadAnimation({
 //  7- Game Changing
 
 
-const  normalTypingSpeed = 150,
+const  normalTypingSpeed = 350,
 normalTypingDelay = 1500,
 normalDeletingSpeed = 350,
 normalDeletingDelay = normalTypingDelay,
@@ -46,7 +46,7 @@ moveSpeed = 75,
 singleTypingSpeed = moveSpeed,
 singleDeletingSpeed = moveSpeed;
 
-const q = ["Cutting Edge", "Upscale" , "Bullet Proof", "Robust"], //qualities
+const q = ["Cutting Edge", "Upscale" , "Bullet Proof", "Extraordinay"], //qualities
         ntp = {speed: normalTypingSpeed, delay: normalTypingDelay}, //normalTypingProperties
         ndp = {speed: normalDeletingSpeed, delay: normalDeletingDelay}; //normalDeletingProperties
 
