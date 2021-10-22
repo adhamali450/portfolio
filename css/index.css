@@ -1729,6 +1729,9 @@ body {
     top: 35%;
     left: 100%;
   }
+  .landing .ellipse {
+    display: none;
+  }
 }
 
 .me p, .skills p {
