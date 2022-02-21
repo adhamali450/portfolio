@@ -57,8 +57,6 @@
             pointer-events: none
             a
                 +flex(start, center, row, 0.5rem)
-                .img-hobby
-                    +size(85px, 85px)
                 .name
                     .hobby-u, .hobby-l
                         font-weight: 600
@@ -99,7 +97,7 @@
 
 @media screen and ( min-width: $laptop) //1116px
     .img-hobby
-        width: 100px
+        +size(65px, 65px)
 
 @media screen and (max-width: $laptop) //1116px
     .landing
@@ -109,7 +107,7 @@
             .hobby
                 padding: 0.5rem
                 grid-gap: 0.75rem
-                .img-hobby
+                .img-hobby //TODO: change size
                     +size(75px, 75px)
 
 @media screen and (max-width: $tablet2) //650px
@@ -135,7 +133,7 @@
                     .name
                         display: none
                     .img-hobby
-                        +size(65px, 65px)
+                        +size(65px, 65px) //TODO: change size
                     &:focus
                         .name
                             display: block

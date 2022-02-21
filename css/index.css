@@ -103,6 +103,7 @@ h6 {
 @media screen and (min-width: 1116px) {
   html {
     font-size: 165%;
+    font-size: 125%;
   }
 }
 
@@ -421,8 +422,8 @@ input[type=text], textarea {
 }
 
 .btn .btn-icon, .btn-primary .btn-icon, .btn-secondary .btn-icon {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -644,11 +645,6 @@ body {
   grid-gap: 0.5rem;
 }
 
-.landing .hobbies .hobby a .img-hobby {
-  width: 85px;
-  height: 85px;
-}
-
 .landing .hobbies .hobby a .name .hobby-u, .landing .hobbies .hobby a .name .hobby-l {
   font-weight: 600;
 }
@@ -713,7 +709,8 @@ body {
 
 @media screen and (min-width: 1116px) {
   .img-hobby {
-    width: 100px;
+    width: 65px;
+    height: 65px;
   }
 }
 
@@ -785,6 +782,7 @@ body {
 }
 
 .me .core {
+  border: 1px dashed red;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: (auto)[3];
@@ -792,6 +790,10 @@ body {
   -ms-grid-columns: 1fr 2fr 1.5fr;
       grid-template-columns: 1fr 2fr 1.5fr;
   grid-gap: 1rem;
+}
+
+.me .core article {
+  border: 1px dashed red;
 }
 
 .me .core article header {
@@ -820,7 +822,8 @@ body {
   text-justify: justify;
 }
 
-.me .core .exp {
+.me .core .expe {
+  border: 1px dashed red;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/2;
@@ -845,7 +848,7 @@ body {
   grid-gap: 0;
 }
 
-.me .core .exp #backgound {
+.me .core .expe #backgound {
   position: absolute;
   background-color: inherit;
   z-index: -1;
@@ -854,11 +857,11 @@ body {
   margin-left: -100%;
 }
 
-.me .core .exp #years {
+.me .core .expe #years {
   color: #9FFBCE;
 }
 
-.me .core .exp small {
+.me .core .expe small {
   line-height: 130%;
 }
 
@@ -1005,11 +1008,6 @@ body {
   grid-gap: 0.5rem;
 }
 
-.skills .skills-measure .skill-group .icons img {
-  width: auto;
-  height: 30px;
-}
-
 .skills .skills-measure .skill-group .percentage {
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
@@ -1069,8 +1067,6 @@ body {
   transition: background-color 0.15s , transform 0.15s , -webkit-transform 0.15s;
   cursor: pointer;
   border-radius: 10px;
-  width: 140px;
-  height: 140px;
   -webkit-filter: brightness(0) invert(1);
   filter: brightness(0) invert(1);
 }
@@ -1110,11 +1106,23 @@ body {
   .skills .skills-measure {
     width: 60%;
   }
+  .skills .skills-measure .skill-group .icons img {
+    width: auto;
+    height: 30px;
+  }
+  .skills .duties .duty img {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 @media screen and (max-width: 1116px) {
   .skills .skills-measure {
     width: 80%;
+  }
+  .skills .skills-measure .skill-group .icons img {
+    width: auto;
+    height: 30px;
   }
 }
 
@@ -1124,7 +1132,7 @@ body {
   }
   .skills .skills-measure .skill-group .icons img {
     width: auto;
-    height: 25px;
+    height: 30px;
   }
   .skills .duties {
     grid-gap: 0.25rem;
@@ -1152,6 +1160,10 @@ body {
 }
 
 @media screen and (max-width: 750px) {
+  .skills .skills-measure .skill-group .icons img {
+    width: auto;
+    height: 30px;
+  }
   .skills .duties .duty img {
     width: 80px;
     height: 80px;
@@ -1660,8 +1672,8 @@ body {
 }
 
 .contact .lower .container .social .platforms li {
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   border-radius: 999px;
 }
 
@@ -1760,7 +1772,7 @@ section .title {
 
 @media screen and (min-width: 1116px) {
   .img-title {
-    width: 100px;
+    width: 80px;
   }
 }
 

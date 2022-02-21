@@ -13,8 +13,6 @@
 
                 display: flex
                 grid-gap: 0.5rem
-                img
-                    +size(auto,30px)
             .percentage
                 grid-row: 1/2
                 grid-column: 2/3
@@ -48,7 +46,6 @@
 
                 cursor: pointer
                 border-radius: $border-radius
-                +size(140px, 140px)
                 -webkit-filter: brightness(0) invert(1)
                 filter: brightness(0) invert(1)
                 // &:hover
@@ -76,19 +73,27 @@
             color: rgba(255, 255, 255, 0.7)
 
 @media screen and ( min-width: $laptop ) //1116px
-    .skills .skills-measure
-        width: 60%
+    .skills
+        .skills-measure
+            width: 60%
+            .skill-group .icons img
+                +size(auto,30px)
+        .duties .duty
+            img
+                +size(120px, 120px)
 
 @media screen and ( max-width: $laptop ) //1116px
     .skills  .skills-measure
         width: 80%
+        .skill-group .icons img //TODO: change size
+            +size(auto,30px)
 
 @media screen and ( max-width: 950px )
     .skills
         .skills-measure
             width: 100%
-            .skill-group .icons img
-                +size(auto,25px)
+            .skill-group .icons img //TODO: change size
+                +size(auto,30px)
 
         .duties
             grid-gap: 0.25rem
@@ -108,15 +113,16 @@
 
 @media screen and ( max-width: $tablet1 )  //750px
     .skills
+        .skills-measure .skill-group .icons img //TODO: change size
+            +size(auto,30px)
         .duties .duty img
             +size(80px, 80px)
 
 @media screen and ( max-width: $phone1) //475px
     .skills
         text-align: center !important
-        .skills-measure
-            .skill-group .icons img
-                +size(auto, 20px)
+        .skills-measure .skill-group .icons img //TODO: change size
+            +size(auto, 20px)
         .duties
             grid-template-rows: repeat(2, 1fr)
             grid-template-columns: repeat(2, auto)
