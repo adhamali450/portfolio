@@ -60,10 +60,15 @@
     .btn-secondary
         background-color: var(--bg)
 
-    input[type = text], textarea
-        // // background-color: rgba(255, 255, 255, 0.1)
-        // // color: rgba(255, 255, 255, 0.3)
-        // background-color: #303030
+    form
+        background-color: #272727
 
-        background-color: transparent
-        color: #c4c4c4
+    input[type = text], textarea
+        background-color: #1F1F1F
+        border: 2px solid transparent
+        transition: border-color 0.1s ease-out
+        color: #ffffff
+        &:hover
+            border-color: #606060
+        &:focus
+            border-color: var(--primary-purple)

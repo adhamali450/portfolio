@@ -14,7 +14,7 @@ $border-radius: 10px
     padding: 0
     box-sizing: border-box
 
-*:focus
+*:not(textarea):focus
     outline: 2.5px dashed var(--primary-purple)
     outline-offset: 5px
 
@@ -72,12 +72,14 @@ textarea
     resize: none
 
 input[type = text], textarea
-    width: 100%
-    max-width: 500px
     display: block
+    width: 100%
     border-radius: $border-radius
-    padding: 0.5rem 1rem
-    border: 3px solid #303030
+    padding: 0.5rem 0.7rem
+    outline: none
+
+textarea
+    height: auto
 
 .btn
     border-radius: $border-radius
@@ -88,7 +90,7 @@ input[type = text], textarea
 
     position: relative
 
-    +flex(start, center)
+    +flex(center, center)
     flex-shrink: 0
     grid-gap: 0.25rem
     .btn-icon

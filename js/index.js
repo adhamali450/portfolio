@@ -13,7 +13,7 @@ function getWidth() {
 
 //#endregion
 
-//#region loading animations for page
+//#region coming soon anmimation
 const stopwatchAnim = bodymovin.loadAnimation({
         container: stopwatchAnimCont,
         path: "../assets/animations/stopwatch.json",
