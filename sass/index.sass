@@ -25,7 +25,7 @@ body
 @import contact
 @import decorations
 
-.me, .skills
+.skills
     p
         max-width: 60ch
 
@@ -47,26 +47,25 @@ section .title
         width: 80px
 
 @media screen and ( max-width: $laptop) //1116px
-    .img-title //TODO: change size
-        width: 90px
+    .img-title
+        width: 80px
 
 @media screen and ( max-width: $tablet1) //750px
     .img-title
-        width: 75px //TODO: change size
+        width: 65px
     .me, .skills
         p
             max-width: 100%
 
 @media screen and ( max-width: $tablet2) //650px
     .img-title
-        width: 60px //TODO: change size
+        width: 60px
     .btn
         justify-content: center
         width: 85%
         margin: 0 auto
         .btn-icon
             +size(15px, 15px)
-
     .title
         flex-wrap: wrap
         justify-content: center !important

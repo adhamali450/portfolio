@@ -1,30 +1,22 @@
 .work .container
     .cards
-        // +flex(flex-start, stretch, column, 0.5rem)
         display: grid
-        grid-template-rows: repeat(6, 100px)
+        grid-template-rows: repeat(6, 70px)
         grid-template-columns: repeat(4, 1fr)
         grid-gap: 1rem
         .card
+            //+backdrop-blur(100px)
 
-            +backdrop-blur(100px)
-
-            +flex(start, start, column)
+            +flex(start, stretch, column)
 
             padding: 1rem
             cursor: pointer
             border-radius: $border-radius
 
-            background-color: transparent
             border: 2px solid rgba(255, 255, 255, 0.3)
             transition: background-color 0.05s ease-in-out,
             border-color 0.05s ease-in-out
 
-            scroll-snap-align: start
-            clear: both
-
-            overflow: hidden
-            position: relative
             &:hover
                 background-color: rgba(255, 255, 255, 0.05)
                 border-color: rgba(255, 255, 255, 0.65)
@@ -33,7 +25,6 @@
                         transform: translateX(10px)
             header
                 +flex(space-between, center, row, 0.5rem)
-                align-self: stretch
                 .card-name
                     font-weight: 800
                     +fill-grd(var(--purple-green-grd))
@@ -45,8 +36,8 @@
                         transition: transform 0.3s ease
 
             .card-description
+                flex-grow: 1
                 position: relative
-                filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.7))
                 margin-top: 5px
                 &::after
                     content: ' '
@@ -61,8 +52,6 @@
 
             footer
                 margin-top: 1rem
-                flex-grow: 1
-                width: 100%
                 +flex(flex-start, flex-end, row)
                 flex-wrap: wrap
                 .work-done
@@ -71,20 +60,15 @@
                     img
                         margin-right: 10px
                         +size(35px, 35px)
+
+                        cursor: default !important
+
                         filter: brightness(0) invert(1)
                         &:hover
                             filter: brightness(1) invert(0)
                 .year
                     +set-badge-styles()
 
-            .card-emoji
-                position: absolute
-                top: 25%
-                right: 1rem
-                +size(270px, 270px)
-                opacity: 0.3
-                filter: grayscale(255)
-                display: none
             &:nth-child(1)
                 grid-row: 1/5
                 grid-column: 1/3
@@ -100,7 +84,7 @@
 
             border-radius: $border-radius
             border: 2px solid rgba(255, 255, 255, 0.1)
-            +flex(center, center, row,  0.5rem)
+            +flex(center, center, row,  0)
             h3
                 font-weight: 600
                 opacity: 0.6
