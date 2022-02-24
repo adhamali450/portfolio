@@ -4,50 +4,52 @@
         // display: none
     .duties-container
         margin-top: 2rem
-        .duties
-            display: grid
-            grid-template-rows: 1fr
-            grid-template-columns: repeat(4, auto)
-            justify-content: start
+    .duties
+        display: grid
+        grid-template-rows: 1fr
+        grid-template-columns: repeat(4, auto)
+        justify-content: start
 
-            .duty
-                padding: 1rem
+        .duty
+            padding: 1rem
 
-                //centering
-                +grid-center()
+            //centering
+            +grid-center()
 
-                border-radius: $border-radius
+            border-radius: $border-radius
+
+            transition: background-color 0.15s , transform 0.15s
+            img
+                +size(120px, 120px)
 
                 transition: background-color 0.15s , transform 0.15s
-                img
-                    transition: background-color 0.15s , transform 0.15s
 
-                    cursor: pointer
-                    border-radius: $border-radius
-                    -webkit-filter: brightness(0) invert(1)
-                    filter: brightness(0) invert(1)
-                    // &:hover
-                        //preventing background change when hovering
-                        //in case of already activating done in JS
+                cursor: pointer
+                border-radius: $border-radius
+                -webkit-filter: brightness(0) invert(1)
+                filter: brightness(0) invert(1)
+                // &:hover
+                    //preventing background change when hovering
+                    //in case of already activating done in JS
 
-                h6
-                    font-weight: 600
-                    line-height: 120%
-                    opacity: 0
-                    text-align: center
-                    transition: opacity 0.2s
-            .active-duty
-                background-color: rgba(255, 255, 255, 0.1)
+            h6
+                font-weight: 600
+                line-height: 120%
+                opacity: 0
+                text-align: center
+                transition: opacity 0.2s
+        .active-duty
+            background-color: rgba(255, 255, 255, 0.1)
 
-                transform: translateY(-1rem)
-                img
-                    background-color: transparent !important
-                    filter: brightness(1) invert(0)
-                .duty-name
-                    opacity: 1
-        .duty-explained
-            #duty-description
-                color: rgba(255, 255, 255, 0.7)
+            transform: translateY(-1rem)
+            img
+                background-color: transparent !important
+                filter: brightness(1) invert(0)
+            .duty-name
+                opacity: 1
+    .duty-explained
+        #duty-description
+            color: rgba(255, 255, 255, 0.7)
 
     .tech-tools
         width: 100%
@@ -79,17 +81,8 @@
                     img
                         +size(inherit, inherit)
 
-@media screen and ( min-width: $laptop ) //1116px
-    .skills
-        .duties .duty
-            img
-                +size(120px, 120px)
-
 @media screen and ( max-width: $laptop ) //1116px
     .skills
-        .duties .duty
-            img
-                +size(120px, 120px)
         .tech-tools
             &::before
                 background-size: 400px
@@ -122,11 +115,12 @@
                 +size(auto, 40px)
 
 @media screen and ( max-width: $tablet1 )  //750px
-    .skills .duties .duty img
-        +size(80px, 80px)
-    .tech-tools .container .icons
-        li
-            +size(auto, 35px !important)
+    .skills
+        .duties .duty img
+            +size(80px, 80px)
+        .tech-tools .container .icons
+            li
+                +size(auto, 35px !important)
 
 @media screen and ( max-width: $tablet2 ) //650px
     .skills
@@ -147,10 +141,12 @@
     .skills
         text-align: center !important
         .duties
-            grid-template-rows: repeat(2, 1fr) !important
-            grid-template-columns: repeat(2, auto) !important
+            grid-template-rows: repeat(2, 1fr)
+            grid-template-columns: repeat(2, auto)
             justify-content: center
             grid-gap: 0
+            .duty img
+                +size(95px, 95px)
             .active-duty
                 transform: translateY(0)
                 img
