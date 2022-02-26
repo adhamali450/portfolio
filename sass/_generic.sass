@@ -18,7 +18,7 @@ $border-radius: 10px
     outline: 2.5px dashed var(--primary-purple)
     outline-offset: 5px
 
-body, .cards
+body
     &::-webkit-scrollbar
         background-color: #000
         +size(0.55rem, 0.55rem)
@@ -50,9 +50,6 @@ body, .cards
         top: 0
     &::after
         bottom: 0
-
-progress
-    +set-pbar-styles(rgba(255, 255, 255, 0.1), var(--primary-purple))
 
 a
     text-decoration: none

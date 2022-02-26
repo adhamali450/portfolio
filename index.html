@@ -45,16 +45,15 @@
                                 <br>
                                 Something
                             </h1>
-                            
                             <h1>
                                 <strong id="qualities"></strong>
                             </h1>
                         </div>
-                        <p>My name is Adham Ali. Frontend developer based in
+                        <p>
+                            My name is Adham Ali. Frontend developer based in
                             <span>Cairo, Egypt</span>
                         </p>
                     </div>
-                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                     <div class="ctas">
                         <a class="btn-primary" id="btn-contact" href="#contact" title="Coffee on me">
                             Let's Talk
@@ -71,7 +70,7 @@
             <ul class="hobbies">
                 <div class="container" id="hobbies-container">
                     <li class="hobby" id="developer">
-                        <a href="javascript:;">
+                        <a>
                             <img class="img-hobby" src="assets/tags.svg" alt="HTML Tags">
                             <div class="name">
                                 <h6 class="hobby-u" >Frontend</h6>
@@ -82,7 +81,7 @@
                     </li>
 
                     <li class="hobby" id="designer">
-                        <a href="javascript:;">
+                        <a>
                             <img class="img-hobby" src="assets/brush.svg" alt="brush">
                             <div class="name">
                                 <h6 class="hobby-u" >UI/UX</h6>
@@ -96,7 +95,7 @@
                     </li>
 
                     <li class="hobby" id="collector">
-                        <a href="javascript:;">
+                        <a>
                             <img class="img-hobby" src="assets/vinyl.svg" alt="vinyl">
                             <div class="name">
                                 <h6 class="hobby-u" >Music</h6>
@@ -113,7 +112,7 @@
             <div class="large-map"></div>
             <div class="container">
                 <div class="title">
-                    <img class="img-title" src="assets/new/me.svg" alt="Adham">
+                    <img class="img-title" src="assets/me.svg" alt="Adham">
                     <h2>adham.is( ) </h2>
                 </div>
 
@@ -166,7 +165,7 @@
                             Currently, I'm in Cairo. It's like the bigger version of NYC. Somewhere on this map you see if you're really asking.
                         </p>
                     </article>
-                    
+
                     <article class="what">
                         <header class="question">
                             <small>
@@ -194,7 +193,7 @@
             <div class="container">
                 <div class="title">
                     <!-- <img class="img-title" src="assets/emojis/pool-8-ball.png" alt="skills"> -->
-                    <img class="img-title" src="assets/new/skills.svg" alt="skills">
+                    <img class="img-title" src="assets/skills.svg" alt="skills">
                     <h2>Skills</h2>
                 </div>
 
@@ -257,7 +256,7 @@
             <div class="container">
                 <div class="title">
                     <!-- <img class="img-title" src="assets/emojis/archive.png" alt="work"> -->
-                    <img class="img-title" src="assets/new/work.svg" alt="work">
+                    <img class="img-title" src="assets/work.svg" alt="work">
                     <h2>Latest Pieces</h2>
                 </div>
 
@@ -333,7 +332,7 @@
                     </article>
                     
                     <div class="soon">
-                        <div class="stopwatch-animation" id="stopwatchAnimCont" width="75" height="75"></div>
+                        <div class="stopwatch-animation" id="stopwatchAnimCont" style="width: 75px; height: 75px;"></div>
                         <h3>
                             Soon...
                         </h3>
@@ -346,9 +345,11 @@
         <section class="contact" id="contact">
             <div class="upper">
                 <div class="container">
+                    <div class="contact-theme"></div>
+
                     <div class="title">
                         <!-- <img class="img-title" src="assets/emojis/ticket.png" alt="contact"> -->
-                        <img class="img-title" src="assets/new/contact.svg" alt="contact">
+                        <img class="img-title" src="assets/contact.svg" alt="contact">
                         <h2>Let's talk</h2>
                     </div>
 
@@ -357,14 +358,14 @@
                             <small class="label">Name
                                 <small class="crucial" title="crucial" style="color:red;">*</small>
                             </small>   
-                            <input type = text placeholder="Peter Griffin">
+                            <input type = text placeholder="John Doe">
                         </div>
 
                         <div class="text-box" id="email-address">
                             <small class="label">Email address
                                 <small class="crucial" title="crucial" style="color:red;">*</small>
                             </small>   
-                            <input type = text placeholder="peter_griffin@gmail.com">
+                            <input type = text placeholder="john_doe@gmail.com">
                         </div>
                         
                         <div class="text-box" id="message">
@@ -373,12 +374,12 @@
                             </small>   
                             <textarea placeholder="Let's cook something fly!"></textarea>
                         </div>
-                        
-                        <a class="btn-primary">
-                            Send Message
-                            <div class="btn-icon"></div>
-                        </a>
+                        <button class="btn-primary">
+                                <!-- Send Message -->
+                                <div class="btn-icon"></div>
+                        </button>
                     </form>
+
                 </div>
             </div>
 
@@ -386,51 +387,55 @@
                 <div class="container">
                     <ul class="contact-info">
                         <li id="address">
-                            <img src="assets/new/icon-address.svg" alt="Work address">
+                            <img src="assets/icon-address.svg" alt="Work address">
                             <small>
                                 AZ Zaytoun, Cairo, Egypt
                             </small>
                         </li>
                         <li id="phone-number">
-                            <img src="assets/new/icon-phone.svg" alt="Work number">
-                            <small>(+20) 011 4395 4897</small>
+                            <img src="assets/icon-phone.svg" alt="Work number">
+                            <a href="#">
+                                <small>(+20) 011 4395 4897</small>
+                            </a>
                         </li>
                         <li id="email-address">
-                            <img src="assets/new/icon-email.svg" alt="Work email address">
-                            <small>
+                            <img src="assets/icon-email.svg" alt="Work email address">
+                            <a href="#">
+                                <small>
                                 adhamali_4500
                                 <br>
                                 @outlook.com
-                            </small>
+                                </small>
+                            </a>
                         </li>
                     </ul>
 
                     <div class="social">
                         <small>follow me</small>
                         <ul class="platforms">
-                            <!-- <li>
-                                <a href="#">
-                                    <img src="assets/bmc.svg" alt="Buy me coffee">
-                                </a>
-                            </li> -->
                             <li>
                                 <a href="#">
-                                    <img src="assets/new/linkedin.svg" alt="Linkedin">
+                                    <img src="assets/bmc.svg" alt="Buy me coffee" title="Buy me cofee">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="assets/new/instagram.svg" alt="Instagram">
+                                    <img src="assets/linkedin.svg" alt="Linkedin" title="Linkedin">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="assets/new/github.svg" alt="Github">
+                                    <img src="assets/instagram.svg" alt="Instagram" title="Instagram">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="assets/new/dribbble.svg" alt="Dribbble">
+                                    <img src="assets/github.svg" alt="Github" title="Github">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="assets/dribbble.svg" alt="Dribbble" title="Dribbble">
                                 </a>
                             </li>
                         </ul>

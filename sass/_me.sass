@@ -89,6 +89,8 @@
                 width: 100%
                 .cairo-map, .overlay
                     +size(100%, 100%)
+                    background-repeat: no-repeat
+                    background-size: cover
                     position: absolute
                     top: 0
                     left: 0
@@ -110,7 +112,7 @@
 
     .resume
         @extend .wide-banner
-        +backdrop-blur(10px)
+        +backdrop-blur(7px)
         margin-top: 3rem
         padding: 1.5rem
         text-align: center

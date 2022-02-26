@@ -41,6 +41,7 @@
     a
         color: var(--fg)
     .btn
+        position: relative
         color: var(--fg)
         +btn-border-grd()
         box-shadow: 0 1px 10px rgba(240,95,135, 0.5)
@@ -66,9 +67,10 @@
     input[type = text], textarea
         background-color: #1F1F1F
         border: 2px solid transparent
-        transition: border-color 0.1s ease-out
+        transition: border-color 0.1s ease-out, background-color 0.2s ease-out
         color: #ffffff
         &:hover
             border-color: #606060
         &:focus
             border-color: var(--primary-purple)
+            background-color: #141414

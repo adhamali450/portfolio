@@ -7,28 +7,27 @@
     background-clip: text
     display: table-cell
 
-=btn-border-grd($grd: var(--btn-pink-purple-grd-border))
+=btn-border-grd($grd: var(--btn-pink-purple-grd-border), $border-width: var(--border-width))
     &::after
+        --border-width: 2px
         content: ''
+
         position: absolute
 
-        top: calc(-1 * 2px)
-        left: calc(-1 * 2px)
-        height: calc(100% + 2px * 2)
-        width: calc(100% + 2px * 2)
+        top: calc(-1 * var(--border-width))
+        left: calc(-1 * var(--border-width))
+        height: calc(100% + var(--border-width) * 2)
+        width: calc(100% + var(--border-width) * 2)
 
-        display: flex
-        justify-content: center
-        align-items: center
+        +grid-center()
         border-radius: inherit
-        z-index: -900
+        z-index: -999
 
         background-image: $grd
         background-size: 200% auto
         background-position: right center
 
         transition: inherit
-
     &:hover::after
         background-position: left center
 
