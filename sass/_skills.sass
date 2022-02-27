@@ -1,7 +1,5 @@
 .skills
     //border: 1px dashed orange
-    .title
-        // display: none
     .duties-container
         margin-top: 2rem
     .duties
@@ -13,7 +11,6 @@
         .duty
             padding: 1rem
 
-            //centering
             +grid-center()
 
             border-radius: $border-radius
@@ -25,7 +22,7 @@
                 transition: background-color 0.15s , transform 0.15s
 
                 cursor: pointer
-                border-radius: $border-radius
+                border-radius: inherit
                 -webkit-filter: brightness(0) invert(1)
                 filter: brightness(0) invert(1)
                 // &:hover
@@ -34,26 +31,20 @@
 
             h6
                 font-weight: 600
-                line-height: 120%
+                line-height: 100%
                 opacity: 0
                 text-align: center
                 transition: opacity 0.2s
         .active-duty
-            background-color: rgba(255, 255, 255, 0.1)
-
             transform: translateY(-1rem)
             img
                 background-color: transparent !important
                 filter: brightness(1) invert(0)
             .duty-name
                 opacity: 1
-    .duty-explained
-        #duty-description
-            color: rgba(255, 255, 255, 0.7)
 
     .tech-tools
         width: 100%
-        background-color: rgba(255, 255, 255, 0.1)
         margin: 2rem 0 0 0
         padding: 2rem 0
         position: relative

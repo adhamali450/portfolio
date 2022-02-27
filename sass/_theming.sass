@@ -27,6 +27,51 @@
     --contact-border-grd: linear-gradient(105.8deg, #d1ffe8 0%, rgba(0,0,0, 0) 25%, rgba(0,0,0, 0) 75%, #862DF7 100%)
     --thumb-grd: linear-gradient(180deg, var(--primary-pink) 0%, var(--primary-purple) 100%)
 
+//sections theming
+=landing-theming($theme: dark)
+    @if $theme == dark
+    @else if $theme == light
+
+=me-theming($theme: dark)
+    //large-screen-exp
+    $exp-bg: rgba(255, 0, 0, 0.3)
+    $years-fg: rgba(255, 0, 0, 0.3)
+
+    @if $theme == dark
+        $exp-bg: #1A1A1A
+        $years-fg: var(--primary-green)
+
+    @else if $theme == light
+
+    .me .exp
+        background-color: $exp-bg
+        #years
+            color: var(--primary-green)
+
+=skills-theming($theme: dark)
+    //duties
+    $active-duty-bg: rgba(255, 255, 255, 0.3)
+    //tech & tools
+    $tools-banner-bg: rgba(255, 255, 255, 0.3)
+    @if $theme == dark
+        $active-duty-bg: #1A1A1A
+        $tools-banner-bg: #1A1A1A
+    @else if $theme == light
+
+    .skills
+        .duties .active-duty
+            background-color: $active-duty-bg
+        .tech-tools
+            background-color: $tools-banner-bg
+
+=work-theming($theme: dark)
+    @if $theme == dark
+    @else if $theme == light
+
+=contact-theming($theme: dark)
+    @if $theme == dark
+    @else if $theme == light
+
 .dark
     @extend .root
 
@@ -74,3 +119,16 @@
         &:focus
             border-color: var(--primary-purple)
             background-color: #141414
+
+    +landing-theming(dark)
+    +me-theming(dark)
+    +skills-theming(dark)
+    +work-theming(dark)
+    +contact-theming(dark)
+
+//#191919
+//#1A1A1A
+//#1A1A1A
+//#0F0F0F
+//#272727
+//#1F1F1F

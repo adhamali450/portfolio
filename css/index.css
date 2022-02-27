@@ -289,6 +289,22 @@ h6 {
   background-color: #141414;
 }
 
+.dark .me .exp {
+  background-color: #1A1A1A;
+}
+
+.dark .me .exp #years {
+  color: var(--primary-green);
+}
+
+.dark .skills .duties .active-duty {
+  background-color: #1A1A1A;
+}
+
+.dark .skills .tech-tools {
+  background-color: #1A1A1A;
+}
+
 * {
   scroll-behavior: smooth;
   margin: 0;
@@ -839,7 +855,6 @@ body {
   -ms-grid-column-span: 1;
   grid-column: 1/2;
   position: relative;
-  background-color: #191919;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -857,17 +872,12 @@ body {
 }
 
 .me .core .exp #background {
-  background-color: red;
   position: absolute;
   background-color: inherit;
   z-index: -1;
   width: 100%;
   height: 100%;
   margin-left: -100%;
-}
-
-.me .core .exp #years {
-  color: #9FFBCE;
 }
 
 .me .core .exp small {
@@ -921,20 +931,6 @@ body {
           filter: drop-shadow(0 0 10px #3f3f3f);
 }
 
-.me .core .large-screen-where #dots {
-  display: none;
-  position: absolute;
-  width: 90%;
-  height: 90%;
-  right: 0px;
-  top: 0px;
-  background-image: url("../assets/dots-map.svg");
-  background-repeat: repeat;
-  margin-top: -6%;
-  margin-right: -15%;
-  z-index: -50;
-}
-
 .me .core .large-screen-where .map {
   -ms-flex-preferred-size: 1;
       flex-basis: 1;
@@ -972,7 +968,7 @@ body {
   -webkit-filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
           filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 120%;
   bottom: 0.75rem;
   left: 0.75rem;
@@ -1162,14 +1158,14 @@ body {
   transition: background-color 0.15s , transform 0.15s;
   transition: background-color 0.15s , transform 0.15s , -webkit-transform 0.15s;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: inherit;
   -webkit-filter: brightness(0) invert(1);
   filter: brightness(0) invert(1);
 }
 
 .skills .duties .duty h6 {
   font-weight: 600;
-  line-height: 120%;
+  line-height: 100%;
   opacity: 0;
   text-align: center;
   -webkit-transition: opacity 0.2s;
@@ -1177,7 +1173,6 @@ body {
 }
 
 .skills .duties .active-duty {
-  background-color: rgba(255, 255, 255, 0.1);
   -webkit-transform: translateY(-1rem);
           transform: translateY(-1rem);
 }
@@ -1192,13 +1187,8 @@ body {
   opacity: 1;
 }
 
-.skills .duty-explained #duty-description {
-  color: rgba(255, 255, 255, 0.7);
-}
-
 .skills .tech-tools {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
   margin: 2rem 0 0 0;
   padding: 2rem 0;
   position: relative;
@@ -1697,22 +1687,21 @@ body {
 
 .contact .contact-theme {
   width: 100%;
-  height: 235px;
+  height: 100%;
   display: none;
 }
 
 .contact .upper {
-  background-color: rgba(255, 255, 255, 0.06);
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  background-color: #0F0F0F;
   background-image: url("../assets/contact-theme-1.webp");
   background-repeat: no-repeat;
   background-size: auto 85%;
   background-position: bottom left;
-  max-width: 2250px;
   width: 100%;
-  margin: 0 auto;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
+  max-width: 2250px;
 }
 
 .contact .upper .container {
@@ -1788,24 +1777,22 @@ body {
 }
 
 .contact .upper .container form #message textarea {
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
+  -ms-flex-preferred-size: inherit;
+      flex-basis: inherit;
 }
 
 .contact .upper .container form .btn, .contact .upper .container form .btn-primary,
 .contact .upper .container form .btn-secondary {
   position: absolute;
+  border-radius: 999px;
+  padding: 0.75rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  border-radius: 999px;
-  padding: 0.75rem;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  top: 98%;
-  left: 98%;
+  top: 96%;
+  left: 96%;
 }
 
 .contact .upper .container form .btn .btn-icon, .contact .upper .container form .btn-primary .btn-icon, .contact .upper .container form .btn-secondary .btn-icon {
@@ -2012,10 +1999,6 @@ body {
             align-items: flex-end;
     gap: 0.6rem;
   }
-  .contact .lower .container .social .platforms li {
-    width: 28px;
-    height: 28x;
-  }
 }
 
 @media screen and (max-width: 750px) {
@@ -2024,7 +2007,7 @@ body {
         grid-template-rows: 2.5fr 1fr;
   }
   .contact .upper {
-    background-color: #282828;
+    background-color: #272727;
     background-image: none;
   }
   .contact .upper .container {
@@ -2040,7 +2023,7 @@ body {
     grid-row: 1/2;
     background-image: url("../assets/contact-theme-3.webp");
     background-repeat: no-repeat;
-    background-size: auto 115%;
+    background-size: auto 110%;
     background-position: center center;
   }
   .contact .upper .container .title {
@@ -2102,6 +2085,9 @@ body {
 }
 
 @media screen and (max-width: 475px) {
+  .contact .upper .container {
+    grid-auto-rows: 0.75fr auto 1.5fr;
+  }
   .contact .upper .container form {
     -ms-grid-rows: auto auto 1fr;
         grid-template-rows: auto auto 1fr;
