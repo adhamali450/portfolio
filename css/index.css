@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;500;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;600;800&display=swap");
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -78,7 +78,7 @@ p {
 
 h1, h2 {
   line-height: 130%;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 h3 {
@@ -98,6 +98,10 @@ h5 {
 
 h6 {
   font-weight: 500;
+}
+
+strong {
+  font-weight: 800;
 }
 
 @media screen and (min-width: 1116px) {
@@ -547,6 +551,8 @@ body {
 }
 
 .landing .hero .hero-text .hero-heading #qualities {
+  line-height: 1.2em;
+  height: 1.2em;
   background-image: var(--purple-green-grd);
   background-position: center center;
   color: transparent;
@@ -556,14 +562,22 @@ body {
   text-transform: uppercase;
 }
 
-.landing .hero .hero-text .hero-heading #qualities::before {
-  line-height: inherit !important;
+.landing .hero .hero-text .hero-heading #qualities .typed-cursor {
+  font-weight: 300;
+  -webkit-animation: blink 1.5s steps(5, start) infinite;
+          animation: blink 1.5s steps(5, start) infinite;
 }
 
-.landing .hero .hero-text .hero-heading #qualities .ti-cursor {
-  margin: 0 !important;
-  line-height: inherit;
-  font-weight: 100 !important;
+@-webkit-keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
 }
 
 .landing .hero .hero-text p span {

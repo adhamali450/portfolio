@@ -36,53 +36,25 @@ const stopwatchAnim = bodymovin.loadAnimation({
 //  5- High Tech
 //  6- Robust
 //  7- Game Changing
+//  8- Innovative
+//  9- Efficient
 
+const qualities = ["Cutting Edge", "Upscale" , "Bullet Proof", "Extraordinary"];
 
-const  normalTypingSpeed = 350,
-normalTypingDelay = 1500,
-normalDeletingSpeed = 350,
-normalDeletingDelay = normalTypingDelay,
-moveSpeed = 75,
-singleTypingSpeed = moveSpeed,
-singleDeletingSpeed = moveSpeed;
+var options = {
+  strings: qualities,
+  typeSpeed: 150,
+  backSpeed: 50,
+  shuffle: false,
+  backDelay: 1000,
+  fadeOut: false,
 
-const q = ["Cutting Edge", "Upscale" , "Bullet Proof", "Extraordinay"], //qualities
-        ntp = {speed: normalTypingSpeed, delay: normalTypingDelay}, //normalTypingProperties
-        ndp = {speed: normalDeletingSpeed, delay: normalDeletingDelay}; //normalDeletingProperties
+  //cursor
+  showCursor: true,
+  cursorChar: '|',
+};
 
-
-const typeIt = new TypeIt("#qualities", {
-    startDelay: 500,
-    beforeStep: async (step, instance) => {
-        // Will fire before each step in the queue.
-    },
-
-    beforeString: async (step, instance) => {
-        // // Will fire before each string in the queue.
-    },
-
-    afterStep: async (step, instance) => {
-        // Will fire after each step in the queue.
-    },
-
-    afterString: async (step, instance) => {
-        // Will fire after each string in the queue,
-        // including those added by the `.type()` instance method.
-    },
-
-    afterComplete: async (step, instance) => {
-        // Will fire after the entire instance has completed typing.
-        // NOTE: If "loop" is enabled, this will never fire.
-    }
-});
-
-for(i = 0; i < q.length; i++){
-    typeIt.type(q[i], ntp)
-
-    if(i + 1 != q.length) //Delete each string afterwards except the last string
-        typeIt.delete(q[i].length, ndp);
-}
-typeIt.go()
+var typed = new Typed('#qualities strong', options);
 
 //#endregion
 
@@ -111,7 +83,8 @@ function setJustifyContent(hobby, preferedClientWidth){ //650px
 
 //#region Download resume
 btnDownload.addEventListener("click", function(){
-    window.open('../assets/resume.pdf', '_blank');
+    window.open('https://doc-14-4g-docs.googleusercontent.com/docs/securesc/1qrodo552embka0en7srub7be6l2mu18/asgpuljksh9icujumpd8rc3h3os2iish/1645929900000/14950670156323635663/14950670156323635663/1_Ou0qmDgCAZB0ZE7WgMgfunNOA_AmK3a?e=download&ax=ACxEAsZfX0jsCWbtedGgSFSC_nZvgNrwKYU0NYfenBU5FPKcs8iDDMdorGZYVt99uhH5SK98I9UHo7EuXd37_jg9uaEDktwGJCE33DZ6RCEyfbD35CWkgD5r8tv-1LRcwZX83AI3BbT0TIVL_9h6hR5IhTFCShivUer5e_D8dGMbuCsJAky2GCJWgVGPKhE5K9D0NYXmtBz5R2zQCJF-B3iv7Bo1Vg4ug9G4Xm2JoqfDbsPE8YopIUI9xXQSOScsuQxigVJxP3iHbgNfBbz1aMSDZsq8UWSd4JwXL7bPkvQZNPDQIKXA5bGkT5R8CNI3M4jmuc94NTDCxUyHkhE3IPW2Juraah5CXHc8mUG1JsH4Ds849c_bQSuvHKdr14CnZKdeFF-GRutk8-BKbOrgejNmqL4cQGwBC7RYO0-X-jY0EIg-z1vLCIRtRsuurSYoiD4RNrJfhEcItMJ71V0-v3COk-n1GtBIfKSZJWpjrf_cwPiHfYUdwBQapWpBk9CplnKZJEUaVifsSCI4zPKraZId3JIH3IQYV0zNtcMLoJQutMQBjaq1arVLBpG1l2m8ThayhtViOQ4cq5Q4q5yw4I6UxN9fFhnfv_LfW1-oNngR7HUjCAWF2g5a7mwSqfhcD3WOtbbKJ3VkJhfZPjqaY2_04QKo0g0cniKkiW5aqJI&authuser=0', '_blank');
+    
 })
 //#endregion
 

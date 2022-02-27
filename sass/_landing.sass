@@ -24,14 +24,17 @@
             .hero-heading
                 +flex(start, start, column)
                 #qualities
+                    line-height: 1.2em
+                    height: 1.2em
                     +fill-grd(var(--purple-green-grd))
                     text-transform: uppercase
-                    &::before
-                        line-height: inherit !important
-                    .ti-cursor //typing cursor
-                        margin: 0 !important
-                        line-height: inherit
-                        font-weight: 100 !important
+                    .typed-cursor
+                        font-weight: 300
+                        animation: blink 1.5s steps(5, start) infinite
+                        @keyframes blink
+                            to
+                                visibility: hidden
+
             p
                 span
                     +fill-grd(var(--red-grd))
