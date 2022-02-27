@@ -488,12 +488,17 @@ body {
 
 .landing {
   position: relative;
-  min-height: -webkit-fill-available;
   min-height: calc(100vh + 1px);
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 1fr auto;
       grid-template-rows: 1fr auto;
+}
+
+@supports (-webkit-appearance: none) {
+  .os-android .landing {
+    min-height: calc(100vh - 56px);
+  }
 }
 
 .landing > .container {

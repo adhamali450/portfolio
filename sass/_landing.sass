@@ -11,11 +11,14 @@
 .landing
     position: relative
 
-    min-height: -webkit-fill-available
     min-height: calc(100vh + 1px)
 
     display: grid
     grid-template-rows: 1fr auto
+    @supports (-webkit-appearance:none)
+        .os-android &
+            min-height: calc(100vh - 56px)
+
     > .container
         grid-row: 1/2
         +flex(start, center)
