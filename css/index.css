@@ -471,7 +471,8 @@ body main {
 
 .landing {
   position: relative;
-  min-height: 714px;
+  width: inherit;
+  height: inherit;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 1fr auto;
