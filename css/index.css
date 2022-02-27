@@ -522,7 +522,6 @@ body {
 }
 
 .landing .hero {
-  border: 1px dashed red;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -619,7 +618,6 @@ body {
 }
 
 .landing .hobbies {
-  border: 1px dashed green;
   position: relative;
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
