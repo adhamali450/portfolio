@@ -1,23 +1,17 @@
 //scroll animations
 //https://coolcssanimation.com/how-to-make-scroll-animations/
 
-@keyframes text-clip
-    from
-        clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)
-    to
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
-//animation: text-clip 1s 0s cubic-bezier(0.5, 0, 0.1, 1) both
-
 .landing
     position: relative
 
-    min-height: calc(100vh + 1px)
+    // min-height: calc(100vh + 1px)
+    +size(inherit, inherit)
 
     display: grid
     grid-template-rows: 1fr auto
-    @supports (-webkit-appearance:none)
-        .os-android &
-            min-height: calc(100vh - 56px)
+    // @supports (-webkit-appearance:none)
+    //     .os-android &
+    //         min-height: calc(100vh - 56px)
 
     > .container
         grid-row: 1/2
@@ -51,6 +45,7 @@
 
     .hobbies
         //---------------PARALLAX---------------
+        border: 1px dashed aqua
         position: relative
 
         grid-row: 2/3
