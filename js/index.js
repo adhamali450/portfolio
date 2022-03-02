@@ -13,6 +13,10 @@ function getWidth() {
 
 //#endregion
 
+document.querySelector(".cards").scrollTop = 150;
+console.log(document.querySelector(".cards").scrollTop);
+
+
 //#region coming soon anmimation
 // const stopwatchAnim = bodymovin.loadAnimation({
 //         container: stopwatchAnimCont,

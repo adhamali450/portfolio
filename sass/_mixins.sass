@@ -32,14 +32,24 @@
         background-position: left center
 
 =apply-cards-effect()
+    --overlaying-margin: 150px
     .card
         transition: transform .2s ease
-    --overlaying-margin: 200px
     .card:not(:first-child)
         margin-left: calc(var(--overlaying-margin) * -1)
         box-shadow: -1px 0px 48px rgba(0, 0, 0, 0.8)
     .card:focus-within~.card, .card:hover~.card
         transform: translateX(calc(var(--overlaying-margin) + 50px))
+
+=disable-cards-effect() //resets all effects done above
+    --overlaying-margin: 0
+    .card
+        transition: none
+    .card:not(:first-child)
+        margin-left: 0
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0)
+    .card:focus-within~.card, .card:hover~.card
+        transform: translateX(0)
 
 =set-badge-styles($base-color: var(--primary-green))
     @extend .tiny-small
@@ -47,30 +57,6 @@
     color: rgba(0, 0, 0, 0.8)
     padding: 0.1rem 0.2rem
     border-radius: 5px
-
-=set-pbar-styles($base-color: rgba(255, 255, 255,0.1), $progress-color: green)
-    $border-radius: 999px
-    -webkit-appearance: none
-    -moz-appearance: none
-    appearance: none
-    border: none
-
-    border-radius: $border-radius
-    background-color: $base-color
-    color: $progress-color
-
-    /* WEBKIT BROWSERS - CHROME, OPERA AND SAFARI */
-    &::-webkit-progress-bar
-        background-color: $base-color
-        border-radius: $border-radius
-    &::-webkit-progress-value,
-        background-color: $progress-color
-        border-radius: $border-radius
-
-    /* MOZILLA FIREFOX */
-    &::-moz-progress-bar
-        background-color: $progress-color
-        border-radius: $border-radius
 
 =backdrop-blur($blur: 50px)
     -webkit-backdrop-filter: blur($blur)
