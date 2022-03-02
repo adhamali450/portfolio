@@ -14,16 +14,16 @@ function getWidth() {
 //#endregion
 
 //#region coming soon anmimation
-const stopwatchAnim = bodymovin.loadAnimation({
-        container: stopwatchAnimCont,
-        path: "../assets/animations/stopwatch.json",
-        renderer: "svg",
-        loop: true,
-        autoplay: true,
-        rendererSettings: {
-          progressiveLoad: true,
-        },
-});
+// const stopwatchAnim = bodymovin.loadAnimation({
+//         container: stopwatchAnimCont,
+//         path: "../assets/animations/stopwatch.json",
+//         renderer: "svg",
+//         loop: true,
+//         autoplay: true,
+//         rendererSettings: {
+//           progressiveLoad: true,
+//         },
+// });
 //#endregion
 
 //#region Loading qualities

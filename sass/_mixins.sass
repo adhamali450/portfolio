@@ -31,6 +31,16 @@
     &:hover::after
         background-position: left center
 
+=apply-cards-effect()
+    .card
+        transition: transform .2s ease
+    --overlaying-margin: 200px
+    .card:not(:first-child)
+        margin-left: calc(var(--overlaying-margin) * -1)
+        box-shadow: -1px 0px 48px rgba(0, 0, 0, 0.8)
+    .card:focus-within~.card, .card:hover~.card
+        transform: translateX(calc(var(--overlaying-margin) + 50px))
+
 =set-badge-styles($base-color: var(--primary-green))
     @extend .tiny-small
     background-color: $base-color
@@ -95,3 +105,23 @@
     align-items: $align-items
     flex-direction: $flex-direction
     grid-gap: $grid-gap
+
+=absolute-cover()
+    position: absolute
+    top: 0
+    left: 0
+    +size(100%, 100%)
+
+//inverts the element to B&W, and back again to it's color when hovered
+
+=darken-on-hover($darkness: 0.8)
+    @media not (hover)
+        &:hover
+            filter: brightness($darkness)
+
+$invert-filter: brightness(0) invert(1)
+=color-on-hover($initial-filter: $invert-filter)
+    @media not (hover)
+        filter: $initial-filter
+        &:hover
+            filter: brightness(1) invert(0)
