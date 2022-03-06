@@ -10,6 +10,7 @@
 
 //form factors (not exact)
 $laptop: 1116px
+$tablet0: 950px
 $tablet1: 750px
 $tablet2: 650px
 $phone1: 475px
@@ -117,9 +118,13 @@ strong
     html
         font-size: 115% //18.4px
 
-@media screen and ( max-width: $tablet1 ) //750px
+@media screen and ( max-width: $tablet0 ) //950px
     html
         font-size: 110% //17.6px
+
+@media screen and ( max-width: $tablet1 ) //750px
+    html
+        font-size: 105% //16.8px
 
 @media screen and ( max-width: $tablet2 ) //650px
     +center-align()

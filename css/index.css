@@ -116,9 +116,15 @@ strong {
   }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 950px) {
   html {
     font-size: 110%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  html {
+    font-size: 105%;
   }
 }
 
@@ -497,6 +503,19 @@ body main {
       -ms-flex-direction: row;
           flex-direction: row;
   grid-gap: 0rem;
+  -ms-flex-direction: row-reverse;
+      flex-direction: row-reverse;
+}
+
+.landing .hero-image {
+  z-index: -1;
+  position: absolute;
+  -webkit-transform: translate(-100%, -50%);
+          transform: translate(-100%, -50%);
+  top: 50%;
+  left: 100%;
+  width: auto;
+  height: 100vh;
 }
 
 .landing .hero {
@@ -651,6 +670,11 @@ body main {
   opacity: 0.6;
 }
 
+.landing .hobbies .hobby a img {
+  width: 65px;
+  height: 65px;
+}
+
 .landing .hobbies #developer .name {
   position: relative;
 }
@@ -704,10 +728,10 @@ body main {
   left: 100%;
 }
 
-@media screen and (min-width: 1116px) {
-  .img-hobby {
-    width: 65px;
-    height: 65px;
+@media screen and (max-width: 1400px) {
+  .landing .container .hero-image {
+    width: auto;
+    height: 65vh;
   }
 }
 
@@ -723,6 +747,21 @@ body main {
   .landing .hobbies .hobby .img-hobby {
     width: 60px;
     height: 60px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .landing .container .hero-image {
+    width: auto;
+    height: 40vh;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .landing .container {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
   }
 }
 
@@ -1752,6 +1791,7 @@ body main {
     width: 70vw;
     margin: 0;
     scroll-snap-align: center;
+    scroll-snap-stop: always;
   }
   .work .cards .cards-container .card .card {
     -webkit-transition: none;
@@ -2239,6 +2279,7 @@ body main {
   background-size: contain;
   -webkit-filter: blur(15px);
           filter: blur(15px);
+  display: none;
 }
 
 .landing #ellipse-purple {
@@ -2250,6 +2291,7 @@ body main {
           transform: translate(0%, 0%);
   top: -2%;
   right: -2%;
+  display: none;
 }
 
 .landing #ellipse-green {
@@ -2289,8 +2331,26 @@ body main {
     top: 35%;
     left: 100%;
   }
-  .landing .ellipse {
-    display: none;
+}
+
+@media screen and (max-width: 1116px) {
+  .landing #ellipse-purple {
+    width: 48vw;
+    height: 48vw;
+    top: -10%;
+    right: -5%;
+  }
+  .landing #ellipse-green {
+    width: 92vw;
+    height: 92vw;
+    left: 85%;
+    top: -25%;
+  }
+  .landing #ellipse-pink {
+    width: 47vw;
+    height: 47vw;
+    top: 35%;
+    left: 100%;
   }
 }
 

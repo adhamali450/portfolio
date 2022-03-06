@@ -1,7 +1,3 @@
-// .me, .skills, .work, .contact
-//     display: none
-// body
-//     overflow: hidden !important
 .landing
     .ellipse
         position: absolute
@@ -9,6 +5,8 @@
         background-repeat: no-repeat
         background-size: contain
         filter: blur(15px)
+
+        display: none
     #ellipse-purple
         z-index: -999
         background-image: url(../assets/ellipse-purple.svg)
@@ -19,7 +17,7 @@
         top: -2%
         right: -2%
 
-        // display: none
+        display: none
 
     #ellipse-green
         z-index: -998
@@ -58,4 +56,21 @@
             top: 35%
             left: 100%
         .ellipse
-            display: none
+            // display: none
+
+@media screen and (max-width: $laptop) //1116px
+    .landing
+        #ellipse-purple
+            +size(48vw, 48vw)
+            top: -10%
+            right: -5%
+        #ellipse-green
+            +size(92vw, 92vw)
+            left: 85%
+            top: -25%
+        #ellipse-pink
+            +size(47vw, 47vw)
+            top: 35%
+            left: 100%
+        .ellipse
+            // display: none

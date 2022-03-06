@@ -4,18 +4,24 @@
 .landing
     position: relative
 
-    // min-height: calc(100vh + 1px)
     +size(inherit, inherit)
 
     display: grid
     grid-template-rows: 1fr auto
-    // @supports (-webkit-appearance:none)
-    //     .os-android &
-    //         min-height: calc(100vh - 56px)
 
     > .container
         grid-row: 1/2
-        +flex(start, center)
+        +flex(start, center, row)
+        flex-direction: row-reverse
+    .hero-image
+        z-index: -1
+
+        position: absolute
+        transform: translate(-100%, -50%)
+        top: 50%
+        left: 100%
+        +size(auto, 100vh)
+
     .hero
         +flex(start, start, column, 1.5rem)
         padding: 2.5rem 0
@@ -64,6 +70,8 @@
                     .hobby-l
                         margin-top: -0.3rem
                         opacity: 0.6
+                img
+                    +size(65px, 65px)
         #developer .name
             position: relative
             #squiggly-line
@@ -95,9 +103,11 @@
                 top: 100%
                 left: 100%
 
-@media screen and ( min-width: $laptop) //1116px
-    .img-hobby
-        +size(65px, 65px)
+@media screen and (max-width: 1400px) //custom
+    .landing
+        .container
+            .hero-image
+                +size(auto, 65vh)
 
 @media screen and (max-width: $laptop) //1116px
     .landing
@@ -109,6 +119,19 @@
                 grid-gap: 0.75rem
                 .img-hobby
                     +size(60px, 60px)
+
+@media screen and (max-width: $tablet0) //950px
+    .landing
+        .container
+            .hero-image
+                +size(auto, 40vh)
+
+@media screen and (max-width: $tablet1) //750px
+    .landing
+        .container
+            justify-content: start
+            .hero-image
+                // display: none
 
 @media screen and (max-width: $tablet2) //650px
     .landing

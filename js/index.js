@@ -13,22 +13,6 @@ function getWidth() {
 
 //#endregion
 
-document.querySelector(".cards").scrollTop = 150;
-console.log(document.querySelector(".cards").scrollTop);
-
-
-//#region coming soon anmimation
-// const stopwatchAnim = bodymovin.loadAnimation({
-//         container: stopwatchAnimCont,
-//         path: "../assets/animations/stopwatch.json",
-//         renderer: "svg",
-//         loop: true,
-//         autoplay: true,
-//         rendererSettings: {
-//           progressiveLoad: true,
-//         },
-// });
-//#endregion
 
 //#region Loading qualities
 
@@ -43,7 +27,7 @@ console.log(document.querySelector(".cards").scrollTop);
 //  8- Innovative
 //  9- Efficient
 
-const qualities = ["Cutting Edge", "Upscale" , "Bullet Proof", "Extraordinary"];
+const qualities = ["Cutting Edge", "Upscale" , "Artistic", "Extraordinary"];
 
 var options = {
   strings: qualities,
