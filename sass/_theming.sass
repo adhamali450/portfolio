@@ -27,6 +27,8 @@
     --contact-border-grd: linear-gradient(105.8deg, #d1ffe8 0%, rgba(0,0,0, 0) 25%, rgba(0,0,0, 0) 75%, #862DF7 100%)
     --thumb-grd: linear-gradient(180deg, var(--primary-pink) 0%, var(--primary-purple) 100%)
 
+$btn-transition-duration: 0.3s
+
 //sections theming
 =landing-theming($theme: dark)
     @if $theme == dark
@@ -90,9 +92,10 @@
     .btn
         position: relative
         color: var(--fg)
+        //TODO: new btn
         +btn-border-grd()
         box-shadow: 0 1px 10px rgba(240,95,135, 0.5)
-        transition: background-position 0.3s, box-shadow 0.3s
+        transition: background-position $btn-transition-duration, box-shadow $btn-transition-duration
         &:hover
             box-shadow: 0 1px 25px rgba(240,95,135, 0.5)
 
@@ -101,7 +104,7 @@
         background-size: 200% auto
         background-position: right center
         .btn-icon
-            transition: transform 0.3s
+            transition: transform $btn-transition-duration
         &:hover
             background-position: left center
 

@@ -4,18 +4,17 @@
         transform: translate(-50%, -50%)
         background-repeat: no-repeat
         background-size: contain
-        filter: blur(15px)
+        // filter: blur(15px)
 
-        display: none
     #ellipse-purple
         z-index: -999
-        background-image: url(../assets/ellipse-purple.svg)
+        background-image: url(../assets/ellipses-combined.svg)
 
-        +size(45vw, 45vw)
+        +size(55vw, 55vw)
 
         transform: translate(0%, 0%)
-        top: -2%
-        right: -2%
+        top: -1%
+        right: -1%
 
         display: none
 
@@ -28,7 +27,7 @@
         top: -30%
         left: 80%
 
-        // display: none
+        display: none
 
     #ellipse-pink
         z-index: -997
@@ -39,38 +38,38 @@
         top: 50%
         left: 100%
 
-        // display: none
+        display: none
 
-@media screen and (max-width: 1440px) //1440px
-    .landing
-        #ellipse-purple
-            +size(48vw, 48vw)
-            top: -7%
-            right: -5%
-        #ellipse-green
-            +size(92vw, 92vw)
-            left: 85%
-            top: -35%
-        #ellipse-pink
-            +size(47vw, 47vw)
-            top: 35%
-            left: 100%
-        .ellipse
-            // display: none
+// @media screen and (max-width: 1440px) //1440px
+//     .landing
+//         #ellipse-purple
+//             +size(48vw, 48vw)
+//             top: -7%
+//             right: -5%
+//         #ellipse-green
+//             +size(92vw, 92vw)
+//             left: 85%
+//             top: -35%
+//         #ellipse-pink
+//             +size(47vw, 47vw)
+//             top: 35%
+//             left: 100%
+//         .ellipse
+//             // display: none
 
-@media screen and (max-width: $laptop) //1116px
-    .landing
-        #ellipse-purple
-            +size(48vw, 48vw)
-            top: -10%
-            right: -5%
-        #ellipse-green
-            +size(92vw, 92vw)
-            left: 85%
-            top: -25%
-        #ellipse-pink
-            +size(47vw, 47vw)
-            top: 35%
-            left: 100%
-        .ellipse
-            // display: none
+// @media screen and (max-width: $laptop) //1116px
+//     .landing
+//         #ellipse-purple
+//             +size(48vw, 48vw)
+//             top: -10%
+//             right: -5%
+//         #ellipse-green
+//             +size(92vw, 92vw)
+//             left: 85%
+//             top: -25%
+//         #ellipse-pink
+//             +size(47vw, 47vw)
+//             top: 35%
+//             left: 100%
+//         .ellipse
+//             // display: none
