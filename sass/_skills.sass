@@ -66,7 +66,7 @@
                 margin-bottom: 1rem
             .icons
                 margin-top: 1rem
-                +flex(left, center, row, 0.75rem)
+                +flex(start, center, row, 0.75rem)
                 li
                     +size(auto, 40px)
                     img
@@ -79,10 +79,11 @@
                 background-size: 400px
                 background-position: top -0.5rem right
                 opacity: 0.25
+
             .icons
-                display: grid !important
-                grid-template-rows: repeat(2, auto)
-                grid-template-columns: repeat(5, auto)
+                // display: grid !important
+                // grid-template-rows: repeat(2, auto)
+                // grid-template-columns: repeat(5, auto)
 
 @media screen and ( max-width: 950px )
     .skills
@@ -111,13 +112,14 @@
             +size(80px, 80px)
         .tech-tools .container .icons
             li
-                +size(auto, 30px !important)
+                z-index: 1
+                +size(auto, 30px)
 
 @media screen and ( max-width: $tablet2 ) //650px
     .skills
         .duties
-            width: fit-content
-            margin: 0 auto
+            // width: fit-content
+            // margin: 0 auto
         .tech-tools
             &:before
                 display: none
@@ -125,22 +127,37 @@
                 #inner-title br
                     display: none
                 .icons
-                    width: fit-content
-                    margin: 0 auto
+                    // width: fit-content
+                    // margin: 0 auto
+                    li
+                        +size(auto, 25px)
 
 @media screen and ( max-width: $phone1) //475px
     .skills
-        text-align: center !important
+        text-align: center
         .duties
+            width: fit-content
+            margin: 0 auto
             grid-template-rows: repeat(2, 1fr)
             grid-template-columns: repeat(2, auto)
             justify-content: center
             grid-gap: 0
-            .duty img
-                +size(95px, 95px)
+            // .duty img
+            //     +size(95px, 95px)
             .active-duty
                 transform: translateY(0)
                 img
                     transform: scale(1.15)
         .duty-explained
-            margin-top: 1rem
+            //TODO: duty-explained height
+            // height: 5em
+        .tech-tools
+            .container
+                .icons
+                    display: grid
+                    grid-template-rows: repeat(2, auto)
+                    grid-template-columns: repeat(5, auto)
+                    width: fit-content
+                    margin: 0 auto
+                    li
+                        +size(auto, 25px)

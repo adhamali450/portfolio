@@ -93,24 +93,6 @@ h6
 strong
     font-weight: 800
 
-=left-align-text-inputs
-    input[type = submit],
-    input[type = text],
-    textarea
-        text-align: left
-
-=left-align-project-cards
-    .work .cards .card
-        *
-            text-align: left
-
-=center-align
-    *
-        text-align: center
-
-    +left-align-text-inputs()
-    +left-align-project-cards()
-
 @media screen and ( min-width: $laptop ) //1116px
     html
         font-size: 125% //20px
@@ -127,11 +109,9 @@ strong
     html
         font-size: 105% //16.8px
 
-@media screen and ( max-width: $tablet2 ) //650px
-    +center-align()
-
 @media screen and ( max-width: $phone1) //475px
     body
+        +center-align()
         +minor-third()
 
 @media screen and ( max-width: $phone2) //360px

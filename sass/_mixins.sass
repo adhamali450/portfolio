@@ -1,3 +1,11 @@
+=center-align
+    *
+        // All except inputs and buttons
+        &:not(input[type = submit]):not(input[type = text]):not(textarea)
+            text-align: center
+    .work .cards .card
+        *
+            text-align: left
 
 =fill-grd($grd: var(--pink-purple-grd))
     background: $grd
@@ -42,13 +50,9 @@
 
 =disable-cards-effect() //resets all effects done above
     --overlaying-margin: 0
-    .card
-        transition: none
-    .card:not(:first-child)
-        margin-left: 0
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0)
-    .card:focus-within~.card, .card:hover~.card
-        transform: translateX(0)
+    box-shadow: none
+    transition: none
+    margin-left: 0
 
 =set-badge-styles($base-color: var(--primary-green))
     @extend .tiny-small
@@ -60,6 +64,9 @@
 =backdrop-blur($blur: 50px)
     -webkit-backdrop-filter: blur($blur)
     backdrop-filter: blur($blur)
+
+    @supports not (backdrop-filter: blur(20px))
+        background-color: #141414
 
 //Generic Mixins    
 =min-size($min-width, $min-height)

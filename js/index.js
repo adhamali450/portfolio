@@ -51,8 +51,16 @@ const hobbies = document.querySelectorAll('.hobby a');
 const hobbiesContainer = document.getElementById('hobbies-container');
 hobbies.forEach(hobby => {
     hobby.addEventListener('focus', () => setJustifyContent(hobby, 650));
+    hobby.addEventListener('focusout', () => hobbiesContainer.style.justifyContent = "center");
 })
 
+function widthSmallerThan(width){
+    const clientWidth = getWidth();  
+    if(clientWidth > width)
+        return false;
+}
+
+//TODO: refactor
 function setJustifyContent(hobby, preferedClientWidth){ //650px
     const clientWidth = getWidth();  
     if(clientWidth > preferedClientWidth)
