@@ -855,10 +855,14 @@ body main {
 }
 
 @media screen and (max-width: 650px) {
+  .landing header .container .desktop-nav .logo {
+    width: 50px;
+    height: 50px;
+  }
   .landing header .container .desktop-nav .desktop-links {
     display: none;
   }
-  .landing header .container > .btn-primary {
+  .landing header .container .btn-primary {
     display: none;
   }
   .landing header .container .btn-ham {
@@ -866,8 +870,8 @@ body main {
         -ms-grid-row-align: center;
         align-self: center;
     display: block;
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
   }
   .landing header .container .btn-ham img {
     width: inherit;

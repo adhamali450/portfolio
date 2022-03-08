@@ -176,14 +176,17 @@
 @media screen and (max-width: $tablet2) //650px
     .landing
         header .container
-            .desktop-nav .desktop-links
-                display: none
-            > .btn-primary
+            .desktop-nav
+                .logo
+                    +size(50px, 50px)
+                .desktop-links
+                    display: none
+            .btn-primary
                 display: none
             .btn-ham
                 align-self: center
                 display: block
-                +size(40px, 40px)
+                +size(25px, 25px)
                 img
                     +size(inherit, inherit)
 
