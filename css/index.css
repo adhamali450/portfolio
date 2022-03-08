@@ -507,8 +507,8 @@ body main {
   -ms-grid-row-span: 1;
   grid-row: 1/2;
   width: 100vw;
-  -webkit-backdrop-filter: blur(50px);
-  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid #fff;
 }
 
