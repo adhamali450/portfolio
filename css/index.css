@@ -348,7 +348,7 @@ body::-webkit-scrollbar-thumb {
   position: relative;
 }
 
-@supports not ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
   .wide-banner, .landing .hobbies, .me .resume {
     background-color: #141414;
   }
@@ -506,13 +506,14 @@ body main {
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1/2;
+  min-width: 100vw;
   width: 100vw;
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
   border-bottom: 1px solid #fff;
 }
 
-@supports not ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
   .landing header {
     background-color: #141414;
   }
@@ -1167,7 +1168,7 @@ body main {
       flex-wrap: wrap;
 }
 
-@supports not ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
   .me .resume {
     background-color: #141414;
   }
@@ -1969,8 +1970,7 @@ body main {
 }
 
 .contact {
-  min-height: 714px;
-  padding: 0 !important;
+  min-height: 100%;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 2.5fr 1fr;
@@ -2536,9 +2536,8 @@ body main {
   max-width: 60ch;
 }
 
-section:not(.landing) {
-  margin-top: 6.5rem;
-  padding-top: 1.5rem;
+.me, .skills, .work, .contact {
+  padding: 70px 0 0;
 }
 
 section .title {

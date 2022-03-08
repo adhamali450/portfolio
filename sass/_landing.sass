@@ -4,7 +4,6 @@
 .landing
     position: relative
 
-    // +size(inherit, inherit)
     min-height: 100%
 
     display: grid
@@ -16,8 +15,9 @@
 
     header
         grid-row: 1/2
+        min-width: 100vw
         width: 100vw
-        +backdrop-blur(20px)
+        +backdrop-blur()
         border-bottom: 1px solid #fff
         .container
             display: grid

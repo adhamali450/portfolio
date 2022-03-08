@@ -152,21 +152,22 @@ window.addEventListener("contextmenu", e => e.preventDefault());
 
 
 
+//#region sticky header
+window.onscroll = function() {stickHeader()};
 
-// When the user scrolls the page, execute myFunction
-window.onscroll = function() {myFunction()};
-
-// Get the header
 var header = document.getElementById("header");
+var landingContainer = document.getElementById("landing-container");
 
-// Get the offset position of the navbar
-var sticky = header.offsetTop;
 
-// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function myFunction() {
-  if (window.pageYOffset > sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
+function stickHeader() {
+    var offset = header.offsetTop;
+    if (window.pageYOffset > offset) {
+        header.classList.add("sticky");
+        landingContainer.style.paddingTop = header.clientHeight + "px"; 
+    } else {
+        header.classList.remove("sticky");
+        landingContainer.style.paddingTop = "0px"; 
+    }
 }
+//#endregion
+
