@@ -208,7 +208,6 @@ strong {
 
 .dark .btn, .dark .btn-primary,
 .dark .btn-secondary {
-  position: relative;
   color: var(--fg);
   -webkit-box-shadow: 0 1px 10px rgba(240, 95, 135, 0.5);
           box-shadow: 0 1px 10px rgba(240, 95, 135, 0.5);
@@ -218,29 +217,29 @@ strong {
   transition: background-position 0.3s, box-shadow 0.3s, -webkit-box-shadow 0.3s;
 }
 
-.dark .btn::after, .dark .btn-primary::after,
-.dark .btn-secondary::after {
-  --border-width: 2px;
+.dark .btn::before, .dark .btn-primary::before,
+.dark .btn-secondary::before {
   content: '';
   position: absolute;
-  top: calc(-1 * var(--border-width));
-  left: calc(-1 * var(--border-width));
-  height: calc(100% + var(--border-width) * 2);
-  width: calc(100% + var(--border-width) * 2);
-  display: -ms-grid;
-  display: grid;
-  place-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   border-radius: inherit;
-  z-index: -999;
-  background-image: var(--btn-pink-purple-grd-border);
-  background-size: 200% auto;
+  padding: 2px;
+  background: var(--btn-pink-purple-grd-border);
+  background-size: 200% 100%;
   background-position: right center;
+  -webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
   -webkit-transition: inherit;
   transition: inherit;
 }
 
-.dark .btn:hover::after, .dark .btn-primary:hover::after,
-.dark .btn-secondary:hover::after {
+.dark .btn:hover::before, .dark .btn-primary:hover::before,
+.dark .btn-secondary:hover::before {
   background-position: left center;
 }
 
@@ -253,7 +252,7 @@ strong {
 .dark .btn-primary {
   background-image: var(--btn-pink-purple-grd);
   background-size: 200% auto;
-  background-position: right center;
+  background-position: 100% 50%;
 }
 
 .dark .btn-primary .btn-icon {
@@ -376,6 +375,10 @@ a {
   display: inline-block;
 }
 
+a, button {
+  cursor: pointer;
+}
+
 button,
 .btn,
 .btn-primary,
@@ -407,7 +410,6 @@ textarea {
 .btn-primary,
 .btn-secondary {
   border-radius: 6px;
-  cursor: pointer;
   padding: 0.5rem 1.5rem;
   position: relative;
   display: -webkit-box;
@@ -423,10 +425,9 @@ textarea {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  grid-gap: 0rem;
+  grid-gap: 0.25rem;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  grid-gap: 0.25rem;
 }
 
 .btn .btn-icon, .btn-primary .btn-icon, .btn-secondary .btn-icon {
@@ -508,6 +509,7 @@ body main {
   grid-row: 1/2;
   min-width: 100vw;
   width: 100vw;
+  z-index: 2;
   -webkit-backdrop-filter: blur(50px);
   backdrop-filter: blur(50px);
   border-bottom: 1px solid #fff;
@@ -549,6 +551,12 @@ body main {
 .landing header .container .desktop-nav .logo {
   width: 70px;
   height: 70px;
+  overflow: hidden;
+}
+
+.landing header .container .desktop-nav .logo svg {
+  width: inherit;
+  height: inherit;
 }
 
 .landing header .container .desktop-nav .desktop-links {
@@ -568,9 +576,17 @@ body main {
   grid-gap: inherit;
 }
 
-.landing header .container .desktop-nav .desktop-links .section-link {
+.landing header .container .desktop-nav .desktop-links .section-link a {
   text-transform: uppercase;
   font-size: 90%;
+  padding: 0.25rem 0.4rem;
+  border-radius: 5px;
+  -webkit-transition: background-color 0.15s ease-in;
+  transition: background-color 0.15s ease-in;
+}
+
+.landing header .container .desktop-nav .desktop-links .section-link a:hover {
+  background-color: var(--primary-purple);
 }
 
 .landing header .container .header-btn {
@@ -587,7 +603,28 @@ body main {
   width: fit-content !important;
 }
 
-.landing .btn-ham, .landing .mobile-nav {
+.landing header .container .btn-ham {
+  z-index: 2;
+  width: 25px;
+  height: 25px;
+}
+
+.landing header .container .btn-ham img {
+  width: inherit;
+  height: inherit;
+}
+
+.landing header .container .mobile-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg);
+  display: none;
+}
+
+.landing header .container .btn-ham, .landing header .container .mobile-nav {
   display: none;
 }
 
@@ -595,7 +632,6 @@ body main {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 9999;
 }
 
 .landing .hero {
@@ -885,18 +921,15 @@ body main {
   .landing header .container .desktop-nav .desktop-links {
     display: none;
   }
+  .landing header .container .btn-ham, .landing header .container .mobile-nav {
+    display: none;
+  }
   .landing header .container .btn-ham {
+    display: block;
     -ms-grid-column: 1;
     grid-column: 1;
     -ms-grid-row: 1;
     grid-row: 1;
-    display: block;
-    width: 25px;
-    height: 25px;
-  }
-  .landing header .container .btn-ham img {
-    width: inherit;
-    height: inherit;
   }
   .landing header .container .header-btn {
     display: none;
@@ -1044,10 +1077,11 @@ body main {
 .me .core .exp #background {
   position: absolute;
   background-color: inherit;
-  z-index: -1;
-  width: 100%;
+  -webkit-transform: translate(-100%, 0);
+          transform: translate(-100%, 0);
+  width: 1000%;
   height: 100%;
-  margin-left: -100%;
+  left: 0%;
 }
 
 .me .core .exp small {
@@ -1094,7 +1128,7 @@ body main {
 
 .me .core .large-screen-where .question {
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   top: 10px;
   left: 10px;
   -webkit-filter: drop-shadow(0 0 10px #3f3f3f);
@@ -1133,7 +1167,7 @@ body main {
 
 .me .core .large-screen-where .map h4 {
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   color: var(--primary-green);
   -webkit-filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
           filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
@@ -1594,7 +1628,6 @@ body main {
       -ms-flex-direction: column;
           flex-direction: column;
   grid-gap: 0rem;
-  z-index: 10;
   overflow: hidden;
 }
 
@@ -1645,7 +1678,6 @@ body main {
       -ms-flex-direction: row;
           flex-direction: row;
   grid-gap: 0.5rem;
-  z-index: 1;
 }
 
 .work .cards-container .card header .card-title .card-name {
@@ -1668,6 +1700,8 @@ body main {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  width: 22px;
+  height: 22px;
 }
 
 .work .cards-container .card header .card-title:hover {
@@ -1767,7 +1801,6 @@ body main {
 .work .cards-container .card footer .related-links a {
   width: 27px;
   height: 27px;
-  z-index: 1;
   background-size: cover;
 }
 
@@ -2405,7 +2438,7 @@ body main {
   position: absolute;
   top: 0;
   right: 0;
-  z-index: -1000;
+  z-index: -1;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: (1fr)[6];
@@ -2536,8 +2569,13 @@ body main {
   max-width: 60ch;
 }
 
-.me, .skills, .work, .contact {
-  padding: 70px 0 0;
+section:not(.landing):not(.contact) {
+  margin-top: -70px;
+  padding-top: 140px;
+}
+
+.contact {
+  padding-top: 70px;
 }
 
 section .title {

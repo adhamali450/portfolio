@@ -17,6 +17,8 @@
         grid-row: 1/2
         min-width: 100vw
         width: 100vw
+        z-index: 2
+        // overflow: hidden
         +backdrop-blur()
         border-bottom: 1px solid #fff
         .container
@@ -27,23 +29,49 @@
                 +flex(center, center, row, 2rem)
                 .logo
                     +size(70px, 70px)
+                    overflow: hidden
+                    svg
+                        +size(inherit, inherit)
+                    // transition: transform 0.1s ease-out
+                    // &:hover
+                    //     transform: scale(1.3)
                 .desktop-links
                     +flex(inherit, inherit, inherit, inherit)
-                    .section-link
+                    .section-link a
                         text-transform: uppercase
                         font-size: 90%
+                        padding: 0.25rem 0.4rem
+                        border-radius: 5px
+                        transition: background-color 0.15s ease-in
+                        &:hover
+                            background-color: var(--primary-purple)
+
             .header-btn
                 grid-column: 3/4
                 justify-self: end
                 align-self: center
                 width: fit-content !important
-    .btn-ham, .mobile-nav
-        display: none
+            .btn-ham
+                z-index: 2
+                +size(25px, 25px)
+                img
+                    +size(inherit, inherit)
+            .mobile-nav
+                position: absolute
+                top: 0
+                left: 0
+                width: 100vw
+                height: 100vh
+                //TODO: move to theming
+                background-color: var(--bg)
+                display: none
+
+            .btn-ham, .mobile-nav
+                display: none
     .sticky
         position: fixed
         top: 0
         width: 100%
-        z-index: 9999
 
     .hero
         padding: 2.5rem 0
@@ -186,13 +214,13 @@
                     +size(50px, 50px)
                 .desktop-links
                     display: none
+            .btn-ham, .mobile-nav
+                display: none
             .btn-ham
+                display: block
                 grid-column: 1
                 grid-row: 1
-                display: block
-                +size(25px, 25px)
-                img
-                    +size(inherit, inherit)
+
             .header-btn
                 display: none
 

@@ -88,12 +88,12 @@ $btn-transition-duration: 0.3s
         +fill-grd()
     a
         color: var(--fg)
+
     .btn
-        position: relative
         color: var(--fg)
-        //TODO: new btn
         +btn-border-grd()
         box-shadow: 0 1px 10px rgba(240,95,135, 0.5)
+
         transition: background-position $btn-transition-duration, box-shadow $btn-transition-duration
         &:hover
             box-shadow: 0 1px 25px rgba(240,95,135, 0.5)
@@ -101,7 +101,7 @@ $btn-transition-duration: 0.3s
     .btn-primary
         background-image: var(--btn-pink-purple-grd)
         background-size: 200% auto
-        background-position: right center
+        background-position: 100% 50%
         .btn-icon
             transition: transform $btn-transition-duration
         &:hover

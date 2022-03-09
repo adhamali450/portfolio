@@ -16,17 +16,6 @@ function getWidth() {
 
 //#region Loading qualities
 
-//Examples for words
-//  1- Extraoedinary
-//  2- Professional
-//  3- Upscale
-//  4- Cutting Edge
-//  5- High Tech
-//  6- Robust
-//  7- Game Changing
-//  8- Innovative
-//  9- Efficient
-
 const qualities = ["Cutting Edge", "Upscale" , "Artistic", "Extraordinary"];
 
 var options = {
@@ -79,7 +68,7 @@ function setJustifyContent(hobby, preferedClientWidth){ //650px
 
 //#region Download resume
 btnDownload.addEventListener("click", function(){
-    window.open('https://doc-14-4g-docs.googleusercontent.com/docs/securesc/1qrodo552embka0en7srub7be6l2mu18/asgpuljksh9icujumpd8rc3h3os2iish/1645929900000/14950670156323635663/14950670156323635663/1_Ou0qmDgCAZB0ZE7WgMgfunNOA_AmK3a?e=download&ax=ACxEAsZfX0jsCWbtedGgSFSC_nZvgNrwKYU0NYfenBU5FPKcs8iDDMdorGZYVt99uhH5SK98I9UHo7EuXd37_jg9uaEDktwGJCE33DZ6RCEyfbD35CWkgD5r8tv-1LRcwZX83AI3BbT0TIVL_9h6hR5IhTFCShivUer5e_D8dGMbuCsJAky2GCJWgVGPKhE5K9D0NYXmtBz5R2zQCJF-B3iv7Bo1Vg4ug9G4Xm2JoqfDbsPE8YopIUI9xXQSOScsuQxigVJxP3iHbgNfBbz1aMSDZsq8UWSd4JwXL7bPkvQZNPDQIKXA5bGkT5R8CNI3M4jmuc94NTDCxUyHkhE3IPW2Juraah5CXHc8mUG1JsH4Ds849c_bQSuvHKdr14CnZKdeFF-GRutk8-BKbOrgejNmqL4cQGwBC7RYO0-X-jY0EIg-z1vLCIRtRsuurSYoiD4RNrJfhEcItMJ71V0-v3COk-n1GtBIfKSZJWpjrf_cwPiHfYUdwBQapWpBk9CplnKZJEUaVifsSCI4zPKraZId3JIH3IQYV0zNtcMLoJQutMQBjaq1arVLBpG1l2m8ThayhtViOQ4cq5Q4q5yw4I6UxN9fFhnfv_LfW1-oNngR7HUjCAWF2g5a7mwSqfhcD3WOtbbKJ3VkJhfZPjqaY2_04QKo0g0cniKkiW5aqJI&authuser=0', '_blank');
+    window.open('https://drive.google.com/file/d/1_Ou0qmDgCAZB0ZE7WgMgfunNOA_AmK3a/view?usp=sharing', '_blank');
     
 })
 //#endregion
@@ -151,12 +140,11 @@ for(i = 0; i < progressBars.length; i++){
 window.addEventListener("contextmenu", e => e.preventDefault());
 
 
-
 //#region sticky header
 window.onscroll = function() {stickHeader()};
 
 var header = document.getElementById("header");
-var landingContainer = document.getElementById("landing-container");
+var landingContainer = document.getElementById("hero-container");
 
 
 function stickHeader() {
@@ -171,3 +159,19 @@ function stickHeader() {
 }
 //#endregion
 
+// function scrollToSection(section){
+//     let paddingDifference = 70;
+//     if(section.id == "sectionContact") paddingDifference = 0;
+    
+//     window.scrollTo(0, section.offsetTop - paddingDifference);
+// }
+
+// const navLinks = [linkAbout, linkSkills, logo, linkWork, linkContact] 
+// const sections = [sectionAbout, sectionSkills, sectionLanding, sectionWork, sectionContact] 
+// for(let i = 0; i < navLinks.length; i++)
+//     navLinks[i].addEventListener("click", () => scrollToSection(sections[i]));
+
+
+// headerCta.addEventListener("click", () => scrollToSection(sectionContact));
+// btnContact.addEventListener("click", () => scrollToSection(sectionContact));
+// btnWork.addEventListener("click", () => scrollToSection(sectionWork));

@@ -26,7 +26,7 @@ $padding: 1rem
 
             +flex(space-between, start, column)
 
-            z-index: 10
+            // z-index: 10
 
             @extend .generic-card
             overflow: hidden
@@ -47,7 +47,7 @@ $padding: 1rem
                 +flex(start, start, column, 0.5rem)
                 .card-title
                     +flex(start, center, row, 0.5rem)
-                    z-index: 1
+                    // z-index: 1
                     .card-name
                         font-weight: 800
                         line-height: 120%
@@ -56,6 +56,7 @@ $padding: 1rem
                         transition: transform .2s ease
                         justify-self: start
                         align-self: center
+                        +size(22px, 22px)
                     &:hover
                         filter: brightness(0.8)
                 .work-done
@@ -94,7 +95,7 @@ $padding: 1rem
                     a
                         +darken-on-hover(0.8)
                         +size(27px,27px)
-                        z-index: 1
+                        // z-index: 1
                         background-size: cover
                         img
                             +size(inherit, inherit)

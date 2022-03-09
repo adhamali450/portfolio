@@ -25,22 +25,23 @@
     <!--Main sections-->
     <main>
         <!--Landing-->
-        <Section class="landing">
+        <Section class="landing" id="showcase">
             <header id="header">
                 <div class="container">
                     <nav class="desktop-nav">
                         <ul class="desktop-links lhs">
                             <li class="section-link">
-                                <a href="">about</a>
+                                <a href="#about">about</a>
                             </li>
                             <li class="section-link">
-                                <a href="">skills</a>
+                                <a href="#skills">skills</a>
                             </li>
 
                         </ul>
 
-                        <a href="" class="logo">
-                            <svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <a class="logo" href="#showcase">
+                            <svg width="70" height="70" viewBox="0 0 70 70" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <g id="bowie-bolt" clip-path="url(#clip0_1519_1671)">
                                     <path id="purple"
                                         d="M21.3555 77.3948C21.1045 77.3948 20.8534 77.3419 20.6221 77.223C19.8557 76.853 19.4857 75.9742 19.7499 75.1681L32.5418 36.7991H19.6641C19.0958 36.7991 18.5738 36.515 18.2567 36.0459C17.9395 35.5768 17.8867 34.9821 18.1047 34.4601L35.0196 -6.13552C35.2773 -6.76983 35.8984 -7.17949 36.5789 -7.17949H52.648C53.2229 -7.17949 53.7581 -6.88877 54.0686 -6.40643C54.3791 -5.92409 54.4254 -5.32282 54.1941 -4.80084L40.8803 24.9587H53.4938C54.1149 24.9587 54.6831 25.3023 54.9804 25.8441C55.2778 26.3925 55.2513 27.0533 54.9077 27.5752L22.7695 76.6283C22.4458 77.1239 21.9106 77.3948 21.3555 77.3948V77.3948Z"
@@ -55,28 +56,28 @@
                                     </clipPath>
                                 </defs>
                             </svg>
-
-
                         </a>
 
                         <ul class="desktop-links rhs">
                             <li class="section-link">
-                                <a href="">work</a>
+                                <a href="#work">work</a>
                             </li>
                             <li class="section-link">
-                                <a href="">contact</a>
+                                <a href="#contact">contact</a>
                             </li>
                         </ul>
                     </nav>
 
-                    <a class="btn-primary header-btn">
+                    <a class="btn-primary header-btn" href="#contact">
                         Let's talk
-                        <div class="btn-icon"></div>
+                        <div class=" btn-icon">
+                        </div>
                     </a>
 
                     <a class="btn-ham" href="">
                         <img src="assets/ham-menu-open.svg" alt="Menu">
                     </a>
+
                     <nav class="mobile-nav"></nav>
                 </div>
 
@@ -198,7 +199,8 @@
                 </div>
                 <div class="decoration-card"></div>
             </div>
-            <div class="container" id="landing-container">
+
+            <div class="container" id="hero-container">
                 <div class="hero">
                     <div class="hero-text">
                         <div class="hero-heading">
@@ -217,13 +219,12 @@
                         </p>
                     </div>
                     <div class="ctas">
-                        <a class="btn-primary" id="btn-contact" href="#contact" title="Coffee on me">
+                        <a class="btn-primary" href="#contact" title="Coffee on me">
                             Let's Talk
                             <div class="btn-icon"></div>
                         </a>
-                        <a class="btn-secondary" id="btn-work" href="#work">
+                        <a class="btn-secondary" href="#work">
                             My Work
-                            <div class="btn-icon"></div>
                         </a>
                     </div>
                 </div>
@@ -259,10 +260,10 @@
 
                     <li class="hobby" id="collector">
                         <a href="javascript:;">
-                            <img class="img-hobby" src="assets/vinyl.svg" alt="vinyl">
+                            <img class="img-hobby" src="assets/eigth-note.svg" alt="vinyl">
                             <div class="name">
-                                <h6 class="hobby-u">Music</h6>
-                                <h6 class="hobby-l">Collector</h6>
+                                <h6 class="hobby-u">Amature</h6>
+                                <h6 class="hobby-l">Musician</h6>
                             </div>
                         </a>
                     </li>
@@ -271,7 +272,7 @@
         </Section>
 
         <!--Me-->
-        <section class="me">
+        <section class="me" id="about">
             <div class="large-map"></div>
             <div class="container">
                 <div class="title">
@@ -354,7 +355,7 @@
         </section>
 
         <!--Skills-->
-        <section class="skills">
+        <section class="skills" id="skills">
             <div class="container">
                 <div class="title">
                     <!-- <img class="img-title" src="assets/emojis/pool-8-ball.png" alt="skills"> -->

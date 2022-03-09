@@ -57,6 +57,9 @@ a
     text-decoration: none
     display: inline-block
 
+a, button
+    cursor: pointer
+
 button,
 .btn,
 input[type = submit],
@@ -78,21 +81,15 @@ textarea
     height: auto
 
 .btn
-    //TODO: new btn
-    // border-radius: $border-radius
     border-radius: 6px
 
-    cursor: pointer
-
-    //TODO: new btn
-    // padding: 8px 35px
     padding: 0.5rem 1.5rem
 
     position: relative
 
-    +flex(center, center)
+    +flex(center, center, row, 0.25rem)
     flex-shrink: 0
-    grid-gap: 0.25rem
+
     .btn-icon
         +size(22px, 22px)
         background-repeat: no-repeat

@@ -1,7 +1,6 @@
 .me
     position: relative
     .large-map
-        // display: none
         position: absolute
         +size(100%, 100%)
         top: 0
@@ -32,10 +31,10 @@
             #background
                 position: absolute
                 background-color: inherit
-                z-index: -1
-                width: 100%
+                transform: translate(-100%, 0)
+                width: 1000%
                 height: 100%
-                margin-left: -100%
+                left: 0%
             small
                 line-height: 130%
         .what
@@ -51,7 +50,7 @@
             +flex(start, stretch, column)
             .question
                 position: absolute
-                z-index: 2
+                z-index: 1
                 top: 10px
                 left: 10px
                 filter: drop-shadow(0 0 10px #3f3f3f)
@@ -75,7 +74,7 @@
                     opacity: 0.8
                 h4
                     position: absolute
-                    z-index: 2
+                    z-index: 1
                     color: var(--primary-green)
                     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2))
                     text-transform: uppercase
