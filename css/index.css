@@ -455,7 +455,7 @@ textarea {
 }
 
 .header-btn {
-  padding: 0.3rem 1.5rem;
+  padding: 0.35rem 1.5rem;
 }
 
 .header-btn .btn-icon {
@@ -616,11 +616,45 @@ body main {
 
 .landing header .container .mobile-nav {
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 50px);
   background-color: var(--bg);
+  display: none;
+}
+
+.landing header .container .mobile-nav ul {
+  padding: 3rem 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  grid-gap: 0.3rem;
+}
+
+.landing header .container .mobile-nav ul .ham-link {
+  font-size: 130%;
+  text-decoration: underline;
+}
+
+.landing header .container .mobile-nav .ham-img {
+  position: absolute;
+  width: 130%;
+  height: auto;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  left: 50%;
+  bottom: -12%;
   display: none;
 }
 
@@ -2327,7 +2361,7 @@ body main {
   }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 650px) {
   .contact {
     -ms-grid-rows: 2.5fr 1fr;
         grid-template-rows: 2.5fr 1fr;
@@ -2611,6 +2645,16 @@ section .title {
   }
   .me p, .skills p {
     max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  section:not(.landing):not(.contact) {
+    margin-top: -50px;
+    padding-top: 100px;
+  }
+  .contact {
+    padding-top: 50px;
   }
 }
 

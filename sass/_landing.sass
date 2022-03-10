@@ -58,13 +58,30 @@
                     +size(inherit, inherit)
             .mobile-nav
                 position: absolute
-                top: 0
+                top: 50px
                 left: 0
                 width: 100vw
-                height: 100vh
+                height: calc(100vh - 50px)
                 //TODO: move to theming
                 background-color: var(--bg)
                 display: none
+
+                ul
+                    padding: 3rem 1.5rem
+                    +flex(center, start, column, 0.3rem)
+                    .ham-link
+                        font-size: 130%
+                        text-decoration: underline
+
+                .ham-img
+                    position: absolute
+
+                    +size(130%, auto)
+                    transform: translate(-50%, 0)
+                    left: 50%
+                    bottom: -12%
+
+                    display: none
 
             .btn-ham, .mobile-nav
                 display: none

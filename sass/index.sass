@@ -60,6 +60,13 @@ section .title
         p
             max-width: 100%
 
+@media screen and ( max-width: $tablet2) //650px
+    section:not(.landing):not(.contact)
+        margin-top: -50px
+        padding-top: 100px
+    .contact
+        padding-top: 50px
+
 @media screen and ( max-width: $phone1) //475px
     .img-title
         width: 60px
