@@ -40,7 +40,7 @@ const hobbies = document.querySelectorAll('.hobby a');
 const hobbiesContainer = document.getElementById('hobbies-container');
 hobbies.forEach(hobby => {
     hobby.addEventListener('focus', () => setJustifyContent(hobby, 650));
-    hobby.addEventListener('focusout', () => hobbiesContainer.style.justifyContent = "center");
+    hobby.addEventListener('focusout', () => hobbiesContainer.style.justifyContent = "space-around");
 })
 
 function widthSmallerThan(width){
@@ -64,6 +64,7 @@ function setJustifyContent(hobby, preferedClientWidth){ //650px
     else if(id == "collector") //justify-content: end;
         hobbiesContainer.style.justifyContent = "flex-end";
 }
+
 //#endregion
 
 //#region Download resume
@@ -71,6 +72,26 @@ btnDownload.addEventListener("click", function(){
     window.open('https://drive.google.com/file/d/1_Ou0qmDgCAZB0ZE7WgMgfunNOA_AmK3a/view?usp=sharing', '_blank');
     
 })
+//#endregion
+
+
+//#region sticky header
+window.onscroll = function() {stickHeader()};
+
+var header = document.getElementById("header");
+var landingContainer = document.getElementById("hero-container");
+
+
+function stickHeader() {
+    var offset = header.offsetTop;
+    if (window.pageYOffset > offset) {
+        header.classList.add("sticky");
+        landingContainer.style.paddingTop = header.clientHeight + "px"; 
+    } else {
+        header.classList.remove("sticky");
+        landingContainer.style.paddingTop = "0px"; 
+    }
+}
 //#endregion
 
 
@@ -126,52 +147,6 @@ function activateDuty(dutyIcon){
 //#endregion
 
 
-//#region skills percentages
-const skillsPercentage= [90, 90, 85,  70,  80];
-const progressBars = document.querySelectorAll(".progress-bar");
-const badgePercentages = document.querySelectorAll(".percentage");
-for(i = 0; i < progressBars.length; i++){
-    progressBars[i].value = skillsPercentage[i];
-    badgePercentages[i].innerHTML = skillsPercentage[i] +"%";
-}
-//#endregion
-
-
 window.addEventListener("contextmenu", e => e.preventDefault());
 
 
-//#region sticky header
-window.onscroll = function() {stickHeader()};
-
-var header = document.getElementById("header");
-var landingContainer = document.getElementById("hero-container");
-
-
-function stickHeader() {
-    var offset = header.offsetTop;
-    if (window.pageYOffset > offset) {
-        header.classList.add("sticky");
-        landingContainer.style.paddingTop = header.clientHeight + "px"; 
-    } else {
-        header.classList.remove("sticky");
-        landingContainer.style.paddingTop = "0px"; 
-    }
-}
-//#endregion
-
-// function scrollToSection(section){
-//     let paddingDifference = 70;
-//     if(section.id == "sectionContact") paddingDifference = 0;
-    
-//     window.scrollTo(0, section.offsetTop - paddingDifference);
-// }
-
-// const navLinks = [linkAbout, linkSkills, logo, linkWork, linkContact] 
-// const sections = [sectionAbout, sectionSkills, sectionLanding, sectionWork, sectionContact] 
-// for(let i = 0; i < navLinks.length; i++)
-//     navLinks[i].addEventListener("click", () => scrollToSection(sections[i]));
-
-
-// headerCta.addEventListener("click", () => scrollToSection(sectionContact));
-// btnContact.addEventListener("click", () => scrollToSection(sectionContact));
-// btnWork.addEventListener("click", () => scrollToSection(sectionWork));

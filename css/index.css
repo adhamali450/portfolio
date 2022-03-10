@@ -741,10 +741,11 @@ body main {
 }
 
 .landing .hobbies {
-  position: relative;
   -ms-grid-row: 3;
   -ms-grid-row-span: 1;
   grid-row: 3/4;
+  z-index: 2;
+  position: relative;
   padding: 0.6rem 1rem;
   overflow: hidden;
 }
@@ -1600,8 +1601,6 @@ body main {
 }
 
 .work .cards-container {
-  width: 90%;
-  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1962,28 +1961,31 @@ body main {
 }
 
 @media screen and (max-width: 1116px) {
-  .work .cards .cards-container .card {
+  .work .cards-wrapper .cards-container .card {
     width: 310px;
     height: 350px;
   }
-  .work .cards .cards-container .dummy-card {
+  .work .cards-wrapper .cards-container .dummy-card {
     display: none;
   }
 }
 
 @media screen and (max-width: 750px) {
-  .work .cards .cards-container {
+  .work .cards-wrapper .cards-container {
     --overlaying-margin: 210px;
   }
-  .work .cards .cards-container .card {
+  .work .cards-wrapper .cards-container .card {
     width: 330px;
     height: 350px;
   }
 }
 
 @media screen and (max-width: 650px) {
-  .work .cards .cards-container {
+  .work .cards-wrapper {
     width: 100%;
+  }
+  .work .cards-wrapper .cards-container {
+    width: inherit;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (auto)[3];
@@ -1992,7 +1994,7 @@ body main {
         scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
   }
-  .work .cards .cards-container .card {
+  .work .cards-wrapper .cards-container .card {
     --overlaying-margin: 0;
     -webkit-box-shadow: none;
             box-shadow: none;
@@ -2004,14 +2006,14 @@ body main {
     scroll-snap-align: center;
     scroll-snap-stop: always;
   }
-  .work .cards .cards-container .card .work-done img {
+  .work .cards-wrapper .cards-container .card .work-done img {
     width: 25px;
     height: 25px;
   }
-  .work .cards .cards-container .card:first-of-type {
+  .work .cards-wrapper .cards-container .card:first-of-type {
     margin-left: var(--gap);
   }
-  .work .cards .cards-container .card:last-of-type {
+  .work .cards-wrapper .cards-container .card:last-of-type {
     margin-right: var(--gap);
   }
 }
@@ -2020,7 +2022,7 @@ body main {
   .work {
     --gap: 1rem;
   }
-  .work .cards .cards-container .card {
+  .work .cards-wrapper .cards-container .card {
     width: 80vw;
   }
   .work .tasks-explained {
@@ -2031,7 +2033,7 @@ body main {
 }
 
 @media screen and (max-width: 360px) {
-  .work .cards .cards-container .card {
+  .work .cards-wrapper .cards-container .card {
     height: 300px;
   }
 }

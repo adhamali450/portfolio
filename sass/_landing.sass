@@ -115,10 +115,10 @@
 
     .hobbies
         //---------------PARALLAX---------------
-        position: relative
-
         grid-row: 3/4
         @extend .wide-banner
+        z-index: 2
+        position: relative
         padding: 0.6rem 1rem
         overflow: hidden
         .container
@@ -257,7 +257,6 @@
                 pointer-events: all
                 cursor: pointer
                 border: 2px solid rgba(255, 255, 255, 0.0)
-
                 a
                     +size(100%, 100%)
                     outline: none

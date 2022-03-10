@@ -5,8 +5,8 @@ $padding: 1rem
     --gap: 2rem
     .cards-container
 
-        width: $container-width
-        margin: 0 auto
+        // width: $container-width
+        // margin: 0 auto
 
         +flex(start, center, row, var(--gap))
 
@@ -144,47 +144,49 @@ $padding: 1rem
                 +size(20px, 20px)
 //base: +size(340px, 380px)
 @media screen and (max-width: $laptop) //1116px
-    .work .cards .cards-container
+    .work .cards-wrapper .cards-container
         .card
             +size(310px, 350px)
         .dummy-card
             display: none
 
 @media screen and (max-width: $tablet1) //750px
-    .work .cards .cards-container
+    .work .cards-wrapper .cards-container
         --overlaying-margin: 210px
         .card
             +size(330px, 350px)
 
 @media screen and (max-width: $tablet2) //650px
-    .work .cards .cards-container
+    .work .cards-wrapper
         width: 100%
-        display: grid
-        grid-template-columns: repeat(3, auto)
-        scroll-snap-type: x mandatory
-        scroll-behavior: smooth
-        .card
-            +disable-cards-effect()
-            width: 70vw
-            margin: 0
-            scroll-snap-align: center
-            scroll-snap-stop: always
-            .work-done
-                img
-                    +size(25px, 25px)
-            &:first-of-type
-                margin-left: var(--gap)
-            &:last-of-type
-                margin-right: var(--gap)
+        .cards-container
+            width: inherit
+            display: grid
+            grid-template-columns: repeat(3, auto)
+            scroll-snap-type: x mandatory
+            scroll-behavior: smooth
+            .card
+                +disable-cards-effect()
+                width: 70vw
+                margin: 0
+                scroll-snap-align: center
+                scroll-snap-stop: always
+                .work-done
+                    img
+                        +size(25px, 25px)
+                &:first-of-type
+                    margin-left: var(--gap)
+                &:last-of-type
+                    margin-right: var(--gap)
 
 @media screen and (max-width: $phone1) //450px
     .work
         --gap: 1rem
-        .cards .cards-container .card
+        .cards-wrapper .cards-container .card
             width: 80vw
         .tasks-explained
             justify-content: center
 
 @media screen and (max-width: $phone2) //360px
-    .work .cards .cards-container .card
+    .work .cards-wrapper .cards-container .card
         height: 300px
