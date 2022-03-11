@@ -147,6 +147,12 @@ function activateDuty(dutyIcon){
 //#endregion
 
 
+form.addEventListener("submit", (e) => {
+    e.preventDefault()
+    
+    console.log("email sent")
+});
+
 window.addEventListener("contextmenu", e => e.preventDefault());
 
 

@@ -26,6 +26,8 @@
     --contact-border-grd: linear-gradient(105.8deg, #d1ffe8 0%, rgba(0,0,0, 0) 25%, rgba(0,0,0, 0) 75%, #862DF7 100%)
     --thumb-grd: linear-gradient(180deg, var(--primary-pink) 0%, var(--primary-purple) 100%)
 
+    --color-error: #AF0606
+
 $btn-transition-duration: 0.3s
 
 //sections theming
@@ -72,6 +74,10 @@ $btn-transition-duration: 0.3s
     @else if $theme == light
 
 =contact-theming($theme: dark)
+    label[importance='crucial']
+        &::after
+            content: '*'
+            color: var(--color-error)
     @if $theme == dark
     @else if $theme == light
 
@@ -113,16 +119,18 @@ $btn-transition-duration: 0.3s
     form
         background-color: #272727
 
-    input[type = text], textarea
+    input[type = text], input[type = email], textarea
         background-color: #1F1F1F
         border: 2px solid transparent
         transition: border-color 0.1s ease-out, background-color 0.2s ease-out
         color: #ffffff
         &:hover
-            border-color: #606060
+            border-color: #606060 !important
         &:focus
-            border-color: var(--primary-purple)
+            border-color: var(--primary-purple) !important
             background-color: #141414
+    .not-valid
+        border-color: var(--color-error)
 
     +landing-theming(dark)
     +me-theming(dark)

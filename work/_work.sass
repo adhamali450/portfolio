@@ -1,11 +1,13 @@
-.work .container
-    .cards
+.work
+    display: none
+.work .cards-wrapper
+    .cards-container
         display: grid
         grid-template-rows: repeat(6, 70px)
         grid-template-columns: repeat(4, 1fr)
         grid-gap: 1rem
         .card
-            //+backdrop-blur(100px)
+            @extend .not-centered
 
             +flex(start, stretch, column)
 

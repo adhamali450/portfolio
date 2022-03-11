@@ -17,6 +17,12 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="#000">
 
     <link rel="stylesheet" href="css/index.min.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script defer src="js/index.js"></script>
+    <script defer src="https://smtpjs.com/v3/smtp.js"></script>
+
+
     <title>Adham Ali</title>
 </head>
 
@@ -428,12 +434,10 @@
         </section>
 
         <!--Work-->
-        <section class="work" id="work">
-            <div class="container">
-                <div class="title">
-                    <img class="img-title" src="assets/work.svg" alt="work">
-                    <h2>Latest Pieces</h2>
-                </div>
+        <section class="work" id="work">            
+            <div class="title container">
+                <img class="img-title" src="assets/work.svg" alt="work">
+                <h2>Latest Pieces</h2>
             </div>
 
             <article class="cards-wrapper container" id="cards">
@@ -557,40 +561,54 @@
             <div class="upper">
                 <div class="container">
                     <div class="contact-theme"></div>
-
                     <div class="title">
-                        <!-- <img class="img-title" src="assets/emojis/ticket.png" alt="contact"> -->
                         <img class="img-title" src="assets/contact.svg" alt="contact">
                         <h2>Let's talk</h2>
                     </div>
 
-                    <form>
-                        <div class="text-box" id="name">
-                            <small class="label">Name
-                                <small class="crucial" title="crucial" style="color:red;">*</small>
-                            </small>
-                            <input type=text placeholder="Crazy Frog">
+                    <form id="form" action="/" method="GET">
+                        
+                        <div class="input-container">
+                            <label for="name" importance="crucial">Name</label>
+                            <small class="error-msg tiny-small">Please provide your name.</small>
+                            
+                            <input class="text-box" 
+                                id="name" 
+                                type=text 
+                                name="name"
+                                title="Enter your name" 
+                                placeholder="Crazy Frog" 
+                                required>
                         </div>
 
-                        <div class="text-box" id="email-address">
-                            <small class="label">Email address
-                                <small class="crucial" title="crucial" style="color:red;">*</small>
-                            </small>
-                            <input type=text placeholder="crazy_frog99@gmail.com">
+                        <div class="input-container">
+                            <label for="email" importance="crucial">Email adress</label>
+                            <small class="error-msg tiny-small">This email is not quitly formatted.</small>
+                            <input  class="text-box" 
+                                id="email" 
+                                type=email 
+                                name="email"
+                                pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)"
+                                title="Provide your valid email address" 
+                                size="64" 
+                                maxLength="64" 
+                                placeholder="crazy_frog99@gmail.com" 
+                                required>
                         </div>
 
-                        <div class="text-box" id="message">
-                            <small class="label">Message
-                                <small class="crucial" title="crucial" style="color:red;">*</small>
-                            </small>
-                            <textarea placeholder="Let's cook something fly!"></textarea>
+                        <div class="input-container">
+                            <label for="message" importance="crucial">Message</label>
+                            <small class="error-msg tiny-small">Please provide a message.</small>
+                            <textarea  class="text-box" 
+                                id="message" 
+                                name="message" 
+                                placeholder="Let's cook something fly!" 
+                                required></textarea>
                         </div>
-                        <button class="btn-primary">
-                            <!-- Send Message -->
+                        <button class="btn-primary" type="submit">
                             <div class="btn-icon"></div>
                         </button>
                     </form>
-
                 </div>
             </div>
 
@@ -655,10 +673,7 @@
             </div>
         </section>
     </main>
-
-    <script defer src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script defer src="js/index.js"></script>
-
 </body>
-
+<!--href="tel:+201143954897"-->
+<!--href="mailto:adhamali_4500@outlook.com"-->
 </html>

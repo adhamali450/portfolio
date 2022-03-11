@@ -53,6 +53,11 @@ body
     &::after
         bottom: 0
 
+.not-centered
+    text-align: left !important
+    *
+        text-align: left !important
+
 a
     text-decoration: none
     display: inline-block
@@ -60,17 +65,21 @@ a
 a, button
     cursor: pointer
 
-button,
 .btn,
+button,
 input[type = submit],
 input[type = text],
+input[type = email],
 textarea
     border: none
 
 textarea
     resize: none
 
-input[type = text], textarea
+input[type = text],
+input[type = email],
+textarea
+    @extend .not-centered
     display: block
     width: 100%
     border-radius: $border-radius
