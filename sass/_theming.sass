@@ -121,7 +121,7 @@ $btn-transition-duration: 0.3s
 
     input[type = text], input[type = email], textarea
         background-color: #1F1F1F
-        border: 2px solid transparent
+        border-color: transparent
         transition: border-color 0.1s ease-out, background-color 0.2s ease-out
         color: #ffffff
         &:hover
@@ -129,8 +129,8 @@ $btn-transition-duration: 0.3s
         &:focus
             border-color: var(--primary-purple) !important
             background-color: #141414
-    .not-valid
-        border-color: var(--color-error)
+    .error-msg
+        color: var(--color-error)
 
     +landing-theming(dark)
     +me-theming(dark)

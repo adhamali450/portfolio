@@ -79,9 +79,10 @@ textarea
 input[type = text],
 input[type = email],
 textarea
-    @extend .not-centered
     display: block
     width: 100%
+    border-width: 2px
+    border-style: solid
     border-radius: $border-radius
     padding: 0.5rem 0.7rem
     outline: none
@@ -123,3 +124,6 @@ textarea
     padding: 0.35rem 1.5rem
     .btn-icon
         +size(15px, 15px)
+
+.btn-disabled
+    pointer-events: none

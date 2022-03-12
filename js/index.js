@@ -156,3 +156,68 @@ form.addEventListener("submit", (e) => {
 window.addEventListener("contextmenu", e => e.preventDefault());
 
 
+// Form input validation 
+
+function validate(e){
+    const inputId = e.target.id;
+    const input = document.getElementById(inputId); 
+    const errorLabel = document.getElementById(inputId + "-error-label"); 
+    const parent = input.parentElement;
+
+    // general case: no empty input
+    if(isEmpty(input)){
+        errorLabel.innerText = capitalizeFirst(inputId) + " can't be empty.";
+        parent.classList.add("invalid-input");
+
+        return;
+    }
+
+    // email must be formarted correctly and cannot be mine :"
+    if(inputId == "email"){
+        const emailPattern = 
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        
+        if(!validateEmail(input.value)){
+            errorLabel.innerText = "Invalid email";
+            parent.classList.add("invalid-input");
+
+            return;
+        }
+        else if(input.value == "adhamali_4500@outlook.com"){
+            errorLabel.innerText = "Email can't be mine";
+            parent.classList.add("invalid-input");
+        
+            return;
+        }
+    }    
+
+    // message cannot be less than 18 chars
+    if(inputId == "message"){
+        if(input.value.length < 18){
+            errorLabel.innerText = "Message can't be less than 18 characters";
+            parent.classList.add("invalid-input");
+        
+            return;
+        }
+    }
+}
+
+function clearErrorState(e){ 
+    const parent = document.getElementById(e.target.id).parentElement;
+    parent.classList.remove("invalid-input");
+}
+
+
+const isEmpty = (input) => {
+    return input.value == "" || input.value == null;    
+}
+
+const validateEmail = (email) => {
+  return email.match(
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  );
+};
+
+const capitalizeFirst = (text) => {
+    return text[0].toUpperCase() + text.slice(1); 
+}

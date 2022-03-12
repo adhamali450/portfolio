@@ -223,7 +223,7 @@
                             <h1>I can make you
                                 <br>
                                 something
-                            </h1>
+                            </h#contact1>
                             <h1 id="qualities">
                                 <strong></strong>
                             </h1>
@@ -329,7 +329,7 @@
                             <div class="overlay"></div>
                             <h4>made in
                                 <br id="line-breaker">
-                                cairo
+                                egypt
                             </h4>
                         </div>
                     </article>
@@ -342,7 +342,7 @@
                             <img src="assets/question-mark.svg" width="25" height="25" alt="?">
                         </header>
                         <p>
-                            Currently, I'm in Cairo. It's like the bigger version of NYC. Somewhere on this map you see
+                            Currently, I'm in Cairo, Egypt. It's like the bigger version of NYC. Somewhere on this map you see
                             if you're really asking.
                         </p>
                     </article>
@@ -570,7 +570,7 @@
                         
                         <div class="input-container">
                             <label for="name" importance="crucial">Name</label>
-                            <small class="error-msg tiny-small">Please provide your name.</small>
+                            <small id="name-error-label" class="error-msg tiny-small"></small>
                             
                             <input class="text-box" 
                                 id="name" 
@@ -578,12 +578,14 @@
                                 name="name"
                                 title="Enter your name" 
                                 placeholder="Crazy Frog" 
+                                onfocusout="validate(event)"
+                                onkeydown="clearErrorState(event)"
                                 required>
                         </div>
 
                         <div class="input-container">
                             <label for="email" importance="crucial">Email adress</label>
-                            <small class="error-msg tiny-small">This email is not quitly formatted.</small>
+                            <small id="email-error-label" class="error-msg tiny-small"></small>
                             <input  class="text-box" 
                                 id="email" 
                                 type=email 
@@ -592,20 +594,25 @@
                                 title="Provide your valid email address" 
                                 size="64" 
                                 maxLength="64" 
-                                placeholder="crazy_frog99@gmail.com" 
+                                placeholder="crazy_frog99@gmail.com"
+                                onfocusout="validate(event)" 
+                                onkeydown="clearErrorState(event)"
                                 required>
                         </div>
 
                         <div class="input-container">
                             <label for="message" importance="crucial">Message</label>
-                            <small class="error-msg tiny-small">Please provide a message.</small>
+                            <small id="message-error-label" class="error-msg tiny-small"></small>
                             <textarea  class="text-box" 
                                 id="message" 
                                 name="message" 
-                                placeholder="Let's cook something fly!" 
+                                placeholder="Let's cook something fly!"
+                                minlength="18" 
+                                onfocusout="validate(event)"
+                                onkeydown="clearErrorState(event)"
                                 required></textarea>
                         </div>
-                        <button class="btn-primary" type="submit">
+                        <button class="btn-primary btn-disabled" type="submit">
                             <div class="btn-icon"></div>
                         </button>
                     </form>
@@ -615,21 +622,21 @@
             <div class="lower">
                 <div class="container">
                     <ul class="contact-info">
-                        <li id="address">
+                        <li id="work-address">
                             <img src="assets/icon-address.svg" alt="Work address">
                             <small>
                                 AZ Zaytoun, Cairo, Egypt
                             </small>
                         </li>
-                        <li id="phone-number">
+                        <li id="work-phone-number">
                             <img src="assets/icon-phone.svg" alt="Work number">
-                            <a href="#">
+                            <a href="tel:+201143954897">
                                 <small>(+20) 011 4395 4897</small>
                             </a>
                         </li>
-                        <li id="outlook">
+                        <li id="work-email">
                             <img src="assets/icon-email.svg" alt="Work email address">
-                            <a href="#">
+                            <a href="mailto:adhamali_4500@outlook.com">
                                 <small>
                                     adhamali_4500
                                     <br>
@@ -674,6 +681,4 @@
         </section>
     </main>
 </body>
-<!--href="tel:+201143954897"-->
-<!--href="mailto:adhamali_4500@outlook.com"-->
 </html>
