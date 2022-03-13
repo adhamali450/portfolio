@@ -221,16 +221,3 @@ const validateEmail = (email) => {
 const capitalizeFirst = (text) => {
     return text[0].toUpperCase() + text.slice(1); 
 }
-
-const firebaseConfig = {
-    apiKey: "AIzaSyD2bmYjXuVEqBKhx_ICIQkVhzwBfyubq3k",
-    authDomain: "my-portfolio-5c98d.firebaseapp.com",
-    databaseURL: "https://my-portfolio-5c98d-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "my-portfolio-5c98d",
-    storageBucket: "my-portfolio-5c98d.appspot.com",
-    messagingSenderId: "998620020062",
-    appId: "1:998620020062:web:55d8c4c84547e52e0623cf",
-    measurementId: "G-M4BPVY0M92"
-};
-
-console.log(database);
