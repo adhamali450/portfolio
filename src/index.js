@@ -1,3 +1,7 @@
+// Main sass file importing all other subfiles (check ./sass)
+import "./sass/index.sass";
+
+
 //#region general
 
 
@@ -15,6 +19,7 @@ function getWidth() {
 
 
 //#region Loading qualities
+import Typed from 'typed.js';
 
 const qualities = ["Cutting Edge", "Upscale" , "Artistic", "Extraordinary"];
 

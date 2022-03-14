@@ -15,12 +15,7 @@
     <meta name="theme-color" content="#000">
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#000">
-
-    <link rel="stylesheet" href="css/index.min.css">
-
-    <script defer src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script defer src="js/index.js"></script>
-
+    
     <title>Adham Ali</title>
 </head>
 
@@ -139,8 +134,7 @@
                             fill="#5665C2" />
                     </svg>
 
-                    <svg id="sample-paragraph" width="175" height="132" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg id="sample-paragraph" width="175" height="132" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M72 0H4C1.79086 0 0 1.79086 0 4V8C0 10.2091 1.79086 12 4 12H72C74.2091 12 76 10.2091 76 8V4C76 1.79086 74.2091 0 72 0Z"
                             fill="#9FFBCE" />
@@ -221,10 +215,10 @@
                             <h1>I can make you
                                 <br>
                                 something
-                            </h#contact1>
-                            <h1 id="qualities">
-                                <strong></strong>
-                            </h1>
+                                </h#contact1>
+                                <h1 id="qualities">
+                                    <strong></strong>
+                                </h1>
                         </div>
 
                         <p>
@@ -340,7 +334,8 @@
                             <img src="assets/question-mark.svg" width="25" height="25" alt="?">
                         </header>
                         <p>
-                            Currently, I'm in Cairo, Egypt. It's like the bigger version of NYC. Somewhere on this map you see
+                            Currently, I'm in Cairo, Egypt. It's like the bigger version of NYC. Somewhere on this map
+                            you see
                             if you're really asking.
                         </p>
                     </article>
@@ -432,7 +427,7 @@
         </section>
 
         <!--Work-->
-        <section class="work" id="work">            
+        <section class="work" id="work">
             <div class="title container">
                 <img class="img-title" src="assets/work.svg" alt="work">
                 <h2>Latest Pieces</h2>
@@ -565,50 +560,32 @@
                     </div>
 
                     <form id="form" action="/" method="GET">
-                        
+
                         <div class="input-container">
                             <label for="name" importance="crucial">Name</label>
                             <small id="name-error-label" class="error-msg tiny-small"></small>
-                            
-                            <input class="text-box" 
-                                id="name" 
-                                type=text 
-                                name="name"
-                                title="Enter your name" 
-                                placeholder="Crazy Frog" 
-                                onfocusout="validate(event)"
-                                onkeydown="clearErrorState(event)"
+
+                            <input class="text-box" id="name" type=text name="name" title="Enter your name"
+                                placeholder="Crazy Frog" onfocusout="validate(event)" onkeydown="clearErrorState(event)"
                                 required>
                         </div>
 
                         <div class="input-container">
                             <label for="email" importance="crucial">Email adress</label>
                             <small id="email-error-label" class="error-msg tiny-small"></small>
-                            <input  class="text-box" 
-                                id="email" 
-                                type=email 
-                                name="email"
+                            <input class="text-box" id="email" type=email name="email"
                                 pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)"
-                                title="Provide your valid email address" 
-                                size="64" 
-                                maxLength="64" 
-                                placeholder="crazy_frog99@gmail.com"
-                                onfocusout="validate(event)" 
-                                onkeydown="clearErrorState(event)"
-                                required>
+                                title="Provide your valid email address" size="64" maxLength="64"
+                                placeholder="crazy_frog99@gmail.com" onfocusout="validate(event)"
+                                onkeydown="clearErrorState(event)" required>
                         </div>
 
                         <div class="input-container">
                             <label for="message" importance="crucial">Message</label>
                             <small id="message-error-label" class="error-msg tiny-small"></small>
-                            <textarea  class="text-box" 
-                                id="message" 
-                                name="message" 
-                                placeholder="Let's cook something fly!"
-                                minlength="18" 
-                                onfocusout="validate(event)"
-                                onkeydown="clearErrorState(event)"
-                                required></textarea>
+                            <textarea class="text-box" id="message" name="message"
+                                placeholder="Let's cook something fly!" minlength="18" onfocusout="validate(event)"
+                                onkeydown="clearErrorState(event)" required></textarea>
                         </div>
                         <button class="btn-primary btn-disabled" type="submit">
                             <div class="btn-icon"></div>
@@ -679,4 +656,5 @@
         </section>
     </main>
 </body>
+
 </html>
