@@ -1,5 +1,4 @@
 .skills
-    //border: 1px dashed orange
     .duties-container
         margin-top: 2rem
     .duties
@@ -16,7 +15,7 @@
             border-radius: $border-radius
 
             transition: background-color 0.15s , transform 0.15s
-            img
+            .duty-icon
                 +size(120px, 120px)
 
                 transition: background-color 0.15s , transform 0.15s
@@ -25,9 +24,8 @@
                 border-radius: inherit
                 -webkit-filter: brightness(0) invert(1)
                 filter: brightness(0) invert(1)
-                // &:hover
-                    //preventing background change when hovering
-                    //in case of already activating done in JS
+                &:hover
+                    background-color: rgba(255, 255, 255, 0.07)
 
             h6
                 font-weight: 600
@@ -36,8 +34,9 @@
                 text-align: center
                 transition: opacity 0.2s
         .active-duty
+            background-color: var(--clr-active-duty)
             transform: translateY(-1rem)
-            img
+            .duty-icon
                 background-color: transparent !important
                 filter: brightness(1) invert(0)
             .duty-name
@@ -48,6 +47,7 @@
         margin: 2rem 0 0 0
         padding: 2rem 0
         position: relative
+        background-color: var(--clr-tech-tools)
         &::before
             position: absolute
             content: " "
@@ -80,18 +80,13 @@
                 background-position: top -0.5rem right
                 opacity: 0.25
 
-            .icons
-                // display: grid !important
-                // grid-template-rows: repeat(2, auto)
-                // grid-template-columns: repeat(5, auto)
-
 @media screen and ( max-width: 950px )
     .skills
         .duties
             grid-gap: 0.25rem
             .duty
                 padding: 1rem 0.75rem
-                img
+                .duty-icon
                     +size(110px, 110px)
                 .duty-name
                     display: none
@@ -108,7 +103,7 @@
 
 @media screen and ( max-width: $tablet1 )  //750px
     .skills
-        .duties .duty img
+        .duties .duty .duty-icon
             +size(80px, 80px)
         .tech-tools .container .icons
             li
@@ -117,9 +112,6 @@
 
 @media screen and ( max-width: $tablet2 ) //650px
     .skills
-        .duties
-            // width: fit-content
-            // margin: 0 auto
         .tech-tools
             &:before
                 display: none
@@ -127,8 +119,6 @@
                 #inner-title br
                     display: none
                 .icons
-                    // width: fit-content
-                    // margin: 0 auto
                     li
                         +size(auto, 25px)
 
@@ -142,11 +132,9 @@
             grid-template-columns: repeat(2, auto)
             justify-content: center
             grid-gap: 0
-            // .duty img
-            //     +size(95px, 95px)
             .active-duty
                 transform: translateY(0)
-                img
+                .duty-icon
                     transform: scale(1.15)
         .duty-explained
             //TODO: duty-explained height

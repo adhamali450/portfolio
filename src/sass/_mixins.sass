@@ -2,14 +2,14 @@
     *
         text-align: center
 
-=fill-grd($grd: var(--pink-purple-grd))
+=fill-grd($grd: var(--grd-pink-purple))
     background: $grd
     color: transparent
     background-clip: text
     -webkit-background-clip: text
     display: table-cell
 
-=btn-border-grd($grd: var(--btn-pink-purple-grd-border), $border-width: 2px)
+=btn-border-grd($grd: var(--btn-grd-pink-purple-border), $border-width: 2px)
     &::before
         content: ''
         position: absolute
@@ -47,7 +47,7 @@
     transition: none
     margin-left: 0
 
-=set-badge-styles($base-color: var(--primary-green))
+=set-badge-styles($base-color: var(--clr-green))
     @extend .tiny-small
     background-color: $base-color
     color: rgba(0, 0, 0, 0.8)
@@ -59,7 +59,7 @@
     backdrop-filter: blur($blur)
 
     @supports not (backdrop-filter: none)
-        background-color: #141414
+        background-color: var(--banner-non-support)
 
 //Generic Mixins    
 =min-size($min-width, $min-height)

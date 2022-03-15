@@ -5,8 +5,6 @@ $padding: 1rem
     --gap: 2rem
     .cards-container
         @extend .not-centered
-        // width: $container-width
-        // margin: 0 auto
 
         +flex(start, center, row, var(--gap))
 
@@ -17,8 +15,8 @@ $padding: 1rem
         //TODO: take card of those
         .generic-card
             border-radius: 25px
-            background-color: #191919
-            border: 2px solid #3d3d3d
+            background-color: var(--clr-card)
+            border: 2px solid var(--clr-card-border)
             position: relative
         .card
             @extend .generic-card
@@ -26,6 +24,8 @@ $padding: 1rem
             +flex(space-between, start, column)
             overflow: hidden
             z-index: 2
+            *:not(.card-bg)
+                z-index: 3
             .card-bg
                 +absolute-cover()
 
@@ -41,11 +41,10 @@ $padding: 1rem
                 +flex(start, start, column, 0.5rem)
                 .card-title
                     +flex(start, center, row, 0.5rem)
-                    z-index: 3
                     .card-name
                         font-weight: 800
                         line-height: 120%
-                        +fill-grd(var(--purple-green-grd))
+                        +fill-grd(var(--grd-purple-green))
                     .arrow
                         transition: transform .2s ease
                         justify-self: start
@@ -70,18 +69,13 @@ $padding: 1rem
                 grid-gap: 0.75rem 0
                 padding: $padding
                 border-radius: inherit
-                z-index: 3
                 .card-description
                     grid-column: 1/3
                 .year
                     grid-row: 2/3
                     grid-column: 2/3
                     align-self: center
-                    @extend .tiny-small
-                    background-color: var(--primary-green)
-                    color: rgba(0, 0, 0, 0.7)
-                    padding: 0.1rem 0.2rem
-                    border-radius: 5px
+                    +set-badge-styles()
                 .related-links
                     grid-row: 2/3
                     grid-column: 1/2
@@ -120,7 +114,7 @@ $padding: 1rem
         .dummy-card
             margin: 0 !important
             flex-grow: 1
-            border: 2px dashed #3d3d3d
+            border: 2px dashed var(--clr-card-border)
             border-radius: 25px
             align-self: stretch
             +grid-center()
@@ -135,7 +129,7 @@ $padding: 1rem
             +flex(center, center, row, 5px)
             img
                 +size(20px, 20px)
-//base: +size(340px, 380px)
+
 @media screen and (max-width: $laptop) //1116px
     .work .cards-wrapper .cards-container
         .card

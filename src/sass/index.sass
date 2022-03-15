@@ -6,6 +6,10 @@ html
     height: -webkit-stretch
 
 body
+    @extend .dark
+    background-color: var(--bg)
+    color: var(--fg)
+
     position: relative
     overflow-x: hidden
     +size(inherit, inherit)
@@ -25,6 +29,9 @@ body
 @import skills
 @import work
 @import contact
+
+h1, h2
+    +fill-grd()
 
 .skills
     p

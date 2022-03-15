@@ -17,17 +17,24 @@
         grid-gap: 1rem
         article
             +flex(start, start, column)
-            header
+            .question
                 +flex(start, center, row, 0.25rem)
                 margin-bottom: 0.25rem
                 small
                     font-weight: 800
+                .question-mark
+                    +size(25px, 25px)
+                    background: var(--icon-question-mark)
+                    background-size: cover
+                    background-repeat: no-repeat
         .exp
             padding: 1rem 0
             grid-row: 1/2
             grid-column: 1/2
             position: relative
             +flex(center, start, column, 0)
+
+            background-color: var(--bg-exp)
             #background
                 position: absolute
                 background-color: inherit
@@ -35,6 +42,8 @@
                 width: 1000%
                 height: 100%
                 left: 0%
+            #years
+                color: var(--fg-exp)
             small
                 line-height: 130%
         .what
@@ -75,7 +84,7 @@
                 h4
                     position: absolute
                     z-index: 1
-                    color: var(--primary-green)
+                    color: var(--clr-green)
                     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2))
                     text-transform: uppercase
                     font-weight: 800
@@ -146,7 +155,7 @@
                     position: absolute
                     height: 3px
                     width: var(--question-bars-width)
-                    background-color: #fff
+                    background-color: var(--clr-question-bar)
                     opacity: 1
                 &::before
                     // display: none

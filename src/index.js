@@ -1,6 +1,7 @@
 // Main sass file importing all other subfiles (check ./sass)
 import "./sass/index.sass";
 
+window.addEventListener("contextmenu", e => e.preventDefault());
 
 //#region general
 
@@ -15,10 +16,31 @@ function getWidth() {
   );
 }
 
+//mimicking css max-width in media queries
+function maxWidth(preferedClientWidth, toDo){
+    const clientWidth = getWidth();  
+    if(clientWidth > preferedClientWidth)
+        return true;
+}
+
+const isInputEmpty = (textBox) => {
+    return textBox.value == "" || textBox.value == null;    
+}
+
+const validateEmail = (email) => {
+  return email.match(
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  );
+};
+
+const capitalizeFirst = (str) => {
+    return str[0].toUpperCase() + str.slice(1); 
+}
+
 //#endregion
 
-
 //#region Loading qualities
+
 import Typed from 'typed.js';
 
 const qualities = ["Cutting Edge", "Upscale" , "Artistic", "Extraordinary"];
@@ -36,29 +58,23 @@ var options = {
   cursorChar: '_',
 };
 
-var typed = new Typed('#qualities strong', options);
+new Typed('#qualities strong', options);
 
 //#endregion
 
 //#region hobby handling
+
 const hobbies = document.querySelectorAll('.hobby a');
 const hobbiesContainer = document.getElementById('hobbies-container');
+
 hobbies.forEach(hobby => {
-    hobby.addEventListener('focus', () => setJustifyContent(hobby, 650));
+    hobby.addEventListener('focus', () => setJustifyContent(hobby));
     hobby.addEventListener('focusout', () => hobbiesContainer.style.justifyContent = "space-around");
 })
 
-function widthSmallerThan(width){
-    const clientWidth = getWidth();  
-    if(clientWidth > width)
-        return false;
-}
 
-//TODO: refactor
-function setJustifyContent(hobby, preferedClientWidth){ //650px
-    const clientWidth = getWidth();  
-    if(clientWidth > preferedClientWidth)
-        return;
+function setJustifyContent(hobby){ //650px
+    if(!maxWidth(650)) return;
 
     const id = hobby.parentNode.id
 
@@ -72,8 +88,8 @@ function setJustifyContent(hobby, preferedClientWidth){ //650px
 
 //#endregion
 
-
 //#region sticky header
+
 window.onscroll = function() {stickHeader()};
 
 var header = document.getElementById("header");
@@ -92,15 +108,9 @@ function stickHeader() {
 }
 //#endregion
 
-
 //#region duties handling
-const dutyNames = ["Exceptionally Performant",
-            "Fully Responsive",
-            "Highly Intuitive",
-            "SEO Developer Ready"];
-
-const dutyDescriptions = ["My duty is to ensure fast load times and no any issues with rendering and"
-                        + " intractions. I’m going to give you the fastest version of your website.",
+const dutyDescriptions = ["My duty is to ensure fast load times and no issues with rendering and"
+                        + " intractions. I'm going to give you the fastest version of your website.",
 
                     "From 4K screen all the way to foldable devices, my layout will be fluent and eye"
                         + " appealing no matter the user's device form factor or brand.",
@@ -112,40 +122,23 @@ const dutyDescriptions = ["My duty is to ensure fast load times and no any issue
                         + " by following SEO best practices and building semantic markup."];
 
 const dutyIcons  = document.querySelectorAll('.duty-icon');
-const activeDutyClass = "active-duty";
-dutyIcons.forEach(dutyIcon => {
-    dutyIcon.addEventListener('mouseenter', () => hobbyIconHoverControl(dutyIcon));
-    dutyIcon.addEventListener('mouseleave', () => dutyIcon.style.backgroundColor = "transparent");
-    dutyIcon.addEventListener('click', () => activateDuty(dutyIcon));
-})
 
-function hobbyIconHoverControl(dutyIcon){
-    if(dutyIcon.parentNode.classList.contains(activeDutyClass)){
-        dutyIcon.style.backgroundColor = "transparent";
-        console.log("active hover");
-
-    }
-    else{
-        dutyIcon.style.backgroundColor = "rgba(250, 250, 250, 0.075)";
-    }
-}
+dutyIcons.forEach(dutyIcon => 
+    dutyIcon.addEventListener('click',
+        () => activateDuty(dutyIcon)))
 
 function activateDuty(dutyIcon){
+    const allDuties = document.querySelectorAll(".duty"); 
+    const currentDuty = dutyIcon.parentNode;
 
-    dutyIcons.forEach(allDuties => allDuties.parentNode.classList.remove(activeDutyClass));
-    dutyIcon.parentNode.classList.add(activeDutyClass);
+    allDuties.forEach(duty => duty.classList.remove("active-duty"));
+    currentDuty.classList.add("active-duty");
 
-
-    var dutiesSliced = Array.prototype.slice.call( document.getElementById('duties').children );
-    const dutyIndex = dutiesSliced.indexOf(dutyIcon.parentNode);
-
-    document.getElementById("duty-description").innerHTML = dutyDescriptions[dutyIndex];
-    document.getElementById("duty-name").innerHTML = dutyNames[dutyIndex];
+    const dutyIndex = currentDuty.dataset.index;
+    document.getElementById("duty-description").innerText = dutyDescriptions[dutyIndex];
 }
 //#endregion
 
-
-window.addEventListener("contextmenu", e => e.preventDefault());
 
 
 // Form input validation 
@@ -154,19 +147,6 @@ document.querySelectorAll('.text-box').forEach(textBox => {
     textBox.addEventListener('keyup', validate);
 });
 
-const isInputEmpty = (textBox) => {
-    return textBox.value == "" || textBox.value == null;    
-}
-
-const validateEmail = (email) => {
-  return email.match(
-    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  );
-};
-
-const capitalizeFirst = (str) => {
-    return str[0].toUpperCase() + str.slice(1); 
-}
 
 // obj may be the event args or the <input/> iteself depending on the caller
 // we'll check for that

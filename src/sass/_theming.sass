@@ -2,21 +2,21 @@
     //======================//
     //PRIMARY COLOR PALETTE //
     //======================//
-    --primary-pink: #F35E84
-    --primary-purple: #6E82F9
-    --primary-green: #9FFBCE
+    --clr-pink: #F35E84
+    --clr-purple: #6E82F9
+    --clr-green: #9FFBCE
 
     //===================//
     //PRIMARY GRADIENTS //
     //==================//
-    --pink-purple-grd: linear-gradient(90deg, var(--primary-pink) 0%, #AF70C0 50%, var(--primary-purple) 100%)
-    --purple-green-grd: linear-gradient(90deg, var(--primary-purple) 0%, #22B9FF 50.31%, #A6FFD8 100%, var(--primary-green) 100%)
+    --grd-pink-purple: linear-gradient(90deg, var(--clr-pink) 0%, #AF70C0 50%, var(--clr-purple) 100%)
+    --grd-purple-green: linear-gradient(90deg, var(--clr-purple) 0%, #22B9FF 50.31%, #A6FFD8 100%, var(--clr-green) 100%)
 
     //==================//
     //BUTTONS GRADIENTS //
     //=================//
-    --btn-pink-purple-grd: linear-gradient(90deg, var(--primary-pink) 0%, var(--primary-pink) 50%, var(--primary-purple) 100%)
-    --btn-pink-purple-grd-border: linear-gradient(90deg, #FE3064 0, #FE3064 50%, #415CFF 100%)
+    --btn-grd-pink-purple: linear-gradient(90deg, var(--clr-pink) 0%, var(--clr-pink) 50%, var(--clr-purple) 100%)
+    --btn-grd-pink-purple-border: linear-gradient(90deg, #FE3064 0, #FE3064 50%, #415CFF 100%)
 
     //====================//
     //SECONDARY GRADIENTS //
@@ -24,64 +24,13 @@
     // Either not often used or made for special cases 
     --banner-border-grd: linear-gradient(90deg, #d1ffe8 0%, rgba(0,0,0, 0) 25%, rgba(0,0,0, 0) 75%, #862DF7 100%)
     --contact-border-grd: linear-gradient(105.8deg, #d1ffe8 0%, rgba(0,0,0, 0) 25%, rgba(0,0,0, 0) 75%, #862DF7 100%)
-    --thumb-grd: linear-gradient(180deg, var(--primary-pink) 0%, var(--primary-purple) 100%)
+    --thumb-grd: linear-gradient(180deg, var(--clr-pink) 0%, var(--clr-purple) 100%)
 
     --color-error: #DC3545
-    --color-success: #28A745
+
+    --banner-non-support: transparent
 
 $btn-transition-duration: 0.3s
-
-//sections theming
-=landing-theming($theme: dark)
-    @if $theme == dark
-    @else if $theme == light
-
-=me-theming($theme: dark)
-    //large-screen-exp
-    $exp-bg: rgba(255, 0, 0, 0.3)
-    $years-fg: rgba(255, 0, 0, 0.3)
-
-    @if $theme == dark
-        $exp-bg: #1A1A1A
-        $years-fg: var(--primary-green)
-
-    @else if $theme == light
-
-    .me .exp
-        background-color: $exp-bg
-        #years
-            color: var(--primary-green)
-
-=skills-theming($theme: dark)
-    //duties
-    $active-duty-bg: rgba(255, 0, 0, 0.3)
-    //tech & tools
-    $tools-banner-bg: rgba(255, 0, 0, 0.3)
-    @if $theme == dark
-        $active-duty-bg: #1A1A1A
-        $tools-banner-bg: #1A1A1A
-    @else if $theme == light
-
-    .skills
-        .duties .active-duty
-            background-color: $active-duty-bg
-        .tech-tools
-            background-color: $tools-banner-bg
-
-=work-theming($theme: dark)
-    $card-bg: rgba(255, 255, 255, 0.3)
-    $card-border-color: rgba(255, 255, 255, 0.3)
-    @if $theme == dark
-    @else if $theme == light
-
-=contact-theming($theme: dark)
-    label[importance='crucial']
-        &::after
-            content: '*'
-            color: var(--color-error)
-    @if $theme == dark
-    @else if $theme == light
-
 .dark
     @extend .root
 
@@ -89,59 +38,35 @@ $btn-transition-duration: 0.3s
     --bg: #000
     --fg: #fff
 
-    background-color: var(--bg)
-    color: var(--fg)
-    h1, h2
-        +fill-grd()
-    a
-        color: var(--fg)
+    // Generic
+    --banner-non-support: #141414
 
-    .btn
-        color: var(--fg)
-        +btn-border-grd()
-        box-shadow: 0 1px 10px rgba(240,95,135, 0.5)
+    // landing
+    --clr-nav-border: var(--fg)
 
-        transition: background-position $btn-transition-duration, box-shadow $btn-transition-duration
-        &:hover
-            box-shadow: 0 1px 25px rgba(240,95,135, 0.5)
+    // Me
+    --bg-exp: #1A1A1A
+    --fg-exp: var(--clr-green)
+    --clr-question-bar: var(--fg)
+    --icon-question-mark: url('../assets/question-mark-light.svg')
 
-    .btn-primary
-        background-image: var(--btn-pink-purple-grd)
-        background-size: 200% auto
-        background-position: 100% 50%
-        .btn-icon
-            transition: transform $btn-transition-duration
-        &:hover
-            background-position: left center
+    // Skills
+    --clr-active-duty: #1A1A1A
+    --clr-tech-tools: #1A1A1A
 
-    .btn-secondary
-        background-color: var(--bg)
+    // Work
+    --clr-card: #1A1A1A
+    --clr-card-border: #3d3d3d
 
-    form
-        background-color: #272727
+    //Contact
+    --bg-form-upper: #0F0F0F
+    --clr-form: #292929
+    --bg-text-box: #1F1F1F
+    --clr-text-box-border-hover: #606060
+    --bg-active-text-box: #141414
 
-    input[type = text], input[type = email], textarea
-        background-color: #1F1F1F
-        border-color: transparent
-        transition: border-color 0.1s ease-out, background-color 0.2s ease-out
-        color: #ffffff
-        &:hover
-            border-color: #606060 !important
-        &:focus
-            border-color: var(--primary-purple) !important
-            background-color: #141414
-    .error-msg
-        color: var(--color-error)
-
-    +landing-theming(dark)
-    +me-theming(dark)
-    +skills-theming(dark)
-    +work-theming(dark)
-    +contact-theming(dark)
-
-//#191919
-//#1A1A1A
-//#1A1A1A
-//#0F0F0F
-//#272727
+//#141414
 //#1F1F1F
+//#1A1A1A
+//#191919
+//#0F0F0F

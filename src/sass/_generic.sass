@@ -17,7 +17,7 @@ $container-width: 90%
     box-sizing: border-box
 
 *:not(textarea):focus
-    outline: 2.5px dashed var(--primary-purple)
+    outline: 2.5px dashed var(--clr-purple)
     outline-offset: 5px
 
 body
@@ -29,7 +29,7 @@ body
         background-clip: padding-box
         border-radius: $border-radius
         background-color: #AAAAAA
-        background-color: var(--primary-pink)
+        background-color: var(--clr-pink)
 
 .container
     width: $container-width
@@ -64,6 +64,7 @@ a
 
 a, button
     cursor: pointer
+    color: var(--fg)
 
 .btn,
 button,
@@ -93,13 +94,15 @@ textarea
 
 .btn
     border-radius: 6px
-
     padding: 0.5rem 1.5rem
-
     position: relative
-
     +flex(center, center, row, 0.25rem)
     flex-shrink: 0
+    +btn-border-grd()
+    box-shadow: 0 1px 10px rgba(240,95,135, 0.5)
+    transition: background-position $btn-transition-duration, box-shadow $btn-transition-duration
+    &:hover
+        box-shadow: 0 1px 25px rgba(240,95,135, 0.5)
 
     .btn-icon
         +size(22px, 22px)
@@ -111,13 +114,19 @@ textarea
     @extend .btn
 
 .btn-primary
+    background-image: var(--btn-grd-pink-purple)
+    background-size: 200% auto
+    background-position: 100% 50%
     .btn-icon
         background-image: url('../assets/arrow.svg')
+        transition: transform $btn-transition-duration
     &:hover
+        background-position: left center
         .btn-icon
             transform: translateX(5px)
 
 .btn-secondary
+    background-color: var(--bg)
     flex-direction: row-reverse
     gap: 10px
 
