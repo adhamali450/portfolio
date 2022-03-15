@@ -274,5 +274,5 @@ form.addEventListener("submit", (e) => {
 
     form.reset();
     form.classList.add("show-conf");
-    setTimeout(()=>form.classList.remove("show-conf"), 2000);
+    setTimeout(()=>form.classList.remove("show-conf"), 20000);
 })
