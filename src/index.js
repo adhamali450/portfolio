@@ -72,13 +72,6 @@ function setJustifyContent(hobby, preferedClientWidth){ //650px
 
 //#endregion
 
-//#region Download resume
-btnDownload.addEventListener("click", function(){
-    window.open('https://drive.google.com/file/d/1_Ou0qmDgCAZB0ZE7WgMgfunNOA_AmK3a/view?usp=sharing', '_blank');
-    
-})
-//#endregion
-
 
 //#region sticky header
 window.onscroll = function() {stickHeader()};
@@ -274,5 +267,5 @@ form.addEventListener("submit", (e) => {
 
     form.reset();
     form.classList.add("show-conf");
-    setTimeout(()=>form.classList.remove("show-conf"), 20000);
+    setTimeout(()=>form.classList.remove("show-conf"), 2000);
 })
