@@ -152,69 +152,17 @@ function activateDuty(dutyIcon){
 //#endregion
 
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault()
-    
-    console.log("email sent")
-});
-
 window.addEventListener("contextmenu", e => e.preventDefault());
 
 
 // Form input validation 
 
-function validate(e){
-    const inputId = e.target.id;
-    const input = document.getElementById(inputId); 
-    const errorLabel = document.getElementById(inputId + "-error-label"); 
-    const parent = input.parentElement;
+document.querySelectorAll('.text-box').forEach(textBox => {
+    textBox.addEventListener('keyup', validate);
+});
 
-    // general case: no empty input
-    if(isInputEmpty(input)){
-        errorLabel.innerText = capitalizeFirst(inputId) + " can't be empty.";
-        parent.classList.add("invalid-input");
-
-        return;
-    }
-
-    // email must be formarted correctly and cannot be mine :"
-    if(inputId == "email"){
-        const emailPattern = 
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        
-        if(!validateEmail(input.value)){
-            errorLabel.innerText = "Invalid email";
-            parent.classList.add("invalid-input");
-
-            return;
-        }
-        else if(input.value == "adhamali_4500@outlook.com"){
-            errorLabel.innerText = "Email can't be mine";
-            parent.classList.add("invalid-input");
-        
-            return;
-        }
-    }    
-
-    // message cannot be less than 18 chars
-    if(inputId == "message"){
-        if(input.value.length < 18){
-            errorLabel.innerText = "Message can't be less than 18 characters";
-            parent.classList.add("invalid-input");
-        
-            return;
-        }
-    }
-}
-
-function clearErrorState(e){ 
-    const parent = document.getElementById(e.target.id).parentElement;
-    parent.classList.remove("invalid-input");
-}
-
-
-const isInputEmpty = (input) => {
-    return input.value == "" || input.value == null;    
+const isInputEmpty = (textBox) => {
+    return textBox.value == "" || textBox.value == null;    
 }
 
 const validateEmail = (email) => {
@@ -223,6 +171,108 @@ const validateEmail = (email) => {
   );
 };
 
-const capitalizeFirst = (text) => {
-    return text[0].toUpperCase() + text.slice(1); 
+const capitalizeFirst = (str) => {
+    return str[0].toUpperCase() + str.slice(1); 
 }
+
+// obj may be the event args or the <input/> iteself depending on the caller
+// we'll check for that
+function validate(obj){
+    let textBox;
+    try {
+        textBox = obj.path[0];    
+    } catch {
+        textBox = obj;
+    }
+     
+    const boxId = textBox.id;
+    const errorLabel = document.getElementById(boxId + "-error-label"); 
+    const parent = textBox.parentElement;
+
+    // general case: no empty textBox
+    if(isInputEmpty(textBox)){
+
+        console.log("empty");
+
+        errorLabel.innerText = capitalizeFirst(boxId) + " can't be empty.";
+        parent.classList.add("invalid-input");
+
+        return false;
+    }
+
+    // email must be formarted correctly and cannot be mine :"
+    if(boxId == "email"){
+        if(!validateEmail(textBox.value)){
+            errorLabel.innerText = "Invalid email";
+            parent.classList.add("invalid-input");
+
+            return false;
+        }
+        else if(textBox.value == "adhamali_4500@outlook.com"){
+            errorLabel.innerText = "Email can't be mine";
+            parent.classList.add("invalid-input");
+        
+            return false;
+        }
+    }
+
+    clearErrorState(textBox);
+    return true;
+}
+
+function clearErrorState(textBox){ 
+    // const parent = document.getElementById(e.target.id).parentElement;
+    const parent = textBox.parentElement;
+    parent.classList.remove("invalid-input");
+}
+
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, set } from "firebase/database";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD2bmYjXuVEqBKhx_ICIQkVhzwBfyubq3k",
+  authDomain: "my-portfolio-5c98d.firebaseapp.com",
+  databaseURL: "https://my-portfolio-5c98d-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "my-portfolio-5c98d",
+  storageBucket: "my-portfolio-5c98d.appspot.com",
+  messagingSenderId: "998620020062",
+  appId: "1:998620020062:web:55d8c4c84547e52e0623cf",
+  measurementId: "G-M4BPVY0M92"
+};
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
+function storeClientMessage(name, email, message) {
+    const db = getDatabase();
+    set(ref(db, name+'/'), {
+        name: name,
+        email: email,
+        message : message
+    });
+}
+
+
+const form = document.getElementById("form"); 
+form.addEventListener("submit", (e) => {
+    
+    e.preventDefault();
+    
+    const textBoxes = [document.getElementById("name"), 
+    document.getElementById("email"),
+    document.getElementById("message")]
+
+    for (let i = 0; i < textBoxes.length; i++) {
+        if(!validate(textBoxes[i])) {
+            textBoxes[i].focus();
+            return;
+        }
+    }
+
+    storeClientMessage(textBoxes[0].value, textBoxes[1].value, textBoxes[2].value);
+
+    form.reset();
+    form.classList.add("show-conf");
+    setTimeout(()=>form.classList.remove("show-conf"), 2000);
+})

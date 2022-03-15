@@ -23,6 +23,7 @@
             .title
                 align-self: flex-end
             form
+                position: relative
                 +flex(stretch, stretch, column,  0.5rem)
                 border-radius: $border-radius
                 padding: 0.75rem
@@ -57,6 +58,12 @@
                     .text-box
                         // Not convienient to move to _theming.sass
                         border-color: var(--color-error)
+                .valid-input
+                    .error-msg
+                        display: none
+                    .text-box
+                        // Not convienient to move to _theming.sass
+                        border-color: var(--color-success)
                 .btn
                     position: absolute
                     border-radius: 999px
@@ -65,10 +72,32 @@
                     transform: translate(-50%, -50%)
                     top: 96%
                     left: 96%
-
+                    z-index: 3
                     .btn-icon
                         +size(30px, 30px)
                         background-image: url('../assets/arrow-send.svg')
+                .conf
+                    position: absolute
+                    +size(100%, 100%)
+                    background-color: inherit
+                    border-radius: inherit
+                    padding: 1.5rem
+                    display: none
+                    top: 0
+                    left: 0
+                    color: var(--primary-green)
+                    text-align: center
+                    z-index: -2
+                    +flex(center, start, column, 0.5rem)
+                    img
+                        +size(5rem, 5rem)
+                        margin-bottom: 1rem
+            .show-conf
+                .btn
+                    pointer-events: none
+                .conf
+                    display: block
+                    z-index: 2
     .lower
         grid-row: 2/3
         +grid-center()

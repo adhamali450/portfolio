@@ -98,17 +98,17 @@ $padding: 1rem
                             background-image: url(../assets/card-dribbble.svg)
                         &:nth-child(2)
                             background-image: url(../assets/card-github.svg)
-            //@media not (hover)
-            header .work-done img
-                filter: brightness(0) invert(1)
-            footer
-                transform: translateY(34%)
-                transition: transform .2s ease .1s
-            &:hover
-                .work-done img
-                    filter: brightness(1) invert(0)
+            @media not (hover)
+                header .work-done img
+                    filter: brightness(0) invert(1)
                 footer
-                    transform: translateY(0)
+                    transform: translateY(34%)
+                    transition: transform .2s ease .1s
+                &:hover
+                    .work-done img
+                        filter: brightness(1) invert(0)
+                    footer
+                        transform: translateY(0)
         #pig-dice .card-bg
             background-image: url(../assets/pigdice.svg)
         #monster-slayer
