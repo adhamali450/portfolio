@@ -18,13 +18,13 @@ function getWidth() {
 
 //mimicking css max-width in media queries
 function maxWidth(preferedClientWidth, toDo){
-    const clientWidth = getWidth();  
+    const clientWidth = getWidth();
     if(clientWidth > preferedClientWidth)
         return true;
 }
 
 const isInputEmpty = (textBox) => {
-    return textBox.value == "" || textBox.value == null;    
+    return textBox.value == "" || textBox.value == null;
 }
 
 const validateEmail = (email) => {
@@ -92,12 +92,12 @@ function setJustifyContent(hobby){ //650px
 
 window.onscroll = function() {stickHeader()};
 
-var header = document.getElementById("header");
-var landingContainer = document.getElementById("hero-container");
-
-
 function stickHeader() {
-    var offset = header.offsetTop;
+    const header = document.getElementById("header");
+    const landingContainer = document.getElementById("hero-container");
+    
+    const offset = header.offsetTop;
+    
     if (window.pageYOffset > offset) {
         header.classList.add("sticky");
         landingContainer.style.paddingTop = header.clientHeight + "px"; 

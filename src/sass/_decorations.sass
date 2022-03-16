@@ -32,17 +32,42 @@ $dcard-border-radius: 20px
                 grid-column: 1
                 border-radius: $dcard-border-radius
                 padding: 1.5rem
-                +flex(space-between, start, column)
+                +flex(space-between, stretch, column, 0.5rem)
                 position: relative
                 opacity: 1
-                svg
-                    width: 100%
+                .sample-section
+                    +size(100%, auto)
+                    max-width: 100%
                     border-radius: 3.5px
+                    background-size: cover
+                    background-repeat: no-repeat
+                #sample-header
+                    height: 12px
+                    //width="271" height="12" viewBox="0 0 271 12"
+                    background-image: url('../assets/header.svg')
+                    align-self: self-start
+                #sample-hero
+                    height: 65px
+                    //width="151" height="65" viewBox="0 0 151 65"
+                    background-image: url('../assets/hero.svg')
+                    align-self: center
+                #sample-paragraph
+                    height: 135px
+                    //width="175" height="132" viewBox="0 0 175 132"
+                    background-image: url('../assets/paragraph.svg')
+                    align-self: center
+                #sample-footer
+                    justify-self: flex-end
+                    height: 12px
+                    //width="275" height="12" viewBox="0 0 275 12"
+                    background-image: url('../assets/footer.svg')
 
                 .cursor
                     position: absolute
                     top: 85%
                     left: 85%
+                    +size(51px, 78px)
+                    background-image: url('../assets/cursor.png')
             &:nth-child(5)
                 grid-row: 5/7
                 grid-column: 1
@@ -57,8 +82,6 @@ $dcard-border-radius: 20px
     .landing
         .decoration-card-grid
             grid-template-columns: 250px 0
-            .cursor
-                +size(45px, auto)
 
 @media screen and (max-width: $tablet0) //950px
     .landing
@@ -71,22 +94,23 @@ $dcard-border-radius: 20px
     .landing
         .decoration-card-grid
             opacity: 0.6
-            svg
+            .sample-section
                 opacity: 0.2
 
-//special height media queries for svgs inside sample card being properly seperated 
+//special height media queries for sections inside sample card being properly seperated 
+
+// @media screen and (max-height: 450px)
+//     .landing .decoration-card-grid .decoration-card:nth-child(4)
+//         #sample-paragraph
+//             height: 80px
+
+@media screen and (max-height: 750px)
+    .landing .decoration-card-grid .decoration-card:nth-child(4)
+        #sample-paragraph
+            height: 80px
 @media screen and (min-height: 950px)
     .landing .decoration-card-grid .decoration-card:nth-child(4)
         justify-content: start
         gap: 2rem
         #sample-paragraph
             flex-grow: 1
-@media screen and (max-height: 750px)
-    .landing .decoration-card-grid .decoration-card:nth-child(4)
-        #sample-paragraph
-            height: 100px
-
-@media screen and (max-height: 450px)
-    .landing .decoration-card-grid .decoration-card:nth-child(4)
-        #sample-paragraph
-            height: 80px
