@@ -88,25 +88,16 @@ function setJustifyContent(hobby){ //650px
 
 //#endregion
 
-//#region sticky header
 
-window.onscroll = function() {stickHeader()};
 
-function stickHeader() {
-    const header = document.getElementById("header");
-    const landingContainer = document.getElementById("hero-container");
-    
-    const offset = header.offsetTop;
-    
-    if (window.pageYOffset > offset) {
-        header.classList.add("sticky");
-        landingContainer.style.paddingTop = header.clientHeight + "px"; 
-    } else {
-        header.classList.remove("sticky");
-        landingContainer.style.paddingTop = "0px"; 
-    }
+document.getElementById('btn-ham').addEventListener('click', () => toggleHamMenu());
+document.querySelectorAll('.ham-link').forEach(link => link.addEventListener('click', () => toggleHamMenu()));
+
+function toggleHamMenu() 
+{
+    document.querySelector('header').classList.toggle('menu-opened');
 }
-//#endregion
+
 
 //#region duties handling
 const dutyDescriptions = ["My duty is to ensure fast load times and no issues with rendering and"

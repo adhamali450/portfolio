@@ -1,5 +1,8 @@
 @import generic
 
+.root
+    --header-height: 70px
+
 html
     +size(100%, 100%)
     height: -webkit-fill-available
@@ -10,12 +13,124 @@ body
     background-color: var(--bg)
     color: var(--fg)
 
+    +size(100%, 100%)
+
+    +flex(start, stretch, column)
     position: relative
     overflow-x: hidden
-    +size(inherit, inherit)
-    main
-        +size(inherit, inherit)
 
+body > header
+    position: fixed
+    +size(inherit, var(--header-height))
+    z-index: 9999
+    +backdrop-blur()
+    border-bottom: 1px solid var(--clr-nav-border)
+    .container
+        display: grid
+        grid-template-columns: 1fr 3fr 1fr
+        .desktop-nav
+            grid-column: 2/3
+            +flex(center, center, row, 2rem)
+            .logo
+                +size(70px, 70px)
+                overflow: hidden
+                svg
+                    +size(inherit, inherit)
+            .desktop-links
+                +flex(inherit, inherit, inherit, inherit)
+                .section-link a
+                    text-transform: uppercase
+                    font-size: 90%
+                    padding: 0.25rem 0.4rem
+                    border-radius: 5px
+                    transition: background-color 0.15s ease-in
+                    &:focus
+                        background-color: var(--clr-purple)
+        .header-btn
+            grid-column: 3/4
+            justify-self: end
+            align-self: center
+            width: fit-content !important
+        #btn-ham
+            display: none
+            flex-direction: column
+            +size(25px, 25px)
+            cursor: pointer
+            background-image: url('../assets/ham-menu-closed.svg')
+            background-size: cover
+    .mobile-nav
+        position: absolute
+        top: -100vh
+        left: 0
+        transition: top 0.15s ease-out
+        width: 100vw
+        height: calc(100vh - var(--header-height))
+        background-color: var(--bg)
+        padding: 2rem
+        +flex(space-between, start, row)
+        ul
+            position: relative
+            z-index: 3
+            counter-set: links-counter
+            +flex(center, start, column, 0.3rem)
+            .ham-link
+                font-size: 150%
+                text-decoration: underline
+                &:nth-child(-n+9)::before
+                    counter-increment: links-counter
+                    content: '0'counter(links-counter)
+
+                    font-size: 70%
+                    opacity: 0.5
+                    margin-right: 10px
+                    text-decoration: none
+        small
+            transform: rotate(-90deg)
+            -webkit-transform: rotate(-90deg)
+            -moz-transform: rotate(-90deg)
+            -ms-transform: rotate(-90deg)
+            -o-transform: rotate(-90deg)
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3)
+            transform-origin: top right
+            opacity: 0.5
+        .ham-img
+            position: absolute
+            +size(120vw, 700px)
+            +max-size(650px, 700px)
+            transform: translate(-50%, 0)
+            left: 50%
+            bottom: -8%
+            background-image: url('../assets/fashionista.svg')
+            background-repeat: no-repeat
+            background-size: contain
+            background-position: center bottom
+
+.menu-opened
+    #btn-ham
+        background-image: url('../assets/ham-menu-opened.svg') !important
+    .mobile-nav
+        display: flex
+        top: var(--header-height)
+body > main
+    +size(inherit, 100vh)
+
+.landing
+    min-height: 100vh
+
+.me, .skills, .work
+    margin-top: calc(-1 * var(--header-height))
+    padding-top: calc(2* var(--header-height))
+
+.work
+    margin-bottom: var(--header-height)
+
+.contact
+    height: 100vh
+    min-height: 650px
+    padding-top: calc(1 * var(--header-height))
+
+body
+    position: relative
 /////////////////////////////////////////////////////////////////
 // Redundant 2 lines (Just to prevent some SASS indentation issue)
 // Remove the two line to check the issue
@@ -37,13 +152,6 @@ h1, h2
     p
         max-width: 60ch
 
-section:not(.landing):not(.contact)
-    margin-top: -70px
-    padding-top: 140px
-
-.contact
-    padding-top: 70px
-
 section .title
     display: flex
     justify-content: start
@@ -60,6 +168,20 @@ section .title
     .img-title
         width: 70px
 
+@media screen and (max-width: $tablet0) //950px
+    body > header .container
+        grid-template-columns: 1fr auto
+        .desktop-nav
+            grid-column: 1
+            justify-content: start
+            gap: 1rem
+            .logo
+                order: 1
+            .desktop-links
+                order: 2
+        .btn
+            grid-column: 2
+
 @media screen and ( max-width: $tablet1) //750px
     .img-title
         width: 65px
@@ -68,11 +190,32 @@ section .title
             max-width: 100%
 
 @media screen and ( max-width: $tablet2) //650px
-    section:not(.landing):not(.contact)
-        margin-top: -50px
-        padding-top: 100px
-    .contact
-        padding-top: 50px
+    body
+        --header-height: 50px
+        header > .container
+            grid-template-columns: 1fr 2fr 1fr
+            align-items: center
+            .desktop-nav
+                grid-column: 2
+                justify-self: center
+                .logo
+                    +size(50px, 50px)
+                .desktop-links
+                    display: none
+            #btn-ham
+                display: block
+                grid-column: 1
+                grid-row: 1
+            .mobile-nav
+                background-color: var(--bg)
+
+            .header-btn
+                display: none
+    // section:not(.landing):not(.contact)
+    //     margin-top: calc(-1 * var(--header-height))
+    //     padding-top: calc(2 * var(--header-height))
+    // .contact
+    //     padding-top: var(--header-height)
 
 @media screen and ( max-width: $phone1) //475px
     .img-title

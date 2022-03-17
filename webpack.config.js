@@ -13,7 +13,7 @@ module.exports = {
         filename: 'portfolio.[contenthash].js'
     },
     watch: true,
-    // devtool: 'inline-source-map',
+    devtool: 'source-map',
     devServer: {
         static: path.resolve(__dirname, 'dist'),
         port: 8080,

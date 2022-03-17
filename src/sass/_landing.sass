@@ -3,87 +3,13 @@
 
 .landing
     position: relative
-
-    min-height: 100%
-
     display: grid
     grid-template-rows: auto 1fr auto
 
     > .container
+        padding-top: var(--header-height)
         grid-row: 2/3
         align-self: center
-
-    header
-        grid-row: 1/2
-        min-width: 100vw
-        width: 100vw
-        z-index: 3
-        +backdrop-blur()
-        border-bottom: 1px solid var(--clr-nav-border)
-        .container
-            display: grid
-            grid-template-columns: 1fr 3fr 1fr
-            .desktop-nav
-                grid-column: 2/3
-                +flex(center, center, row, 2rem)
-                .logo
-                    +size(70px, 70px)
-                    overflow: hidden
-                    svg
-                        +size(inherit, inherit)
-                .desktop-links
-                    +flex(inherit, inherit, inherit, inherit)
-                    .section-link a
-                        text-transform: uppercase
-                        font-size: 90%
-                        padding: 0.25rem 0.4rem
-                        border-radius: 5px
-                        transition: background-color 0.15s ease-in
-                        &:hover
-                            background-color: var(--clr-purple)
-
-            .header-btn
-                grid-column: 3/4
-                justify-self: end
-                align-self: center
-                width: fit-content !important
-            .btn-ham
-                z-index: 2
-                +size(25px, 25px)
-                img
-                    +size(inherit, inherit)
-            .mobile-nav
-                position: absolute
-                top: 50px
-                left: 0
-                width: 100vw
-                height: calc(100vh - 50px)
-                background-color: var(--bg)
-                display: none
-
-                ul
-                    padding: 3rem 1.5rem
-                    +flex(center, start, column, 0.3rem)
-                    .ham-link
-                        font-size: 130%
-                        text-decoration: underline
-
-                .ham-img
-                    position: absolute
-
-                    +size(130%, auto)
-                    transform: translate(-50%, 0)
-                    left: 50%
-                    bottom: -12%
-
-                    display: none
-
-            .btn-ham, .mobile-nav
-                display: none
-    .sticky
-        position: fixed
-        top: 0
-        width: 100%
 
     .hero
         padding: 2.5rem 0
@@ -98,10 +24,10 @@
                     text-transform: uppercase
                     .typed-cursor
                         font-weight: 300
-                        animation: blink 1.5s steps(5, start) infinite
+                        animation: blink 0.7s ease infinite
                         @keyframes blink
                             to
-                                visibility: hidden
+                                opacity: 0
         .ctas
             margin-top: 2rem
             +flex(start, center, row, 1rem)
@@ -162,12 +88,6 @@
                 top: 100%
                 left: 100%
 
-@media screen and (max-width: 1400px) //custom
-    .landing
-        .container
-            .hero-image
-                +size(auto, 65vh)
-
 @media screen and (max-width: $laptop) //1116px
     .landing
         .hobbies
@@ -178,24 +98,6 @@
                 grid-gap: 0.75rem
                 .img-hobby
                     +size(60px, 60px)
-
-@media screen and (max-width: $tablet0) //950px
-    .landing
-        header .container
-            grid-template-columns: 1fr auto
-            .desktop-nav
-                grid-column: 1
-                justify-content: start
-                gap: 1rem
-                .logo
-                    order: 1
-                .desktop-links
-                    order: 2
-            .btn
-                grid-column: 2
-        .container
-            .hero-image
-                +size(auto, 40vh)
 
 @media screen and (max-width: 810px)
     .landing
@@ -209,28 +111,6 @@
 
 @media screen and (max-width: $tablet2) //650px
     .landing
-        header .container
-            grid-template-columns: 1fr 2fr 1fr
-            align-items: center
-            .desktop-nav
-                grid-column: 2
-                justify-self: center
-                .logo
-                    +size(50px, 50px)
-                .desktop-links
-                    display: none
-            .btn-ham, .mobile-nav
-                display: none
-            .btn-ham
-                display: block
-                grid-column: 1
-                grid-row: 1
-            .mobile-nav
-                background-color: red
-
-            .header-btn
-                display: none
-
         .hero
             align-items: stretch
             .hero-text
@@ -240,7 +120,6 @@
                     margin-top: 0.25rem
             .ctas
                 grid-gap: 1rem
-                // flex-direction: column
         .hobbies
             .hobby
                 border-radius: $border-radius
