@@ -403,7 +403,6 @@ body > header {
     position: absolute;
     top: -100vh;
     left: 0;
-    transition: top 0.15s ease-out;
     width: 100vw;
     height: calc(100vh - var(--header-height));
     background-color: var(--bg);
@@ -423,7 +422,7 @@ body > header {
       flex-direction: column;
       grid-gap: 0.3rem; }
       body > header .mobile-nav ul .ham-link {
-        font-size: 150%;
+        font-size: 130%;
         text-decoration: underline; }
         body > header .mobile-nav ul .ham-link:nth-child(-n+9)::before {
           counter-increment: links-counter;
@@ -464,10 +463,10 @@ body > header {
 
 body > main {
   width: inherit;
-  height: 100vh; }
+  height: 100%; }
 
 .landing {
-  min-height: 100vh; }
+  min-height: 100%; }
 
 .me, .skills, .work {
   margin-top: calc(-1 * var(--header-height));
@@ -477,7 +476,7 @@ body > main {
   margin-bottom: var(--header-height); }
 
 .contact {
-  height: 100vh;
+  height: 100%;
   min-height: 650px;
   padding-top: calc(1 * var(--header-height)); }
 
@@ -1668,4 +1667,4 @@ section .title {
       width: min-content; } }
 
 
-/*# sourceMappingURL=portfolio.8b32bc482e92e66b25f8.css.map*/
+/*# sourceMappingURL=portfolio.e35c435216ba008c6b82.css.map*/
