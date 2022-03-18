@@ -286,9 +286,10 @@ textarea {
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     transition: inherit; }
-  .btn:hover::before, .btn-primary:hover::before,
-  .btn-secondary:hover::before {
-    background-position: left center; }
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover::before, .btn-primary:hover::before,
+    .btn-secondary:hover::before {
+      background-position: left center; } }
   @media (hover: hover) and (pointer: fine) {
     .btn, .btn-primary,
     .btn-secondary {
@@ -320,11 +321,11 @@ textarea {
   .btn-primary .btn-icon {
     background-image: url(932c7d05e9e25926444f.svg);
     transition: transform 0.3s; }
+  .btn-primary:hover .btn-icon {
+    transform: translateX(5px); }
   @media (hover: hover) and (pointer: fine) {
     .btn-primary:hover {
-      background-position: left center; }
-      .btn-primary:hover .btn-icon {
-        transform: translateX(5px); } }
+      background-position: left center; } }
 
 .btn-secondary {
   background-color: var(--bg);
@@ -343,7 +344,8 @@ textarea {
 html {
   width: 100%;
   height: 100%;
-  height: -webkit-fill-available; }
+  height: -webkit-fill-available;
+  height: -webkit-stretch; }
 
 body {
   background-color: var(--bg);
@@ -410,8 +412,8 @@ body > header {
     body > header .container #btn-ham {
       display: none;
       flex-direction: column;
-      width: 20px;
-      height: 20px;
+      width: 17px;
+      height: 17px;
       cursor: pointer;
       background-image: url(f5cb154324ce77c47f10.svg);
       background-size: cover; }
@@ -448,7 +450,7 @@ body > header {
       -o-transform: rotate(-90deg);
       filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
       transform-origin: top right;
-      opacity: 0.5; }
+      opacity: 0.3; }
     body > header .mobile-nav .ham-img {
       position: absolute;
       width: 130vw;
@@ -1677,5 +1679,17 @@ section .title {
     .title h2 {
       width: min-content; } }
 
+@media screen and (max-height: 700px) {
+  body header .mobile-nav .ham-img {
+    max-width: 500px;
+    max-height: 500px;
+    left: 70%; } }
 
-/*# sourceMappingURL=portfolio.10a4273442e28b48f517.css.map*/
+@media screen and (max-height: 500px) {
+  body header .mobile-nav .ham-img {
+    max-width: 300px;
+    max-height: 300px;
+    left: 75%; } }
+
+
+/*# sourceMappingURL=portfolio.0b989e8a985a10567afc.css.map*/

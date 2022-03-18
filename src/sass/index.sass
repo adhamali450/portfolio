@@ -5,10 +5,9 @@
 
 html
     +size(100%, 100%)
-    // height: -webkit-fill-available
-    // height: -webkit-stretch
 
     height: -webkit-fill-available
+    height: -webkit-stretch
 
 body
     @extend .dark
@@ -57,7 +56,7 @@ body > header
         #btn-ham
             display: none
             flex-direction: column
-            +size(20px, 20px)
+            +size(17px, 17px)
             cursor: pointer
             background-image: url('../assets/ham-menu-closed.svg')
             background-size: cover
@@ -79,14 +78,6 @@ body > header
             .ham-link
                 font-size: 130%
                 text-decoration: underline
-                // &:nth-child(-n+9)::before
-                    // counter-increment: links-counter
-                    // content: '0'counter(links-counter)
-
-                    // font-size: 70%
-                    // opacity: 0.5
-                    // margin-right: 10px
-                    // text-decoration: none
         small
             transform: rotate(-90deg)
             -webkit-transform: rotate(-90deg)
@@ -95,7 +86,7 @@ body > header
             -o-transform: rotate(-90deg)
             filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3)
             transform-origin: top right
-            opacity: 0.5
+            opacity: 0.3
         .ham-img
             position: absolute
             +size(130vw, 700px)
@@ -115,7 +106,6 @@ body > header
         display: flex
         top: var(--header-height)
 body > main
-    // +size(inherit, 100%)
     +size(inherit, inherit)
 
 .landing
@@ -215,11 +205,6 @@ section .title
 
             .header-btn
                 display: none
-    // section:not(.landing):not(.contact)
-    //     margin-top: calc(-1 * var(--header-height))
-    //     padding-top: calc(2 * var(--header-height))
-    // .contact
-    //     padding-top: var(--header-height)
 
 @media screen and ( max-width: $phone1) //475px
     .img-title
@@ -233,3 +218,15 @@ section .title
         justify-content: center !important
         h2
             width: min-content
+
+@media screen and ( max-height: 700px)
+    body
+        header .mobile-nav .ham-img
+            +max-size(500px, 500px)
+            left: 70%
+
+@media screen and ( max-height: 500px)
+    body
+        header .mobile-nav .ham-img
+            +max-size(300px, 300px)
+            left: 75%

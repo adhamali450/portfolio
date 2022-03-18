@@ -134,11 +134,13 @@ textarea
     .btn-icon
         background-image: url('../assets/arrow.svg')
         transition: transform $btn-transition-duration
+        // should occur whether on a touch/mouse device 
+    &:hover
+        .btn-icon
+            transform: translateX(5px)
     @media(hover: hover) and (pointer: fine)
         &:hover
             background-position: left center
-            .btn-icon
-                transform: translateX(5px)
 
 .btn-secondary
     background-color: var(--bg)

@@ -28,8 +28,9 @@
         mask-composite: exclude
 
         transition: inherit
-    &:hover::before
-        background-position: left center
+    @media(hover: hover) and (pointer: fine)
+        &:hover::before
+            background-position: left center
 
 =apply-cards-effect()
     --overlaying-margin: 150px
