@@ -24,8 +24,9 @@
                 border-radius: inherit
                 -webkit-filter: brightness(0) invert(1)
                 filter: brightness(0) invert(1)
-                &:hover
-                    background-color: rgba(255, 255, 255, 0.07)
+                @media(hover: hover) and (pointer: fine)
+                    &:hover
+                        background-color: rgba(255, 255, 255, 0.07)
 
             h6
                 font-weight: 600

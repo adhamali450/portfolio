@@ -64,7 +64,7 @@ new Typed('#qualities strong', options);
 
 //#region hobby handling
 
-const hobbies = document.querySelectorAll('.hobby a');
+const hobbies = document.querySelectorAll('.hobby');
 const hobbiesContainer = document.getElementById('hobbies-container');
 
 hobbies.forEach(hobby => {
@@ -184,8 +184,7 @@ function validate(obj){
     return true;
 }
 
-function clearErrorState(textBox){ 
-    // const parent = document.getElementById(e.target.id).parentElement;
+function clearErrorState(textBox){
     const parent = textBox.parentElement;
     parent.classList.remove("invalid-input");
 }
@@ -238,5 +237,5 @@ form.addEventListener("submit", (e) => {
 
     form.reset();
     form.classList.add("show-conf");
-    setTimeout(()=>form.classList.remove("show-conf"), 2000);
+    setTimeout(()=>form.classList.remove("show-conf"), 3500);
 })

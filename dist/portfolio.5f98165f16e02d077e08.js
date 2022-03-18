@@ -19316,7 +19316,7 @@ new (typed_js__WEBPACK_IMPORTED_MODULE_1___default())('#qualities strong', optio
 
 //#region hobby handling
 
-const hobbies = document.querySelectorAll('.hobby a');
+const hobbies = document.querySelectorAll('.hobby');
 const hobbiesContainer = document.getElementById('hobbies-container');
 
 hobbies.forEach(hobby => {
@@ -19436,8 +19436,7 @@ function validate(obj){
     return true;
 }
 
-function clearErrorState(textBox){ 
-    // const parent = document.getElementById(e.target.id).parentElement;
+function clearErrorState(textBox){
     const parent = textBox.parentElement;
     parent.classList.remove("invalid-input");
 }
@@ -19490,9 +19489,9 @@ form.addEventListener("submit", (e) => {
 
     form.reset();
     form.classList.add("show-conf");
-    setTimeout(()=>form.classList.remove("show-conf"), 2000);
+    setTimeout(()=>form.classList.remove("show-conf"), 3500);
 })
 }();
 /******/ })()
 ;
-//# sourceMappingURL=portfolio.09d7c826d6f883d2ea66.js.map
+//# sourceMappingURL=portfolio.5f98165f16e02d077e08.js.map

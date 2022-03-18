@@ -100,7 +100,7 @@
 //inverts the element to B&W, and back again to it's color when hovered
 
 =darken-on-hover($darkness: 0.8)
-    @media not (hover)
+    @media(hover: hover) and (pointer: fine)
         &:hover
             filter: brightness($darkness)
 
@@ -108,5 +108,6 @@ $invert-filter: brightness(0) invert(1)
 =color-on-hover($initial-filter: $invert-filter)
     @media not (hover)
         filter: $initial-filter
-        &:hover
-            filter: brightness(1) invert(0)
+        @media(hover: hover) and (pointer: fine)
+            &:hover
+                filter: brightness(1) invert(0)

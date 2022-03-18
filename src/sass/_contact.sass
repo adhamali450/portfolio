@@ -41,8 +41,9 @@
                         border-color: transparent
                         transition: border-color 0.1s ease-out, background-color 0.2s ease-out
                         color: var(--fg)
-                        &:hover
-                            border-color: var(--clr-text-box-border-hover) !important
+                        @media(hover: hover) and (pointer: fine)
+                            &:hover
+                                border-color: var(--clr-text-box-border-hover) !important
                         &:focus
                             border-color: var(--clr-purple) !important
                             background-color: var(--bg-active-text-box)
@@ -137,8 +138,9 @@
                         *
                             +size(inherit, inherit)
                             border-radius: inherit
-                        &:hover
-                            transform: scale(1.15) translateY(-2px)
+                        @media(hover: hover) and (pointer: fine)
+                            &:hover
+                                transform: scale(1.15) translateY(-2px)
 
 @media screen and(max-width: $laptop) //1116px
     .contact
