@@ -328,14 +328,15 @@ textarea {
 html {
   width: 100%;
   height: 100%;
-  height: -webkit-fill-available;
-  height: -webkit-stretch; }
+  height: -webkit-fill-available; }
 
 body {
   background-color: var(--bg);
   color: var(--fg);
   width: 100%;
   height: 100%;
+  width: inherit;
+  height: inherit;
   display: flex;
   justify-content: start;
   align-items: stretch;
@@ -394,10 +395,10 @@ body > header {
     body > header .container #btn-ham {
       display: none;
       flex-direction: column;
-      width: 25px;
-      height: 25px;
+      width: 20px;
+      height: 20px;
       cursor: pointer;
-      background-image: url(f2f863fc98f3cf67d74a.svg);
+      background-image: url(f5cb154324ce77c47f10.svg);
       background-size: cover; }
   body > header .mobile-nav {
     position: absolute;
@@ -424,13 +425,6 @@ body > header {
       body > header .mobile-nav ul .ham-link {
         font-size: 130%;
         text-decoration: underline; }
-        body > header .mobile-nav ul .ham-link:nth-child(-n+9)::before {
-          counter-increment: links-counter;
-          content: "0" counter(links-counter);
-          font-size: 70%;
-          opacity: 0.5;
-          margin-right: 10px;
-          text-decoration: none; }
     body > header .mobile-nav small {
       transform: rotate(-90deg);
       -webkit-transform: rotate(-90deg);
@@ -442,20 +436,20 @@ body > header {
       opacity: 0.5; }
     body > header .mobile-nav .ham-img {
       position: absolute;
-      width: 120vw;
+      width: 130vw;
       height: 700px;
       max-width: 650px;
       max-height: 700px;
       transform: translate(-50%, 0);
       left: 50%;
       bottom: -8%;
-      background-image: url(d911d85ebee4bf2a3f8f.svg);
+      background-image: url(9836add78a1c124fd0f3.svg);
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center bottom; }
 
 .menu-opened #btn-ham {
-  background-image: url(536921ffd77ca21f656f.svg) !important; }
+  background-image: url(1c674bfd8f26df2deb1a.svg) !important; }
 
 .menu-opened .mobile-nav {
   display: flex;
@@ -463,7 +457,7 @@ body > header {
 
 body > main {
   width: inherit;
-  height: 100%; }
+  height: inherit; }
 
 .landing {
   min-height: 100%; }
@@ -1667,4 +1661,4 @@ section .title {
       width: min-content; } }
 
 
-/*# sourceMappingURL=portfolio.e35c435216ba008c6b82.css.map*/
+/*# sourceMappingURL=portfolio.33ba9733d2fb6093d1bd.css.map*/

@@ -5,8 +5,10 @@
 
 html
     +size(100%, 100%)
+    // height: -webkit-fill-available
+    // height: -webkit-stretch
+
     height: -webkit-fill-available
-    height: -webkit-stretch
 
 body
     @extend .dark
@@ -14,6 +16,7 @@ body
     color: var(--fg)
 
     +size(100%, 100%)
+    +size(inherit, inherit)
 
     +flex(start, stretch, column)
     position: relative
@@ -54,7 +57,7 @@ body > header
         #btn-ham
             display: none
             flex-direction: column
-            +size(25px, 25px)
+            +size(20px, 20px)
             cursor: pointer
             background-image: url('../assets/ham-menu-closed.svg')
             background-size: cover
@@ -76,14 +79,14 @@ body > header
             .ham-link
                 font-size: 130%
                 text-decoration: underline
-                &:nth-child(-n+9)::before
-                    counter-increment: links-counter
-                    content: '0'counter(links-counter)
+                // &:nth-child(-n+9)::before
+                    // counter-increment: links-counter
+                    // content: '0'counter(links-counter)
 
-                    font-size: 70%
-                    opacity: 0.5
-                    margin-right: 10px
-                    text-decoration: none
+                    // font-size: 70%
+                    // opacity: 0.5
+                    // margin-right: 10px
+                    // text-decoration: none
         small
             transform: rotate(-90deg)
             -webkit-transform: rotate(-90deg)
@@ -95,12 +98,12 @@ body > header
             opacity: 0.5
         .ham-img
             position: absolute
-            +size(120vw, 700px)
+            +size(130vw, 700px)
             +max-size(650px, 700px)
             transform: translate(-50%, 0)
             left: 50%
             bottom: -8%
-            background-image: url('../assets/fashionista.svg')
+            background-image: url('../assets/blob-watching-tv.svg')
             background-repeat: no-repeat
             background-size: contain
             background-position: center bottom
@@ -112,7 +115,8 @@ body > header
         display: flex
         top: var(--header-height)
 body > main
-    +size(inherit, 100%)
+    // +size(inherit, 100%)
+    +size(inherit, inherit)
 
 .landing
     min-height: 100%
