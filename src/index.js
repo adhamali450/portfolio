@@ -17,7 +17,7 @@ function getWidth() {
 }
 
 //mimicking css max-width in media queries
-function maxWidth(preferedClientWidth, toDo){
+function maxWidth(preferedClientWidth){
     const clientWidth = getWidth();
     if(clientWidth > preferedClientWidth)
         return true;
@@ -62,21 +62,25 @@ new Typed('#qualities strong', options);
 
 //#endregion
 
+
+//TODO 
 //#region hobby handling
 
 const hobbies = document.querySelectorAll('.hobby');
-const hobbiesContainer = document.getElementById('hobbies-container');
+const hobbiesContainer = document.querySelector('.hobbies');
 
 hobbies.forEach(hobby => {
     hobby.addEventListener('focus', () => setJustifyContent(hobby));
-    hobby.addEventListener('focusout', () => hobbiesContainer.style.justifyContent = "space-around");
+    // hobby.addEventListener('focusout', () => hobbiesContainer.style.justifyContent = "space-around");
 })
 
 
 function setJustifyContent(hobby){ //650px
+    console.log(hobby);
     if(!maxWidth(650)) return;
 
-    const id = hobby.parentNode.id
+
+    const id = hobby.id;
 
     if(id ==  "developer") //justify-content: start;
         hobbiesContainer.style.justifyContent = "flex-start";
@@ -88,7 +92,7 @@ function setJustifyContent(hobby){ //650px
 
 //#endregion
 
-
+//#region ham-nav
 
 document.getElementById('btn-ham').addEventListener('click', () => toggleHamMenu());
 document.querySelectorAll('.ham-link').forEach(link => link.addEventListener('click', () => toggleHamMenu()));
@@ -98,6 +102,7 @@ function toggleHamMenu()
     document.querySelector('header').classList.toggle('menu-opened');
 }
 
+//#endregion
 
 //#region duties handling
 const dutyDescriptions = ["My duty is to ensure fast load times and no issues with rendering and"
@@ -131,6 +136,32 @@ function activateDuty(dutyIcon){
 //#endregion
 
 
+
+const cards = document.querySelectorAll('.card');
+cards.forEach(card => {
+        let isClickibleElement = false;
+        card.addEventListener('mouseover', 
+        (e) => {
+            // Max levels of nesting for a card (6 levels from the top-most element)
+            const cardSubElements = e.path.slice(0, 3);
+
+            isClickibleElement = cardSubElements.find(element => 
+                element.classList.contains('card-title') || 
+                element.classList.contains('related-link')) ? true : false;
+        });
+
+        card.addEventListener('mousedown', 
+        () => {
+            if(!isClickibleElement)
+                card.classList.add('outline-clickables');
+        })
+
+        card.addEventListener('mouseup', 
+        () => {
+            card.classList.remove('outline-clickables');
+        })
+    }
+);
 
 // Form input validation 
 

@@ -56,11 +56,11 @@
     border-radius: 5px
 
 =backdrop-blur($blur: 50px)
-    -webkit-backdrop-filter: blur($blur)
-    backdrop-filter: blur($blur)
-
-    @supports not (backdrop-filter: none)
-        background-color: var(--banner-non-support)
+    background-color: var(--banner-non-support)
+    @supports not (backdrop-filter: backdrop-filter)
+        -webkit-backdrop-filter: blur($blur)
+        backdrop-filter: blur($blur)
+        background-color: transparent
 
 //Generic Mixins    
 =min-size($min-width, $min-height)

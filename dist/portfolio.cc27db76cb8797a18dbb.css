@@ -195,13 +195,14 @@ body::-webkit-scrollbar-thumb {
   margin: 0 auto; }
 
 .wide-banner, .landing .hobbies-wrapper, .me .resume {
-  -webkit-backdrop-filter: blur(50px);
-  backdrop-filter: blur(50px);
+  background-color: var(--banner-non-support);
   width: 100vw;
   position: relative; }
-  @supports not (backdrop-filter: none) {
+  @supports not (backdrop-filter: backdrop-filter) {
     .wide-banner, .landing .hobbies-wrapper, .me .resume {
-      background-color: var(--banner-non-support); } }
+      -webkit-backdrop-filter: blur(50px);
+      backdrop-filter: blur(50px);
+      background-color: transparent; } }
   .wide-banner::before, .landing .hobbies-wrapper::before, .me .resume::before, .wide-banner::after, .landing .hobbies-wrapper::after, .me .resume::after {
     content: '';
     position: absolute;
@@ -225,9 +226,7 @@ a {
 
 a, button {
   cursor: pointer;
-  color: var(--fg); }
-
-button {
+  color: var(--fg);
   background-color: transparent; }
 
 .btn, .btn-primary,
@@ -298,6 +297,7 @@ textarea {
       .btn-secondary::after {
         content: '';
         position: absolute;
+        border-radius: inherit;
         top: 0;
         bottom: 0;
         left: 0;
@@ -367,12 +367,13 @@ body > header {
   width: inherit;
   height: var(--header-height);
   z-index: 9999;
-  -webkit-backdrop-filter: blur(50px);
-  backdrop-filter: blur(50px);
+  background-color: var(--banner-non-support);
   border-bottom: 1px solid var(--clr-nav-border); }
-  @supports not (backdrop-filter: none) {
+  @supports not (backdrop-filter: backdrop-filter) {
     body > header {
-      background-color: var(--banner-non-support); } }
+      -webkit-backdrop-filter: blur(50px);
+      backdrop-filter: blur(50px);
+      background-color: transparent; } }
   body > header .container {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr; }
@@ -523,12 +524,7 @@ body {
         display: table-cell;
         text-transform: uppercase; }
         .landing .hero .hero-text .hero-heading #qualities .typed-cursor {
-          font-weight: 300;
-          animation: blink 0.7s ease infinite; }
-
-@keyframes blink {
-  to {
-    opacity: 0; } }
+          font-weight: 300; }
     .landing .hero .ctas {
       margin-top: 2rem;
       display: flex;
@@ -616,7 +612,10 @@ body {
   .landing .container .hero .hero-text {
     text-align: center; }
     .landing .container .hero .hero-text .hero-heading {
+      justify-content: center;
       align-items: center; }
+      .landing .container .hero .hero-text .hero-heading #qualities .typed-cursor {
+        display: none; }
   .landing .container .hero .ctas {
     justify-content: center; } }
 
@@ -867,8 +866,7 @@ body {
           bottom: 0.75rem;
           left: 0.75rem; }
   .me .resume {
-    -webkit-backdrop-filter: blur(7px);
-    backdrop-filter: blur(7px);
+    background-color: var(--banner-non-support);
     margin-top: 3rem;
     padding: 1.5rem;
     text-align: center;
@@ -878,9 +876,11 @@ body {
     flex-direction: row;
     grid-gap: 1rem;
     flex-wrap: wrap; }
-    @supports not (backdrop-filter: none) {
+    @supports not (backdrop-filter: backdrop-filter) {
       .me .resume {
-        background-color: var(--banner-non-support); } }
+        -webkit-backdrop-filter: blur(7px);
+        backdrop-filter: blur(7px);
+        background-color: transparent; } }
     .me .resume #btnDownload .btn-icon {
       background-image: url(ccfba299948ae8832a01.svg); }
 
@@ -1184,7 +1184,7 @@ body {
         position: relative;
         display: grid;
         grid-template-rows: repeat(2, auto);
-        grid-template-columns: 1fr auto;
+        grid-template-columns: auto 1fr;
         grid-gap: 0.75rem 0;
         padding: 1rem;
         border-radius: inherit; }
@@ -1194,6 +1194,8 @@ body {
           grid-row: 2/3;
           grid-column: 2/3;
           align-self: center;
+          justify-self: right;
+          width: fit-content;
           background-color: var(--clr-green);
           color: rgba(0, 0, 0, 0.8);
           padding: 0.1rem 0.2rem;
@@ -1201,12 +1203,14 @@ body {
         .work .cards-container .card footer .related-links {
           grid-row: 2/3;
           grid-column: 1/2;
+          widows: fit-content;
           display: flex;
           justify-content: start;
           align-items: center;
           flex-direction: row;
           grid-gap: 0.3rem; }
           .work .cards-container .card footer .related-links a {
+            border-radius: 100%;
             width: 27px;
             height: 27px;
             background-size: cover; }
@@ -1230,6 +1234,10 @@ body {
           filter: brightness(1) invert(0); }
         .work .cards-container .card:hover footer {
           transform: translateY(0); } }
+    .work .cards-container .outline-clickables header .card-title,
+    .work .cards-container .outline-clickables footer .related-links {
+      outline: 1px solid var(--clr-green);
+      outline-offset: 5px; }
     .work .cards-container #pig-dice .card-bg {
       background-image: url(5ba6a585161a6346886f.svg); }
     .work .cards-container #monster-slayer .card-bg {
@@ -1693,4 +1701,4 @@ section .title {
     left: 75%; } }
 
 
-/*# sourceMappingURL=portfolio.477fe28b5dad8e3ffd05.css.map*/
+/*# sourceMappingURL=portfolio.cc27db76cb8797a18dbb.css.map*/

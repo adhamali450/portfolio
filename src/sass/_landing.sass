@@ -24,10 +24,11 @@
                     text-transform: uppercase
                     .typed-cursor
                         font-weight: 300
-                        animation: blink 0.7s ease infinite
-                        @keyframes blink
-                            to
-                                opacity: 0
+                        // opacity: 1
+                        // animation: blink 0.7s ease infinite !important
+                        // @keyframes blink
+                        //     to
+                        //         opacity: 0.5
         .ctas
             margin-top: 2rem
             +flex(start, center, row, 1rem)
@@ -99,13 +100,16 @@
                 .img-hobby
                     +size(60px, 60px)
 
-@media screen and (max-width: 810px)
+@media screen and (max-width: 810px) //Special
     .landing
         .container .hero
             .hero-text
                 text-align: center
                 .hero-heading
+                    justify-content: center
                     align-items: center
+                    #qualities .typed-cursor
+                        display: none
             .ctas
                 justify-content: center
 
