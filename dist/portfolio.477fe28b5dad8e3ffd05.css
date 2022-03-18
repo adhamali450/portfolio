@@ -477,7 +477,7 @@ body > main {
   height: inherit; }
 
 .landing {
-  min-height: 100vh; }
+  min-height: 100%; }
 
 .me, .skills, .work {
   margin-top: calc(-1 * var(--header-height));
@@ -1693,4 +1693,4 @@ section .title {
     left: 75%; } }
 
 
-/*# sourceMappingURL=portfolio.1b72b41fb62ade9682b2.css.map*/
+/*# sourceMappingURL=portfolio.477fe28b5dad8e3ffd05.css.map*/
