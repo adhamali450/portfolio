@@ -12,8 +12,8 @@ module.exports = {
         clean: true, 
         filename: 'portfolio.[contenthash].js'
     },
-    watch: true,
-    devtool: 'source-map',
+    // watch: true,
+    // devtool: 'source-map',
     devServer: {
         static: path.resolve(__dirname, 'dist'),
         port: 8080,
