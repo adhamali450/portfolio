@@ -796,6 +796,7 @@ body {
     .landing .decoration-card-grid .decoration-card .sample-section {
       opacity: 0.2; }
     .landing .decoration-card-grid .decoration-card:nth-child(4) {
+      border-radius: 20px;
       border: none; }
       .landing .decoration-card-grid .decoration-card:nth-child(4) .mini-sq {
         display: none; } }
@@ -1758,4 +1759,4 @@ section .title {
     left: 75%; } }
 
 
-/*# sourceMappingURL=portfolio.c243be65458550055b07.css.map*/
+/*# sourceMappingURL=portfolio.39b9e0d7a6917538ef3c.css.map*/
