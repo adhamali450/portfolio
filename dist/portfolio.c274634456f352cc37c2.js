@@ -19351,6 +19351,10 @@ const toggleHamMenu = () =>
 document.getElementById('btn-ham').addEventListener('click', () => toggleHamMenu());
 document.querySelectorAll('.ham-link').forEach(link => link.addEventListener('click', () => toggleHamMenu()));
 
+document.getElementById("logo").addEventListener('click', () => {
+    if(document.querySelector('header').classList.contains('menu-opened'))
+        toggleHamMenu();
+});
 
 //#endregion
 
@@ -19521,4 +19525,4 @@ form.addEventListener("submit", (e) => {
 }();
 /******/ })()
 ;
-//# sourceMappingURL=portfolio.f7db2d9ba0207bf78745.js.map
+//# sourceMappingURL=portfolio.c274634456f352cc37c2.js.map
