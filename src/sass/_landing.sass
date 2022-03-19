@@ -24,11 +24,6 @@
                     text-transform: uppercase
                     .typed-cursor
                         font-weight: 300
-                        // opacity: 1
-                        // animation: blink 0.7s ease infinite !important
-                        // @keyframes blink
-                        //     to
-                        //         opacity: 0.5
         .ctas
             margin-top: 2rem
             +flex(start, center, row, 1rem)
@@ -38,10 +33,11 @@
     .hobbies-wrapper
         @extend .wide-banner
         grid-row: 3/4
+        position: relative
+        z-index: 99998
     .hobbies
         +flex(space-around, center, row, 1.5rem)
         z-index: 2
-        position: relative
         padding: 0.6rem 1rem
         overflow: hidden
         .hobby
@@ -64,30 +60,6 @@
                 +absolute-center()
                 width: 100%
                 top: 115%
-        #designer
-            $obj-select-border: 2px solid #18A0FB
-            position: relative
-            border: $obj-select-border
-            .outline,
-            .mini-sq
-                position: absolute
-            .mini-sq
-                +size(14px, 14px)
-                background-color: #fff
-                border: $obj-select-border
-                transform: translate(-50%, -50%)
-            #upper-left
-                top: 0
-                left: 0
-            #upper-right
-                top: 0
-                left: 100%
-            #lower-left
-                top: 100%
-                left: 0
-            #lower-right
-                top: 100%
-                left: 100%
 
 @media screen and (max-width: $laptop) //1116px
     .landing
@@ -112,6 +84,8 @@
                         display: none
             .ctas
                 justify-content: center
+        .hobbies #designer
+            +apply-obj-select-edges($mini-squares-size: 12px)
 
 @media screen and (max-width: $tablet2) //650px
     .landing
@@ -129,7 +103,6 @@
                 border-radius: $border-radius
                 pointer-events: all
                 cursor: pointer
-                border: 2px solid rgba(255, 255, 255, 0.0)
                 a
                     +size(100%, 100%)
                     outline: none
@@ -139,7 +112,7 @@
                         +size(55px, 55px)
                     &:focus
                         .name
-                            display: block
+                            display: block !important
             #designer
                 border-radius: 0 !important
                 .mini-sq

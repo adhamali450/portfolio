@@ -19315,7 +19315,6 @@ new (typed_js__WEBPACK_IMPORTED_MODULE_1___default())('#qualities strong', optio
 //#endregion
 
 
-//TODO 
 //#region hobby handling
 
 const hobbies = document.querySelectorAll('.hobby');
@@ -19346,13 +19345,12 @@ function setJustifyContent(hobby){ //650px
 
 //#region ham-nav
 
+const toggleHamMenu = () => 
+    document.querySelector('header').classList.toggle('menu-opened');
+
 document.getElementById('btn-ham').addEventListener('click', () => toggleHamMenu());
 document.querySelectorAll('.ham-link').forEach(link => link.addEventListener('click', () => toggleHamMenu()));
 
-function toggleHamMenu() 
-{
-    document.querySelector('header').classList.toggle('menu-opened');
-}
 
 //#endregion
 
@@ -19386,8 +19384,6 @@ function activateDuty(dutyIcon){
     document.getElementById("duty-description").innerText = dutyDescriptions[dutyIndex];
 }
 //#endregion
-
-
 
 const cards = document.querySelectorAll('.card');
 cards.forEach(card => {
@@ -19525,4 +19521,4 @@ form.addEventListener("submit", (e) => {
 }();
 /******/ })()
 ;
-//# sourceMappingURL=portfolio.b6c518e03ac5c824218a.js.map
+//# sourceMappingURL=portfolio.f7db2d9ba0207bf78745.js.map

@@ -63,7 +63,6 @@ new Typed('#qualities strong', options);
 //#endregion
 
 
-//TODO 
 //#region hobby handling
 
 const hobbies = document.querySelectorAll('.hobby');
@@ -94,13 +93,12 @@ function setJustifyContent(hobby){ //650px
 
 //#region ham-nav
 
+const toggleHamMenu = () => 
+    document.querySelector('header').classList.toggle('menu-opened');
+
 document.getElementById('btn-ham').addEventListener('click', () => toggleHamMenu());
 document.querySelectorAll('.ham-link').forEach(link => link.addEventListener('click', () => toggleHamMenu()));
 
-function toggleHamMenu() 
-{
-    document.querySelector('header').classList.toggle('menu-opened');
-}
 
 //#endregion
 
@@ -134,8 +132,6 @@ function activateDuty(dutyIcon){
     document.getElementById("duty-description").innerText = dutyDescriptions[dutyIndex];
 }
 //#endregion
-
-
 
 const cards = document.querySelectorAll('.card');
 cards.forEach(card => {

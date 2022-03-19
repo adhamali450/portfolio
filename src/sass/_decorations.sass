@@ -30,11 +30,11 @@ $dcard-border-radius: 20px
             &:nth-child(4) //sample card
                 grid-row: 2/5
                 grid-column: 1
-                border-radius: $dcard-border-radius
                 padding: 1.5rem
                 +flex(space-between, stretch, column, 0.5rem)
                 position: relative
                 opacity: 1
+                +apply-obj-select-edges()
                 .sample-section
                     +size(100%, auto)
                     max-width: 100%
@@ -43,29 +43,25 @@ $dcard-border-radius: 20px
                     background-repeat: no-repeat
                 #sample-header
                     height: 12px
-                    //width="271" height="12" viewBox="0 0 271 12"
                     background-image: url('../assets/header.svg')
                     align-self: self-start
                 #sample-hero
                     height: 65px
-                    //width="151" height="65" viewBox="0 0 151 65"
                     background-image: url('../assets/hero.svg')
                     align-self: center
                 #sample-paragraph
                     height: 135px
-                    //width="175" height="132" viewBox="0 0 175 132"
                     background-image: url('../assets/paragraph.svg')
                     align-self: center
                 #sample-footer
                     justify-self: flex-end
                     height: 12px
-                    //width="275" height="12" viewBox="0 0 275 12"
                     background-image: url('../assets/footer.svg')
 
                 .cursor
                     position: absolute
-                    top: 85%
-                    left: 85%
+                    top: 90%
+                    left: 90%
                     +size(51px, 78px)
                     background-image: url('../assets/cursor.png')
             &:nth-child(5)
@@ -94,15 +90,15 @@ $dcard-border-radius: 20px
     .landing
         .decoration-card-grid
             opacity: 0.6
-            .sample-section
-                opacity: 0.2
+            .decoration-card
+                .sample-section
+                    opacity: 0.2
+                &:nth-child(4)
+                    border: none
+                    .mini-sq
+                        display: none
 
 //special height media queries for sections inside sample card being properly seperated 
-
-// @media screen and (max-height: 450px)
-//     .landing .decoration-card-grid .decoration-card:nth-child(4)
-//         #sample-paragraph
-//             height: 80px
 
 @media screen and (max-height: 750px)
     .landing .decoration-card-grid .decoration-card:nth-child(4)

@@ -7,7 +7,7 @@
     <meta name="author" content="Adham Ali">
     <meta name="description" content="An independent Frontend Web Developer/Designer and a Computer Science student designing and
                             developing websites for startups, small and medium businesses." />
-
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable = no, viewport-fit=cover" />
 
@@ -26,10 +26,10 @@
         <div class="container">
             <nav class="desktop-nav">
                 <ul class="desktop-links lhs">
-                    <li class="section-link">
+                    <li class="section-link" id="link-about">
                         <a href="#about">about</a>
                     </li>
-                    <li class="section-link">
+                    <li class="section-link" id="link-skills">
                         <a href="#skills">skills</a>
                     </li>
     
@@ -54,10 +54,10 @@
                 </a>
     
                 <ul class="desktop-links rhs">
-                    <li class="section-link">
+                    <li class="section-link" id="link-work">
                         <a href="#work">work</a>
                     </li>
-                    <li class="section-link">
+                    <li class="section-link" id="link-contact">
                         <a href="#contact">contact</a>
                     </li>
                 </ul>
@@ -70,6 +70,9 @@
             </a>
     
             <button id="btn-ham">
+                <span id="first"></span>
+                <span id="second"></span>
+                <span id="third"></span>
             </button>
     
             <nav class="mobile-nav">
@@ -80,8 +83,12 @@
                     <li><a class="ham-link" href="#work">Work</a></li>
                     <li><a class="ham-link" href="#contact">Contact</a></li>
                 </ul>
-                <small>Adham Ali&copy;  2022</small>
-                <div class="ham-img">
+                <small>
+                    Adham Ali
+                    <span class="copyright">&copy;</span>
+                    &nbsp;&nbsp;2022
+                </small>
+                <div class="ham-img"></div>
             </nav>
         </div>
     
@@ -102,6 +109,12 @@
                     <div class="sample-section" id="sample-hero"></div>
                     <div class="sample-section" id="sample-paragraph"></div>
                     <div class="sample-section" id="sample-footer"></div>
+
+                    <!--obj select-->
+                    <div class="mini-sq" id="upper-left"></div>
+                    <div class="mini-sq" id="upper-right"></div>
+                    <div class="mini-sq" id="lower-left"></div>
+                    <div class="mini-sq" id="lower-right"></div>
 
                     <div class="cursor"></div>
                 </div>

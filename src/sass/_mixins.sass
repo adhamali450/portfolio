@@ -62,6 +62,31 @@
         backdrop-filter: blur($blur)
         background-color: transparent
 
+=apply-obj-select-edges($border-width: 2px, $border-style: solid, $border-color: #18A0FB, $mini-squares-size: 18px)
+    $obj-select-border: $border-width $border-style $border-color
+    position: relative
+    border: $obj-select-border
+    .outline,
+    .mini-sq
+        position: absolute
+    .mini-sq
+        +size($mini-squares-size, $mini-squares-size)
+        background-color: #fff
+        border: $obj-select-border
+        transform: translate(-50%, -50%)
+    #upper-left
+        top: 0
+        left: 0
+    #upper-right
+        top: 0
+        left: 100%
+    #lower-left
+        top: 100%
+        left: 0
+    #lower-right
+        top: 100%
+        left: 100%
+
 //Generic Mixins    
 =min-size($min-width, $min-height)
     min-width: $min-width
