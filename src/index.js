@@ -70,22 +70,18 @@ const hobbiesContainer = document.querySelector('.hobbies');
 
 hobbies.forEach(hobby => {
     hobby.addEventListener('focus', () => setJustifyContent(hobby));
-    // hobby.addEventListener('focusout', () => hobbiesContainer.style.justifyContent = "space-around");
 })
 
 
 function setJustifyContent(hobby){ //650px
-    console.log(hobby);
     if(!maxWidth(650)) return;
 
-
     const id = hobby.id;
-
-    if(id ==  "developer") //justify-content: start;
+    if(id ==  "developer")
         hobbiesContainer.style.justifyContent = "flex-start";
-    else if(id == "designer") //justify-content: center;
+    else if(id == "designer")
         hobbiesContainer.style.justifyContent = "center";
-    else if(id == "collector") //justify-content: end;
+    else if(id == "collector")
         hobbiesContainer.style.justifyContent = "flex-end";
 }
 
@@ -163,6 +159,8 @@ cards.forEach(card => {
     }
 );
 
+
+
 // Form input validation 
 
 document.querySelectorAll('.text-box').forEach(textBox => {
@@ -170,9 +168,11 @@ document.querySelectorAll('.text-box').forEach(textBox => {
 });
 
 
-// obj may be the event args or the <input/> iteself depending on the caller
-// we'll check for that
+
 function validate(obj){
+    // obj may be the event args or the <input/> iteself depending on the caller
+    // we'll check for that
+    
     let textBox;
     try {
         textBox = obj.path[0];    
@@ -220,23 +220,7 @@ function clearErrorState(textBox){
     parent.classList.remove("invalid-input");
 }
 
-import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set } from "firebase/database";
-
-
-const firebaseConfig = {
-  apiKey: "AIzaSyD2bmYjXuVEqBKhx_ICIQkVhzwBfyubq3k",
-  authDomain: "my-portfolio-5c98d.firebaseapp.com",
-  databaseURL: "https://my-portfolio-5c98d-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "my-portfolio-5c98d",
-  storageBucket: "my-portfolio-5c98d.appspot.com",
-  messagingSenderId: "998620020062",
-  appId: "1:998620020062:web:55d8c4c84547e52e0623cf",
-  measurementId: "G-M4BPVY0M92"
-};
-
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
 
 function storeClientMessage(name, email, message) {
     const db = getDatabase();

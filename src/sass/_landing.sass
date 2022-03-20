@@ -50,9 +50,9 @@
                     .hobby-u, .hobby-l
                         font-weight: 600
                     .hobby-l
-                        margin-top: -0.3rem
+                        margin-top: -4px
                         opacity: 0.6
-                img
+                .img-hobby
                     +size(65px, 65px)
         #developer .name
             position: relative
@@ -99,10 +99,12 @@
             .ctas
                 grid-gap: 1rem
         .hobbies
+            padding: 0.6rem
             .hobby
                 border-radius: $border-radius
                 pointer-events: all
                 cursor: pointer
+                position: relative
                 a
                     +size(100%, 100%)
                     outline: none
