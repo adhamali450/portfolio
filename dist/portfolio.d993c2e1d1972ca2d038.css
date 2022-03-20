@@ -356,8 +356,10 @@ body {
   align-items: stretch;
   flex-direction: column;
   grid-gap: 0rem;
-  position: relative;
-  overflow-x: hidden; }
+  position: fixed;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; }
 
 body > header {
   position: fixed;
