@@ -187,8 +187,6 @@ function validate(obj){
     // general case: no empty textBox
     if(isInputEmpty(textBox)){
 
-        console.log("empty");
-
         errorLabel.innerText = capitalizeFirst(boxId) + " can't be empty.";
         parent.classList.add("invalid-input");
 
@@ -220,7 +218,22 @@ function clearErrorState(textBox){
     parent.classList.remove("invalid-input");
 }
 
+const firebaseConfig = {
+  apiKey: "AIzaSyD2bmYjXuVEqBKhx_ICIQkVhzwBfyubq3k",
+  authDomain: "my-portfolio-5c98d.firebaseapp.com",
+  databaseURL: "https://my-portfolio-5c98d-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "my-portfolio-5c98d",
+  storageBucket: "my-portfolio-5c98d.appspot.com",
+  messagingSenderId: "998620020062",
+  appId: "1:998620020062:web:55d8c4c84547e52e0623cf",
+  measurementId: "G-M4BPVY0M92"
+};
+import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set } from "firebase/database";
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
 
 function storeClientMessage(name, email, message) {
     const db = getDatabase();
@@ -232,15 +245,10 @@ function storeClientMessage(name, email, message) {
 }
 
 
-const form = document.getElementById("form"); 
-form.addEventListener("submit", (e) => {
-    
-    e.preventDefault();
-    
-    const textBoxes = [document.getElementById("name"), 
+const textBoxes = [document.getElementById("name"), 
     document.getElementById("email"),
     document.getElementById("message")]
-
+function submitForm(){
     for (let i = 0; i < textBoxes.length; i++) {
         if(!validate(textBoxes[i])) {
             textBoxes[i].focus();
@@ -253,4 +261,20 @@ form.addEventListener("submit", (e) => {
     form.reset();
     form.classList.add("show-conf");
     setTimeout(()=>form.classList.remove("show-conf"), 3500);
+}
+
+
+document.getElementById("form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    submitForm();  
+});
+
+var enterCanSubmit = false;
+document.getElementById('contact').addEventListener('mousemove', () => enterCanSubmit = true )
+document.addEventListener('keyup', (e) => {
+    if(document.getElementById('message') == document.activeElement)
+        enterCanSubmit = false;
+    
+    if(e.key === "Enter" && enterCanSubmit) submitForm(); 
 })
+
