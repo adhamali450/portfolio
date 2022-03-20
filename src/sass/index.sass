@@ -17,11 +17,7 @@ body
     +size(100%, 100%)
     +size(inherit, inherit)
 
-    +flex(start, stretch, column)
-    position: fixed
     overflow-x: hidden
-    overflow-y: auto
-    -webkit-overflow-scrolling: touch
 
 body > header
     position: fixed
@@ -125,11 +121,11 @@ body > header
 .menu-opened
     #btn-ham
         #first
-            transform: rotate(44deg) scaleX(1.05) !important
+            transform: rotate(44deg) scaleX(1) !important
         #second
             transform: scaleX(0) !important
         #third
-            transform: rotate(-44deg) scaleX(1.05) !important
+            transform: rotate(-44deg) scaleX(1) !important
     .mobile-nav
         display: flex
         top: var(--header-height)
