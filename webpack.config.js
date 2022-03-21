@@ -3,7 +3,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 module.exports = {
-    mode: 'development', //production
+    mode: 'production',
+    optimization: {
+        usedExports: true,
+    },
     entry: {
         index: path.resolve(__dirname, './src/index.js')
     }, 
@@ -12,8 +15,7 @@ module.exports = {
         clean: true, 
         filename: 'portfolio.[contenthash].js'
     },
-    // watch: true,
-    // devtool: 'source-map',
+    devtool: 'source-map',
     devServer: {
         static: path.resolve(__dirname, 'dist'),
         port: 8080,
@@ -43,6 +45,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/template.html'
         }),
+
         new MiniCssExtractPlugin({
             filename: 'portfolio.[contenthash].css',
             linkType: "text/css",
