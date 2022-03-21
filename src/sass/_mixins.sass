@@ -56,19 +56,11 @@
     border-radius: 5px
 
 =backdrop-blur($blur: 50px)
-    @supports (backdrop-filter: blur($blur))
+    background-color: var(--banner-non-support)
+    @supports not (backdrop-filter: backdrop-filter)
         -webkit-backdrop-filter: blur($blur)
         backdrop-filter: blur($blur)
         background-color: transparent
-
-    @supports not (backdrop-filter: blur($blur))
-        background-color: var(--banner-non-support)
-
-// Applying the mixin to the class isn't working with webpack for and ambiguous reason
-// on browsers not supporting backdrop filter.
-// So, applying the mixin to a class and then applying the class to the element is what i came up with.
-.backdrop-blur
-    +backdrop-blur()
 
 =apply-obj-select-edges($border-width: 2px, $border-style: solid, $border-color: #18A0FB, $mini-squares-size: 18px)
     $obj-select-border: $border-width $border-style $border-color

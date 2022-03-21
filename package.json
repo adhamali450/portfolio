@@ -1,6 +1,5 @@
 {
   "name": "my-portfolio",
-  "sideEffects": true,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -20,7 +19,6 @@
   "homepage": "https://github.com/adhamali450/portfolio#readme",
   "dependencies": {
     "firebase": "^9.6.8",
-    "minimist": "^1.2.5",
     "rewrite": "^0.0.1",
     "to": "^0.2.9",
     "typed.js": "^2.0.12"
