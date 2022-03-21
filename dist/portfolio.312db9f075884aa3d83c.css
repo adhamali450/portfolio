@@ -442,7 +442,6 @@ body > header {
     height: calc(100vh - var(--header-height));
     background-color: var(--bg);
     padding: 2rem;
-    transition: top 250ms var(--easeOutExpo), opacity 250ms var(--easeOutExpo);
     display: flex;
     justify-content: space-between;
     align-items: start;
@@ -495,6 +494,7 @@ body > header {
   transform: rotate(-44deg) scaleX(1) !important; }
 
 .menu-opened .mobile-nav {
+  transition: top 250ms var(--easeOutExpo), opacity 250ms var(--easeOutExpo);
   display: flex;
   top: var(--header-height);
   opacity: 1;
