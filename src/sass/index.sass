@@ -79,13 +79,17 @@ body > header
                 transform: scaleX(0.5)
 
     .mobile-nav
+        --easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1)
         position: absolute
-        top: -120vh
+        top: -50px
+        opacity: 0
+        pointer-events: none
         left: 0
         width: 100vw
         height: calc(100vh - var(--header-height))
         background-color: var(--bg)
         padding: 2rem
+        transition: top 250ms var(--easeOutExpo), opacity 250ms var(--easeOutExpo)
         +flex(space-between, start, row)
         ul
             position: relative
@@ -129,6 +133,8 @@ body > header
     .mobile-nav
         display: flex
         top: var(--header-height)
+        opacity: 1
+        pointer-events: all
 body > main
     +size(inherit, inherit)
 
