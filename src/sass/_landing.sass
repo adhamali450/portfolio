@@ -44,16 +44,15 @@
             @extend .not-centered
             padding: 0.5rem 1rem
             pointer-events: none
-            a
-                +flex(start, center, row, 0.5rem)
-                .name
-                    .hobby-u, .hobby-l
-                        font-weight: 600
-                    .hobby-l
-                        margin-top: -4px
-                        opacity: 0.6
-                .img-hobby
-                    +size(65px, 65px)
+            +flex(start, center, row, 0.5rem)
+            .name
+                .hobby-u, .hobby-l
+                    font-weight: 600
+                .hobby-l
+                    margin-top: -4px
+                    opacity: 0.6
+            .img-hobby
+                +size(65px, 65px)
         #developer .name
             position: relative
             #squiggly-line
@@ -105,16 +104,17 @@
                 pointer-events: all
                 cursor: pointer
                 position: relative
-                a
-                    +size(100%, 100%)
-                    outline: none
+                outline: none
+
+                .name
+                    display: none
+                .img-hobby
+                    +size(55px, 55px)
+                &:focus
+                    border: 2px solid rgba(255, 255, 255, 0.35)
                     .name
-                        display: none
-                    .img-hobby
-                        +size(55px, 55px)
-                    &:focus
-                        .name
-                            display: block !important
+                        display: block !important
+
             #designer
                 border-radius: 0 !important
                 .mini-sq

@@ -151,12 +151,12 @@
                 --question-bars-width: 120%
                 --question-bars-position: calc(-1 * var(--question-bars-width) - 15%)
                 &::before, &::after
-                    content: ' '
+                    content: ''
+                    opacity: 0.35
                     position: absolute
                     height: 3px
                     width: var(--question-bars-width)
                     background-color: var(--clr-question-bar)
-                    opacity: 1
                 &::before
                     // display: none
                     left: var(--question-bars-position)

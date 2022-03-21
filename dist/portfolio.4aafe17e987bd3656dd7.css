@@ -571,21 +571,20 @@ body {
     overflow: hidden; }
     .landing .hobbies .hobby {
       padding: 0.5rem 1rem;
-      pointer-events: none; }
-      .landing .hobbies .hobby a {
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        flex-direction: row;
-        grid-gap: 0.5rem; }
-        .landing .hobbies .hobby a .name .hobby-u, .landing .hobbies .hobby a .name .hobby-l {
-          font-weight: 600; }
-        .landing .hobbies .hobby a .name .hobby-l {
-          margin-top: -4px;
-          opacity: 0.6; }
-        .landing .hobbies .hobby a .img-hobby {
-          width: 65px;
-          height: 65px; }
+      pointer-events: none;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      flex-direction: row;
+      grid-gap: 0.5rem; }
+      .landing .hobbies .hobby .name .hobby-u, .landing .hobbies .hobby .name .hobby-l {
+        font-weight: 600; }
+      .landing .hobbies .hobby .name .hobby-l {
+        margin-top: -4px;
+        opacity: 0.6; }
+      .landing .hobbies .hobby .img-hobby {
+        width: 65px;
+        height: 65px; }
     .landing .hobbies #developer .name {
       position: relative; }
       .landing .hobbies #developer .name #squiggly-line {
@@ -657,17 +656,16 @@ body {
       border-radius: 10px;
       pointer-events: all;
       cursor: pointer;
-      position: relative; }
-      .landing .hobbies .hobby a {
-        width: 100%;
-        height: 100%;
-        outline: none; }
-        .landing .hobbies .hobby a .name {
-          display: none; }
-        .landing .hobbies .hobby a .img-hobby {
-          width: 55px;
-          height: 55px; }
-        .landing .hobbies .hobby a:focus .name {
+      position: relative;
+      outline: none; }
+      .landing .hobbies .hobby .name {
+        display: none; }
+      .landing .hobbies .hobby .img-hobby {
+        width: 55px;
+        height: 55px; }
+      .landing .hobbies .hobby:focus {
+        border: 2px solid rgba(255, 255, 255, 0.35); }
+        .landing .hobbies .hobby:focus .name {
           display: block !important; }
     .landing .hobbies #designer {
       border-radius: 0 !important; }
@@ -984,12 +982,12 @@ body {
     --question-bars-width: 120%;
     --question-bars-position: calc(-1 * var(--question-bars-width) - 15%); }
     .me .core article .question::before, .me .core article .question::after {
-      content: ' ';
+      content: '';
+      opacity: 0.35;
       position: absolute;
       height: 3px;
       width: var(--question-bars-width);
-      background-color: var(--clr-question-bar);
-      opacity: 1; }
+      background-color: var(--clr-question-bar); }
     .me .core article .question::before {
       left: var(--question-bars-position); }
     .me .core article .question::after {
