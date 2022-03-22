@@ -434,8 +434,9 @@ body > header {
   body > header .mobile-nav {
     --easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
     position: absolute;
-    top: -50px;
+    top: var(--header-height);
     opacity: 0;
+    transition: opacity 250ms var(--easeOutExpo);
     pointer-events: none;
     left: 0;
     width: 100vw;
@@ -494,9 +495,7 @@ body > header {
   transform: rotate(-44deg) scaleX(1) !important; }
 
 .menu-opened .mobile-nav {
-  transition: top 250ms var(--easeOutExpo), opacity 250ms var(--easeOutExpo);
   display: flex;
-  top: var(--header-height);
   opacity: 1;
   pointer-events: all; }
 
