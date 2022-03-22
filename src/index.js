@@ -1,7 +1,7 @@
 // Main sass file importing all other subfiles (check ./sass)
 import "./sass/index.sass";
 
-window.addEventListener("contextmenu", e => e.preventDefault());
+// window.addEventListener("contextmenu", e => e.preventDefault());
 
 //#region general
 
@@ -61,7 +61,6 @@ var options = {
 new Typed('#qualities strong', options);
 
 //#endregion
-
 
 //#region hobby handling
 
@@ -133,32 +132,48 @@ function activateDuty(dutyIcon){
 }
 //#endregion
 
+//#region Clickables indication on work cards
+
+const indicationClassName = 'outline-clickables';
+const showIndication = (card) => {
+    card.classList.add(indicationClassName);
+    setTimeout(() => card.classList.remove(indicationClassName), 100)
+};
+
+function isClickibleElement(eventArgs){
+    // Max levels of nesting for a card (6 levels from the top-most element)
+    const cardSubElements = eventArgs.path.slice(0, 3);
+
+    return cardSubElements.find(element => 
+        element.classList.contains('card-title') || 
+        element.classList.contains('related-link')) ? true : false;
+}
+
 const cards = document.querySelectorAll('.card');
 cards.forEach(card => {
-        let isClickibleElement = false;
+        let clickable = false;
+
+        // Mouse interaction
         card.addEventListener('mouseover', 
+        (e) => clickable = isClickibleElement(e));
+
+        card.addEventListener('mousedown', () => {
+            if(!clickable)
+                showIndication(card);
+        })
+
+        // Touch interaction
+        card.addEventListener('touchstart', 
         (e) => {
-            // Max levels of nesting for a card (6 levels from the top-most element)
-            const cardSubElements = e.path.slice(0, 3);
+            clickable = isClickibleElement(e);
 
-            isClickibleElement = cardSubElements.find(element => 
-                element.classList.contains('card-title') || 
-                element.classList.contains('related-link')) ? true : false;
+            if(!clickable)
+                showIndication(card);
         });
-
-        card.addEventListener('mousedown', 
-        () => {
-            if(!isClickibleElement)
-                card.classList.add('outline-clickables');
-        })
-
-        card.addEventListener('mouseup', 
-        () => {
-            card.classList.remove('outline-clickables');
-        })
     }
 );
 
+//#endregion
 
 
 // Form input validation 
@@ -167,7 +182,10 @@ document.querySelectorAll('.text-box').forEach(textBox => {
     textBox.addEventListener('keyup', validate);
 });
 
-
+function clearErrorState(textBox){
+    const parent = textBox.parentElement;
+    parent.classList.remove("invalid-input");
+}
 
 function validate(obj){
     // obj may be the event args or the <input/> iteself depending on the caller
@@ -209,13 +227,9 @@ function validate(obj){
         }
     }
 
+    // If none of the above cases took place
     clearErrorState(textBox);
     return true;
-}
-
-function clearErrorState(textBox){
-    const parent = textBox.parentElement;
-    parent.classList.remove("invalid-input");
 }
 
 const firebaseConfig = {
@@ -247,7 +261,8 @@ function storeClientMessage(name, email, message) {
 
 const textBoxes = [document.getElementById("name"), 
     document.getElementById("email"),
-    document.getElementById("message")]
+    document.getElementById("message")];
+
 function submitForm(){
     for (let i = 0; i < textBoxes.length; i++) {
         if(!validate(textBoxes[i])) {

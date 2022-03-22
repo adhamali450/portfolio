@@ -436,7 +436,7 @@ body > header {
     position: absolute;
     top: var(--header-height);
     opacity: 0;
-    transition: opacity 250ms var(--easeOutExpo);
+    transition: opacity 350ms var(--easeOutExpo);
     pointer-events: none;
     left: 0;
     width: 100vw;
