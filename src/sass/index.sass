@@ -17,8 +17,6 @@ body
     +size(100%, 100%)
     +size(inherit, inherit)
 
-    overflow-x: hidden
-
 body > header
     position: fixed
     +size(inherit, var(--header-height))
@@ -137,6 +135,7 @@ body > main
 
 .landing
     min-height: 100%
+    min-height: -webkit-fill-available
 
 .me, .skills, .work
     margin-top: calc(-1 * var(--header-height))
