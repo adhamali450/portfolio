@@ -580,7 +580,8 @@ body {
       justify-content: start;
       align-items: center;
       flex-direction: row;
-      grid-gap: 0.5rem; }
+      grid-gap: 0.5rem;
+      border: 2px solid transparent; }
       .landing .hobbies .hobby .name .hobby-u, .landing .hobbies .hobby .name .hobby-l {
         font-weight: 600; }
       .landing .hobbies .hobby .name .hobby-l {
@@ -668,7 +669,7 @@ body {
         width: 55px;
         height: 55px; }
       .landing .hobbies .hobby:focus {
-        border: 2px solid rgba(255, 255, 255, 0.35); }
+        border-color: rgba(255, 255, 255, 0.35); }
         .landing .hobbies .hobby:focus .name {
           display: block !important; }
     .landing .hobbies #designer {
@@ -1291,8 +1292,8 @@ body {
           filter: brightness(1) invert(0); }
         .work .cards-container .card:hover footer {
           transform: translateY(0); } }
-    .work .cards-container .outline-clickables header .card-title,
-    .work .cards-container .outline-clickables footer .related-links {
+    .work .cards-container .clickables-outlined header .card-title,
+    .work .cards-container .clickables-outlined footer .related-links {
       outline: 1px solid var(--clr-green);
       outline-offset: 5px; }
     .work .cards-container #pig-dice .card-bg {
