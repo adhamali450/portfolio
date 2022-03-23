@@ -19,7 +19,9 @@
 
 html {
   width: 100vw;
-  height: -webkit-fill-available;
+  height: -webkit-fill-available; }
+
+section {
   overflow-x: hidden; }
 
 body {
