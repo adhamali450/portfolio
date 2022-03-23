@@ -21,3 +21,17 @@ export const validateEmail = (email) => {
 export const capitalizeFirst = (str) => {
     return str[0].toUpperCase() + str.slice(1); 
 }
+
+export const dateTimeNow = () => {
+  const currentdate = new Date();
+    let hours = currentdate.getHours(),
+        suffix = hours >= 12 ? "PM":"AM";
+    hours = ((hours + 11) % 12 + 1);
+    
+    return currentdate.getDate() + "/"
+                    + (currentdate.getMonth()+1)  + "/" 
+                    + currentdate.getFullYear() + " @ "  
+                    + hours + ':'
+                    + currentdate.getMinutes() + ' '
+                    + suffix;
+}

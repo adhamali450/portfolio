@@ -1,4 +1,4 @@
-import { isInputEmpty, validateEmail, capitalizeFirst} from './utils'
+import { isInputEmpty, validateEmail, capitalizeFirst, dateTimeNow} from './utils'
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set } from "firebase/database";
 
@@ -67,11 +67,14 @@ function clearErrorState(textBox){
 }
 
 function storeClientMessage(name, email, message) {
+    
+    
     const db = getDatabase();
     set(ref(db, name+'/'), {
         name: name,
         email: email,
-        message : message
+        message : message,
+        time: dateTimeNow()
     });
 }
 

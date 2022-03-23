@@ -21,24 +21,12 @@ export const indicateCardClickables = () => {
     cards.forEach(card => {
             let clickable = false;
     
-            // Mouse interaction
-            card.addEventListener('mouseover', 
-            (e) => clickable = isClickibleElement(e));
-    
-            card.addEventListener('mousedown', () => {
-                if(!clickable)
-                    showIndication(card);
-            })
-    
-            // Touch interaction
-            card.addEventListener('touchstart', 
-            (e) => clickable = isClickibleElement(e));
-    
-            card.addEventListener('touchstart', 
-            (e) => {
-                if(!clickable)
-                    showIndication(card);
-            });
+            card.addEventListener('click', 
+                (e) => {
+                    clickable = isClickibleElement(e);
+                    if(!clickable)
+                        showIndication(card);
+                });
         }
     );
 }
