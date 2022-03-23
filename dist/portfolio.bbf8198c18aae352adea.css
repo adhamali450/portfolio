@@ -17,13 +17,10 @@
 *::moz-focus-inner {
   border: 0; }
 
-html, body {
-  position: relative;
-  overflow-x: hidden; }
-
 html {
   width: 100vw;
-  height: -webkit-fill-available; }
+  height: -webkit-fill-available;
+  overflow-x: hidden; }
 
 body {
   width: 100vw;
