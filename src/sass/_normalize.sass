@@ -20,9 +20,15 @@
 *::moz-focus-inner
     border: 0
 
-html,
+html
+    height: -webkit-fill-available
+    width: 100vw
+
 body
     +size(100vw, 100vh)
+
+    min-height: 100vh
+    min-height: -webkit-fill-available
 
 ul
     list-style-type: none
