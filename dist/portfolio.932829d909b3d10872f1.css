@@ -435,6 +435,8 @@ body > header {
     --easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
     position: absolute;
     top: var(--header-height);
+    opacity: 0;
+    pointer-events: none;
     left: 0;
     width: 100vw;
     height: calc(100vh - var(--header-height));
@@ -492,7 +494,8 @@ body > header {
   transform: rotate(-44deg) scaleX(1) !important; }
 
 .menu-opened .mobile-nav {
-  display: flex; }
+  opacity: 1;
+  pointer-events: all; }
 
 body > main {
   width: inherit;
