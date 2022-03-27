@@ -540,7 +540,7 @@ body {
     flex-grow: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
     grid-gap: 0rem; }
   .landing .hero {
