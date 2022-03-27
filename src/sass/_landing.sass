@@ -3,17 +3,18 @@
 
 .landing
     position: relative
-    display: grid
-    grid-template-rows: auto 1fr auto
+    +flex(start, stretch, column)
+    // display: grid
+    // grid-template-rows: auto 1fr auto
 
     > .container
         padding-top: var(--header-height)
-        grid-row: 2/3
-        align-self: center
-
+        // grid-row: 2/3
+        flex-grow: 1
+        // align-self: center
+        +flex(center, center, column)
     .hero
         padding: 2.5rem 0
-
         .hero-text
             .hero-heading
                 +flex(center, start, column)
@@ -32,7 +33,7 @@
 
     .hobbies-wrapper
         @extend .wide-banner
-        grid-row: 3/4
+        // grid-row: 3/4
         position: relative
         z-index: 99998
     .hobbies

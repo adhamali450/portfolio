@@ -533,12 +533,19 @@ body {
 
 .landing {
   position: relative;
-  display: grid;
-  grid-template-rows: auto 1fr auto; }
+  display: flex;
+  justify-content: start;
+  align-items: stretch;
+  flex-direction: column;
+  grid-gap: 0rem; }
   .landing > .container {
     padding-top: var(--header-height);
-    grid-row: 2/3;
-    align-self: center; }
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    grid-gap: 0rem; }
   .landing .hero {
     padding: 2.5rem 0; }
     .landing .hero .hero-text .hero-heading {
@@ -568,7 +575,6 @@ body {
       .landing .hero .ctas #btn-work .btn-icon {
         display: none; }
   .landing .hobbies-wrapper {
-    grid-row: 3/4;
     position: relative;
     z-index: 99998; }
   .landing .hobbies {
