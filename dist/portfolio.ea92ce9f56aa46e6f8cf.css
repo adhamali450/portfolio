@@ -197,10 +197,12 @@ body::-webkit-scrollbar-thumb {
   margin: 0 auto; }
 
 .wide-banner, .landing .hobbies-wrapper, .me .resume {
-  background-color: var(--banner-non-support);
   width: 100vw;
   position: relative; }
-  @supports not (backdrop-filter: backdrop-filter) {
+  @supports not (backdrop-filter: blur(10px)) {
+    .wide-banner, .landing .hobbies-wrapper, .me .resume {
+      background-color: var(--banner-non-support); } }
+  @supports (backdrop-filter: blur(10px)) {
     .wide-banner, .landing .hobbies-wrapper, .me .resume {
       -webkit-backdrop-filter: blur(50px);
       backdrop-filter: blur(50px);
@@ -361,9 +363,11 @@ body > header {
   width: inherit;
   height: var(--header-height);
   z-index: 99999;
-  background-color: var(--banner-non-support);
   border-bottom: 1px solid var(--clr-nav-border); }
-  @supports not (backdrop-filter: backdrop-filter) {
+  @supports not (backdrop-filter: blur(10px)) {
+    body > header {
+      background-color: var(--banner-non-support); } }
+  @supports (backdrop-filter: blur(10px)) {
     body > header {
       -webkit-backdrop-filter: blur(50px);
       backdrop-filter: blur(50px);
@@ -622,15 +626,17 @@ body {
         height: 60px; } }
 
 @media screen and (max-width: 810px) {
-  .landing .container .hero .hero-text {
-    text-align: center; }
-    .landing .container .hero .hero-text .hero-heading {
-      justify-content: center;
-      align-items: center; }
-      .landing .container .hero .hero-text .hero-heading #qualities .typed-cursor {
-        display: none; }
-  .landing .container .hero .ctas {
-    justify-content: center; }
+  .landing .container {
+    align-items: center; }
+    .landing .container .hero .hero-text {
+      text-align: center; }
+      .landing .container .hero .hero-text .hero-heading {
+        justify-content: center;
+        align-items: center; }
+        .landing .container .hero .hero-text .hero-heading #qualities .typed-cursor {
+          display: none; }
+    .landing .container .hero .ctas {
+      justify-content: center; }
   .landing .hobbies #designer {
     position: relative;
     border: 2px solid #18A0FB; }
@@ -934,7 +940,6 @@ body {
           bottom: 0.75rem;
           left: 0.75rem; }
   .me .resume {
-    background-color: var(--banner-non-support);
     margin-top: 3rem;
     padding: 1.5rem;
     text-align: center;
@@ -944,7 +949,10 @@ body {
     flex-direction: row;
     grid-gap: 1rem;
     flex-wrap: wrap; }
-    @supports not (backdrop-filter: backdrop-filter) {
+    @supports not (backdrop-filter: blur(10px)) {
+      .me .resume {
+        background-color: var(--banner-non-support); } }
+    @supports (backdrop-filter: blur(10px)) {
       .me .resume {
         -webkit-backdrop-filter: blur(7px);
         backdrop-filter: blur(7px);
@@ -1291,6 +1299,7 @@ body {
             .work .cards-container .card footer .related-links a:nth-child(1) {
               background-image: url(e86966c7fbb89434eea6.svg); }
             .work .cards-container .card footer .related-links a:nth-child(2) {
+              display: none;
               background-image: url(ab830f3a3007efb72f12.svg); }
       @media (hover: hover) and (pointer: fine) {
         .work .cards-container .card header .work-done img {

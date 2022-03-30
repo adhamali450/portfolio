@@ -56,8 +56,9 @@
     border-radius: 5px
 
 =backdrop-blur($blur: 50px)
-    background-color: var(--banner-non-support)
-    @supports not (backdrop-filter: backdrop-filter)
+    @supports not(backdrop-filter: blur(10px))
+        background-color: var(--banner-non-support)
+    @supports (backdrop-filter: blur(10px))
         -webkit-backdrop-filter: blur($blur)
         backdrop-filter: blur($blur)
         background-color: transparent

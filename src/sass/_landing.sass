@@ -70,16 +70,18 @@
 
 @media screen and (max-width: 810px) //Special
     .landing
-        .container .hero
-            .hero-text
-                text-align: center
-                .hero-heading
+        .container
+            align-items: center
+            .hero
+                .hero-text
+                    text-align: center
+                    .hero-heading
+                        justify-content: center
+                        align-items: center
+                        #qualities .typed-cursor
+                            display: none
+                .ctas
                     justify-content: center
-                    align-items: center
-                    #qualities .typed-cursor
-                        display: none
-            .ctas
-                justify-content: center
         .hobbies #designer
             +apply-obj-select-edges($mini-squares-size: 12px)
 
