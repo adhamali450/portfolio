@@ -97,7 +97,7 @@ strong {
 
 @media screen and (min-width: 1116px) {
   html {
-    font-size: 125%; } }
+    font-size: 110%; } }
 
 @media screen and (max-width: 1116px) {
   html {
@@ -884,7 +884,7 @@ body {
         transform: translate(-100%, 0);
         width: 1000%;
         height: 100%;
-        left: 0%; }
+        left: 1px; }
       .me .core .exp #years {
         color: var(--fg-exp); }
       .me .core .exp small {
@@ -1299,13 +1299,12 @@ body {
             .work .cards-container .card footer .related-links a:nth-child(1) {
               background-image: url(e86966c7fbb89434eea6.svg); }
             .work .cards-container .card footer .related-links a:nth-child(2) {
-              display: none;
               background-image: url(ab830f3a3007efb72f12.svg); }
       @media (hover: hover) and (pointer: fine) {
         .work .cards-container .card header .work-done img {
           filter: brightness(0) invert(1); }
         .work .cards-container .card footer {
-          transform: translateY(34%);
+          transform: translateY(40%);
           transition: transform .2s ease .1s; }
         .work .cards-container .card:hover .work-done img {
           filter: brightness(1) invert(0); }
