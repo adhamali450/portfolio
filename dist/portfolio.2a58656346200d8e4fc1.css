@@ -162,7 +162,7 @@ strong {
   --bg-exp: #1A1A1A;
   --fg-exp: var(--clr-green);
   --clr-question-bar: var(--fg);
-  --icon-question-mark: url(ffdbdb2599567957c83f.svg);
+  --icon-question-mark: url(4bdde46b4d524f55fb39.svg);
   --clr-active-duty: #1A1A1A;
   --clr-tech-tools: #1A1A1A;
   --clr-card: #1A1A1A;
@@ -322,7 +322,7 @@ textarea {
   background-size: 200% auto;
   background-position: 100% 50%; }
   .btn-primary .btn-icon {
-    background-image: url(932c7d05e9e25926444f.svg);
+    background-image: url(20ead499e22c7e840071.svg);
     transition: transform 0.3s; }
   @media (hover: hover) and (pointer: fine) {
     .btn-primary:hover {
@@ -766,20 +766,20 @@ body {
         background-repeat: no-repeat; }
       .landing .decoration-card-grid .decoration-card:nth-child(4) #sample-header {
         height: 12px;
-        background-image: url(fab12133d39df559f585.svg);
+        background-image: url(56335041d8b1a117590e.svg);
         align-self: self-start; }
       .landing .decoration-card-grid .decoration-card:nth-child(4) #sample-hero {
         height: 65px;
-        background-image: url(5e53628020ea77b84498.svg);
+        background-image: url(fb55923b2bc341fde8e4.svg);
         align-self: center; }
       .landing .decoration-card-grid .decoration-card:nth-child(4) #sample-paragraph {
         height: 135px;
-        background-image: url(8940d21dafef806d7ca8.svg);
+        background-image: url(94a8624310b1580baa82.svg);
         align-self: center; }
       .landing .decoration-card-grid .decoration-card:nth-child(4) #sample-footer {
         justify-self: flex-end;
         height: 12px;
-        background-image: url(7698d0b40edfb2ccf69d.svg); }
+        background-image: url(e4f977e8c03d478320ce.svg); }
       .landing .decoration-card-grid .decoration-card:nth-child(4) .cursor {
         position: absolute;
         top: 90%;
@@ -958,7 +958,7 @@ body {
         backdrop-filter: blur(7px);
         background-color: transparent; } }
     .me .resume #btnDownload .btn-icon {
-      background-image: url(ccfba299948ae8832a01.svg); }
+      background-image: url(d8aec6d8a1195a276800.svg); }
 
 @media screen and (max-width: 1116px) {
   .me .core {
@@ -1075,7 +1075,7 @@ body {
     width: 100%;
     height: 100%;
     top: 0;
-    background-image: url(c36ea6f4bd33b68a99be.svg);
+    background-image: url(b44f67655ac9d138ef21.svg);
     background-repeat: no-repeat;
     background-size: 300px;
     background-position: bottom -4.8rem right;
@@ -1297,9 +1297,9 @@ body {
               width: inherit;
               height: inherit; }
             .work .cards-container .card footer .related-links a:nth-child(1) {
-              background-image: url(e86966c7fbb89434eea6.svg); }
+              background-image: url(f87f7ce954849f584301.svg); }
             .work .cards-container .card footer .related-links a:nth-child(2) {
-              background-image: url(ab830f3a3007efb72f12.svg); }
+              background-image: url(5b9a335a9c4ccbc9480a.svg); }
       @media (hover: hover) and (pointer: fine) {
         .work .cards-container .card header .work-done img {
           filter: brightness(0) invert(1); }
@@ -1315,13 +1315,13 @@ body {
       outline: 1px solid var(--clr-green);
       outline-offset: 5px; }
     .work .cards-container #pig-dice .card-bg {
-      background-image: url(5ba6a585161a6346886f.svg); }
+      background-image: url(8441b53fc519ef082e46.svg); }
     .work .cards-container #monster-slayer .card-bg {
-      background-image: url(c351e70c200ae25cdbfd.svg); }
+      background-image: url(79bbad2db1618874ac46.svg); }
     .work .cards-container #monster-slayer .card-name {
       width: min-content; }
     .work .cards-container #osc-geeks .card-bg {
-      background-image: url(99ac5a4fdeef104c0580.svg); }
+      background-image: url(8f675fea04bfe258c0a7.svg); }
     .work .cards-container .dummy-card {
       margin: 0 !important;
       flex-grow: 1;
@@ -1502,7 +1502,7 @@ body {
           .contact .upper .container form .btn .btn-icon, .contact .upper .container form .btn-primary .btn-icon, .contact .upper .container form .btn-secondary .btn-icon {
             width: 30px;
             height: 30px;
-            background-image: url(46786ff2a130a41027da.svg); }
+            background-image: url(2c5e96b8668a08c9e1f0.svg); }
         .contact .upper .container form .conf {
           position: absolute;
           width: 100%;
